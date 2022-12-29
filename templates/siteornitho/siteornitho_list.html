@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Liste des sites{% endblock title %}
+{% block pagetitle %} <h1>Liste des sites</h1> {% endblock pagetitle %}
+{% block content %}
+<ul>
+{% for s in object_list %}
+<li>
+    <a href=" {% url 'detail_list' s.pk %} ">
+        Site: {{s.nom_du_site}} 
+        Auteur: {{s.auteur}} 
+        Auteur Pk: {{s.pk}}</a>
+</li>
+{% endfor %}
+</ul>
+{% endblock content %}

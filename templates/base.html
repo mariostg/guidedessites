@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  rel="stylesheet" type="text/css" href= "{% static 'siteornitho/main.css' %}">
+    <link  rel="stylesheet" href= "{% static 'siteornitho/fiche.css' %} ">
+    <title> {% block title %}{% endblock title %} </title>
+</head>
+<body>
+    <header> 
+    </header>
+    <div class='pagetitle'>
+        {% block pagetitle %}Put page title here!!{% endblock pagetitle %}
+    </div>
+    <nav>
+        {% block topnav %}
+            <ul>
+                {% comment %} <li> <a href={% url 'home' %}>Accueil</a></li> {% endcomment %}
+                {% comment %} <li> <a href={% url 'habitat-liste' %}>Habitats</a></li> {% endcomment %}
+                {% comment %} <li> <a href={% url 'sous-habitat-liste' %}>Sous Habitats</a></li> {% endcomment %}
+                {% comment %} <li> <a href={% url 'mrc-liste' %}>MRC</a></li> {% endcomment %}
+                {% comment %} <li> <a href={% url 'municipalite-liste' %}>Minicipalités</a></li> {% endcomment %}
+                {% comment %} <li> <a href={% url 'site_list' %}>Liste des sites</a></li> {% endcomment %}
+            </ul>
+        {% endblock topnav %}
+    </nav>
+    <main>
+        {% include 'includes/messages.html' %}
+
+        {% block content %}{% endblock content %}
+    </main>
+    <footer> {% block footer %}{% endblock footer %}</footer>
+</body>
+</html>

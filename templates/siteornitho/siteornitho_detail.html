@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% block title %} {{site.0.nom_du_site}} {% endblock title %}
+{% load static %}
+{% block pagetitle %}
+<header class="pagination fiche">
+
+    <div class="direction-left">
+        {% if site.has_previous %}
+        <p class="precedent"></p>
+        <p>
+            <a href="?page=1">fiche: première | </a>
+            <a href="?page={{ site.previous_page_number }}">précédente</a>
+        </p>
+        {% else %}
+        <p class="precedent hidden"></p>
+        {% endif %}
+    </div>
+    
+    <h1>{{site.0.nom_du_site}}</h1>
+    
+    <div class='direction-right'>
+        {% if site.has_next %}
+        <p>
+            <a href="?page={{ site.next_page_number }}">fiche: suivante | </a>
+            <a href="?page={{ site.paginator.num_pages }}">dernière</a>
+        </p>
+        <p class='suivant'></p>
+        {% endif %}
+    </div>
+</header>
+{% endblock pagetitle %}
+
+{% block content %}
+{% if site.0 %}
+    <article id="details">
+        <div id="detailsinfo">
+            <p>Site Ebird</p>
+            {% if site.0.locid %}
+                <p>
+                <a href="https://ebird.org/hotspot/{{ site.0.locid }}" target="_blank">https://ebird.org/hotspot/{{ site.0.locid }}</a>
+            {% else %}
+                <p class="crossmark">
+            {% endif %}
+                </p>
+            <p>Coordonnees</p>
+            <p>
+                <a href="https://www.google.com/maps/place/{{ site.0.latitude }}, {{ site.0.longitude }}" target="_blank">{{ site.0.latitude}}, {{site.0.longitude }}</a>
+            </p>
+
+            <p>Transport en commun</p>
+            <p class= {% if site.0.transport %} "checkmark" {% else %} 'crossmark' {% endif %} ></p>
+            
+            <p>Acces gratuit</p>
+            <p class= {% if site.0.acces_gratuit %} "checkmark" {% else %} 'crossmark' {% endif %} ></p>
+            
+            <p>Toilettes</p>
+            <p class= {% if site.0.toilette %} "checkmark" {% else %} 'crossmark' {% endif %} ></p>
+            
+            <p>Aire de picnique</p>
+            <p class= {% if site.0.picnique %} "checkmark" {% else %} 'crossmark' {% endif %} ></p>
+            
+            <p>Banc</p>
+            <p class= {% if site.0.banc %} "checkmark" {% else %} 'crossmark' {% endif %} ></p>
+            
+            <p>Site Web</p>
+            {% if url %}
+            <p><a href="{{ site.0.url}}" target="_blank">{{ site.0.url}}}</a></p>
+            {% else %}
+            <p class="crossmark">
+            {% endif %}
+
+            <p>Municipalité</p>
+            <p>{{ site.0.municipalite }}</p>
+            <p>Periode d'interet</p>
+                <p>{% if debut == "Toute l'année" %}
+                    En tout temps
+                    {% else %}
+                    {{ debut }} à {{ fin }}
+                    {% endif %}
+
+                </p>
+            <p>Habitat dominant</p>
+            <ul>
+                {% for h in site.0.sous_habitat.all%}
+                <li>{{h}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div id='detailsphoto'>
+            {% for i in site.0.images.all %}
+            <figure>
+                <img
+                    src="{{ i.image.url }}"
+                    alt={{ i.image}}
+                /> 
+                <figcaption>
+                    {{ i.photo_author }} 
+                    <br> {{ i.title}}
+                </figcaption>
+            </figure>
+            {% endfor %}
+        </div>
+    </article>
+    <article class="autreinfo">
+        <h3>Description du site</h3>
+        <p>{{ site.0.description_generale }}</p>
+        <h3>Bon à savoir</h3>
+        <p>{{ site.0.bon_a_savoir}}</p>
+        <h3>Enjeu de conservation</h3>
+        <p>{{site.0.enjeux}}</p>
+        <h3>Propriétaire ou partenariat</h3>
+        <p>{{site.0.stakeholder}}</p>
+    </article>
+{% endif %}
+{% endblock content %}
+
+{% block footer %}
+<p>Dernière mise à jour : 30 novembre 2022</p>
+{% endblock footer %}
+

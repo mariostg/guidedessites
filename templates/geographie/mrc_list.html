@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block titre %}MRC desservies{% endblock titre %}
+
+{% block pagetitle %}
+<h1>MRC desservies par territoire du COO</h1>
+{% endblock pagetitle %}
+
+{% block content %}
+<ul>
+{% for m in object_list %}
+    <li>{{ m.name}}</li>
+{% empty %}
+    <li>Aucune MRC</li>
+{% endfor %}
+</ul>
+
+
+{% endblock content %}
