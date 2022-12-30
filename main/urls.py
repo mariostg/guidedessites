@@ -24,7 +24,7 @@ urlpatterns = [
     path('guidedessites/habitat/', include('habitat.urls')),
     path('guidedessites/soushabitat/', include('habitat.urls')),
     path('guidedessites/geographie/', include('geographie.urls')),
-    path('__debug__/', include('debug_toolbar.urls')),
+    #path('__debug__/', include('debug_toolbar.urls')),
 ]
 # + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
