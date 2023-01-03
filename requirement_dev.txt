@@ -1,2 +1,3 @@
 -r requirement.txt
 django-debug-toolbar==3.8.1
+ipython>=8.8.0
