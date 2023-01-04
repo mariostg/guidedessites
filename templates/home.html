@@ -5,3 +5,9 @@
 {% block pagetitle %}
 <h1>Guide des sites - Page d'Accueil</h1>
 {% endblock pagetitle %}
+
+{% block content %}
+<a href="{% url 'catalogue' %}">Catalogue des sites, Naviguer les site un par un</a>
+<a href="{% url "detail_list" %}">Liste des noms de sites</a>
+{% endblock content %}
+

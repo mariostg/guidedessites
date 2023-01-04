@@ -4,29 +4,39 @@ from django.views import generic
 from .models import SiteOrnitho
 from django.contrib import messages
 
+
 class HomeView(generic.TemplateView):
-    template_name="home.html"
+    template_name = "home.html"
+
 
 class SiteornithoListView(generic.ListView):
-    model=SiteOrnitho
+    model = SiteOrnitho
+
 
 class SiteornithoPublishedListView(generic.ListView):
-    queryset=SiteOrnitho.published.all()
-    template_name='siteornitho/siteornitho_list.html'
+    queryset = SiteOrnitho.published.all()
+    template_name = "siteornitho/siteornitho_list.html"
+
+
+class SiteOrnithoPaginate(generic.ListView):
+    paginate_by = 1
+    model = SiteOrnitho
+    context_object_name = "site"
+    template_name = "siteornitho/siteornitho_detail.html"
+
 
 class DetailListView(generic.ListView):
-    template_name='siteornitho/siteornitho_detail.html'
-    context_object_name="site"
+    template_name = "siteornitho/siteornitho_detail.html"
+    context_object_name = "site"
 
     def get_queryset(self):
-        data=SiteOrnitho.objects.filter(
-            pk=self.kwargs['pk'],
-            status=1)
-        
-        if data.exists()==False: 
-            messages.add_message(self.request, messages.INFO, 'Aucune fiche trouvée')
+        data = SiteOrnitho.objects.filter(pk=self.kwargs["pk"], status=1)
 
-        return data 
+        if data.exists() == False:
+            messages.add_message(self.request, messages.INFO, "Aucune fiche trouvée")
+
+        return data
+
 
 """
 from siteornitho.models import SiteOrnitho

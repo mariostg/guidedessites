@@ -3,13 +3,12 @@
 {% load static %}
 {% block pagetitle %}
 <header class="pagination fiche">
-
     <div class="direction-left">
-        {% if site.has_previous %}
+        {% if page_obj.has_previous %}
         <p class="precedent"></p>
         <p>
             <a href="?page=1">fiche: première | </a>
-            <a href="?page={{ site.previous_page_number }}">précédente</a>
+            <a href="?page={{ page_obj.previous_page_number }}">précédente</a>
         </p>
         {% else %}
         <p class="precedent hidden"></p>
@@ -19,12 +18,14 @@
     <h1>{{site.0.nom_du_site}}</h1>
     
     <div class='direction-right'>
-        {% if site.has_next %}
+        {% if page_obj.has_next %}
         <p>
-            <a href="?page={{ site.next_page_number }}">fiche: suivante | </a>
-            <a href="?page={{ site.paginator.num_pages }}">dernière</a>
+            <a href="?page={{ page_obj.next_page_number }}">fiche: suivante | </a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">dernière</a>
         </p>
         <p class='suivant'></p>
+        {% else %}
+        <p class="precedent hidden"></p>
         {% endif %}
     </div>
 </header>
@@ -63,7 +64,7 @@
             <p class= {% if site.0.banc %} "checkmark" {% else %} 'crossmark' {% endif %} ></p>
             
             <p>Site Web</p>
-            {% if url %}
+            {% if site.0.url %}
             <p><a href="{{ site.0.url}}" target="_blank">{{ site.0.url}}}</a></p>
             {% else %}
             <p class="crossmark">
