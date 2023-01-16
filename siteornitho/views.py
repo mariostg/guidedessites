@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from django.views import generic
-from .models import SiteOrnitho
 from django.contrib import messages
+from .filters import SiteOrnithoFilter
+from .models import SiteOrnitho
 
 
 class HomeView(generic.TemplateView):
@@ -36,6 +37,21 @@ class DetailListView(generic.ListView):
             messages.add_message(self.request, messages.INFO, "Aucune fiche trouvée")
 
         return data
+
+
+def search(request):
+    data = SiteOrnitho.objects.all()
+    filtered = SiteOrnithoFilter(request.GET, queryset=data)
+    return render(request, "siteornitho/siteornitho_filter.html", {"filter": filtered})
+
+
+# class FilterView(generic.ListView):
+#     model = SiteOrnitho
+
+#     def get_queryset(self):
+#         qs = self.model.objects.all()
+#         filtered_list = SiteOrnithoFilter(self.request.GET, queryset=qs)
+#         return filtered_list.qs
 
 
 """
