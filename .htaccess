@@ -1,0 +1,12 @@
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerAppRoot "/home/mariostg/ornitho.mariostg.org"
+PassengerBaseURI "/"
+PassengerPython "/home/mariostg/virtualenv/ornitho.mariostg.org/3.8/bin/python"
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION BEGIN
+<IfModule Litespeed>
+SetEnv ALLOWED_HOSTS ornitho.mariostg.org
+SetEnv DJANGO_SETTINGS_MODULE main.settings
+SetEnv DJANGO_SECRET_KEY 8g$4nqa4*l9j&ylb&pigrpe-okn0!-*mjaa!2c*0)1)x*j4xi'
+</IfModule>
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION END
