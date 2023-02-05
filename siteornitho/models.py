@@ -106,6 +106,9 @@ class SiteOrnithoImage(models.Model):
         SiteOrnitho, on_delete=models.CASCADE, related_name="images"
     )
     title = models.CharField(verbose_name="Titre", max_length=125)
+    description = models.CharField(
+        verbose_name="Description", max_length=55, null=True, blank=True
+    )
     photo_author = models.CharField(verbose_name="Auteur", max_length=125)
     photo_date = models.DateField(verbose_name="Date photo")
     image = models.ImageField(upload_to="siteornitho/images")
