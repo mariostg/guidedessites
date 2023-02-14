@@ -1,103 +1,60 @@
-header.fiche {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-  background-color: #000;
-  color: #fff;
+hr {
+    border: solid 1px #211d1d4b;
 }
-header.fiche a {
-  color: #fff;
-  text-decoration: none;
-}
-main {
-  display: grid;
-  grid-template-rows: auto;
-  margin: 10px;
-  gap: 10px;
-}
-footer {
-  display: flex;
-  justify-content: center;
-  background-color: black;
-  color: white;
-}
-div.direction-right {
-  display: flex;
-  align-items: center;
-  justify-self: end;
-}
-div.direction-left {
-  display: flex;
-  align-items: center;
-  justify-self: start;
-}
-
 .precedent {
-  font-size: 2rem;
+    font-size: 2rem;
+}
+a.precedent,
+a.suivant {
+    text-decoration: none;
 }
 .precedent::before {
-  content: "\261C";
-  font-size: 4rem;
+    content: "\261C";
+    font-size: 4rem;
 }
 .suivant::after {
-  content: "\261E";
-  font-size: 4rem;
+    content: "\261E";
+    font-size: 4rem;
 }
-.hidden {
-  visibility: hidden;
-}
-#details {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
-#detailsinfo {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-#detailsinfo p {
-  padding: 0.4rem;
-}
-
-ul {
-  list-style: none;
-}
-
-figure {
-  display: flex;
-  flex-flow: column;
-  padding: 5px;
-  max-width: 512px;
-  margin: auto;
-}
-#photo img {
-  max-width: 512px;
-}
-
 figcaption {
-  background-color: #222;
-  color: #fff;
-  font: italic smaller sans-serif;
-  padding: 3px;
-  text-align: center;
-  border-bottom-left-radius: 1rem;
-  border-bottom-right-radius: 1rem;
+    background-color: #222;
+    color: #fff;
+    font: italic smaller sans-serif;
+    padding: 5px 0;
+    text-align: center;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+.checkmark::before {
+    content: "\2713";
+    display: inline-block;
+    color: green;
+    /* padding: 20px; */
+}
+.crossmark::before {
+    content: "\2717";
+    display: inline-block;
+    color: red;
 }
 
-#enbref {
-  display: grid;
-  grid-template-columns: 50% 50%;
+.cellpair {
+    display: flex;
+    justify-content: space-between;
 }
 
-p.checkmark::before {
-  content: "\2713";
-  display: inline-block;
-  color: green;
-  padding: 0 6px 0 0;
+.entete {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    justify-items: center;
 }
-p.crossmark::before {
-  content: "\2717";
-  display: inline-block;
-  color: red;
-  padding: 0 6px 0 0;
+
+.entete_one_page {
+    text-align: center;
+}
+
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 500px;
 }

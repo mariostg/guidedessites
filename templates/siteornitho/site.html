@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'siteornitho/siteornitho_search_form.html'%}
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-white" style="margin-left: 260px">
+    <!-- Push down content on small screens -->
+    <div class="w3-hide-large" style="margin-top: 80px"></div>
+
+    <!-- Slideshow Header -->
+    <div class="w3-container" id="apartment">
+        <div class="entete_one_page">
+            <h2>{{ sites.nom_du_site}}</h2>
+        </div>
+        {% for i in sites.images.all %}
+        <div class="w3-display-container mySlides">
+            <img src="{{ i.image.url }}" style="width: 100%"
+            alt={{ i.image}}
+            />
+            <figcaption>
+                {{ i.photo_author }} - {{i.photo_date}} <br>
+                {{ i.title}} {{i.description}}
+            </figcaption>
+        </div>
+        {% endfor %}
+        
+    </div>
+    <div class="w3-row-padding w3-section">
+        {% for i in sites.images.all %}
+        <div class="w3-col s3">
+            <img
+            class="demo w3-opacity w3-hover-opacity-off"
+            src="{{ i.image.url}}"
+            style="width: 100%; cursor: pointer"
+            onclick="currentDiv({{ forloop.counter }})"
+            title="{{i.title}}"
+            />
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="w3-container">
+        <h4><strong>Sommaire</strong></h4>
+        <section class='two-col'>
+            <p>Siteweb</p>
+            {% if sites.url %} <p>{{sites.url}}</p> {% else %} <p class="crossmark"></p> {% endif %}
+
+            <p>Site Ebird</p>
+            {% if sites.locid %}
+                <p> <a target="_blank" href="https://ebird.org/hotspot/{{sites.locid}}">{{sites.locid}}</a></p>
+            {% else %}
+                <p class="crossmark"></p>
+            {% endif %}
+                
+            <p>municipalité</p>
+            {% if sites.municipalite %} <p>{{sites.municipalite}}</p> {% else %} <p class="crossmark"></p> {% endif %}
+
+            <p>Coordonnées</p>
+            <p>
+                {% if sites.longitude and sites.latitude %}
+                <a target="_blank"
+                    href="https://www.google.com/maps?q={{site.latitude}},{{sites.longitude}}+(My+Point)&z=14&ll={{sites.latitude}},{{sites.longitude}}"
+                    >{{sites.latitude}},{{sites.longitude}}</a
+                >
+                {%else%}
+                <p class="crossmark"></p> 
+                {% endif %}
+            </p>
+
+            <p>Accès gratuit</p>
+            <p class="{% if sites.acces_gratuit %}checkmark{% else %}crossmark{% endif %}"</p>
+        
+            <p>Transport en commun</p>
+            <p class="{% if sites.transport%}checkmark {%else%}crossmark{% endif %}"</p>
+
+            <p>période d'intérêt</p>
+            <p>{{m1}} {{m2}} </p>
+
+            <p>Toilettes</p>
+            <p class="{% if sites.toilette%}checkmark{%else%}crossmark{% endif %}"</p>
+
+            <p>Aire de picnique</p>
+            <p class="{% if sites.picnique%}checkmark{%else%}crossmark{% endif %}"</p>
+
+            <p>Banc</p>
+            <p class="{% if sites.banc%}checkmark{%else%}crossmark{% endif %}"</p>
+
+        </section>
+        <hr />
+
+        <h4><strong>Description de l'habitat</strong></h4>
+        <p>
+            Forestier non-défini; Forestier - conifères; Forestier -
+            mixte; Forestier - feuillus
+        </p>
+
+        <hr />
+
+        <h4><strong>Description du site</strong></h4>
+        <p>
+            {{ sites.description_generale }}
+        </p>
+        <h4><strong>Bon à savoir</strong></h4>
+        <p>{{sites.bon_a_savoir}}</p>
+        <h4><strong>Enjeu de conservation</strong></h4>
+        <p>
+            {{sites.enjeux}}
+        </p>
+        <h4><strong>Propriétaire ou partenatiat</strong></h4>
+        <p>{{sites.stakeholder|default:"&nbsp;"}}</p>
+    </div>
+    <hr />
+
+    <!-- Contact -->
+    <div class="w3-container" id="contact">
+        <h2>Obtenir plus d'information ou commenter ce site</h2>
+        <form action="" target="_blank">
+            <p>
+                <input class="w3-input w3-border" type="text" placeholder="Nom" required name="Name" />
+            </p>
+            <p>
+                <input class="w3-input w3-border" type="text" placeholder="Courriel" required name="Email"
+                />
+            </p>
+            <p>
+                <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message" />
+            </p>
+            <button type="submit" class="w3-button w3-green w3-third">
+                Envoyer
+            </button>
+        </form>
+    </div>
+
+    <footer
+        class="w3-container w3-padding-16"
+        style="margin-top: 32px"
+    ></footer>
+
+    <!-- End page content -->
+</div>
+
+
+<script>
+    // Slideshow
+    var slideIndex = 1;
+    showDivs(slideIndex);
+
+    function currentDiv(n) {
+        showDivs((slideIndex = n));
+    }
+
+    function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        if (n > x.length) {
+            slideIndex = 1;
+        }
+        if (n < 1) {
+            slideIndex = x.length;
+        }
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(
+                " w3-opacity-off",
+                ""
+            );
+        }
+        x[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " w3-opacity-off";
+    }
+</script>
+{% endblock content %}

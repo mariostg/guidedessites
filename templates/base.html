@@ -5,33 +5,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'uikit/styles/uikit.css' %}" />
     <link  rel="stylesheet" type="text/css" href= "{% static 'siteornitho/main.css' %}">
     <link  rel="stylesheet" href= "{% static 'siteornitho/fiche.css' %} ">
+    <link  rel="stylesheet" href= "{% static 'siteornitho/w3.css' %} ">
     <title> {% block title %}{% endblock title %} </title>
 </head>
-<body>
-    <header> 
-    </header>
-    <div class='pagetitle'>
-        {% block pagetitle %}Put page title here!!{% endblock pagetitle %}
-    </div>
-    <nav>
-        {% block topnav %}
-            <ul>
-                {% comment %} <li> <a href={% url 'home' %}>Accueil</a></li> {% endcomment %}
-                {% comment %} <li> <a href={% url 'habitat-liste' %}>Habitats</a></li> {% endcomment %}
-                {% comment %} <li> <a href={% url 'sous-habitat-liste' %}>Sous Habitats</a></li> {% endcomment %}
-                {% comment %} <li> <a href={% url 'mrc-liste' %}>MRC</a></li> {% endcomment %}
-                {% comment %} <li> <a href={% url 'municipalite-liste' %}>Minicipalités</a></li> {% endcomment %}
-                {% comment %} <li> <a href={% url 'site_list' %}>Liste des sites</a></li> {% endcomment %}
-            </ul>
-        {% endblock topnav %}
-    </nav>
-    <main>
-        {% include 'includes/messages.html' %}
+<body class="w3-content w3-border-left w3-border-right">
 
-        {% block content %}{% endblock content %}
-    </main>
-    <footer> {% block footer %}{% endblock footer %}</footer>
+{% if messages %}
+{% for message in messages  %}
+    <div class='alert alert--{{message.tags}}'>
+        <p class='alert__message'>{{message}}</p>
+        <button class='alert__close'>x</button>
+    </div>
+{% endfor %}
+{% endif %}
+
+{% block content %}{% endblock content %}
 </body>
 </html>
+
+<script>
+    // Script to open and close sidebar when on tablets and phones
+    function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("menuOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("menuOverlay").style.display = "none";
+    }
+</script>

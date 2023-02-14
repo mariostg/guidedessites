@@ -1,0 +1,40 @@
+{% extends 'base.html' %} 
+{% block title %}Rechercher des sites{% endblock title %}
+{% block content %}
+
+{% include 'siteornitho/siteornitho_search_form.html'%}
+
+<header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
+    <span class="w3-bar-item">Guide des sites</span>
+    <a
+        href="javascript:void(0)"
+        class="w3-right w3-bar-item w3-button"
+        onclick="w3_open()"
+        >&#9776;</a
+    >
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor: pointer" title="close side menu" id="menuOverlay" ></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-white" style="margin-left: 260px">
+    <!-- Push down content on small screens -->
+    <div class="w3-hide-large" style="margin-top: 80px"></div>
+
+    <div class="w3-container">
+        <ul>
+            {% for site in filter %}
+            <li>
+                <a href="{% url 'site' site.pk%}?municipalite={{municipalite}}">{{ site.nom_du_site }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    <footer
+        class="w3-container w3-padding-16"
+        style="margin-top: 32px"
+    ></footer>
+
+    <!-- End page content -->
+</div>
+{% endblock content %}

@@ -1,17 +1,16 @@
-from django.shortcuts import render, get_object_or_404
-from django.core.paginator import Paginator
+from django.shortcuts import render, redirect, get_object_or_404
+from django.core.paginator import Paginator, EmptyPage
+
 from django.views import generic
 from django.contrib import messages
 from .filters import SiteOrnithoFilter
 from .models import SiteOrnitho
+from .forms import SearchSiteForm
+from . import utils
 
 
 class HomeView(generic.TemplateView):
     template_name = "home.html"
-
-
-class SiteornithoListView(generic.ListView):
-    model = SiteOrnitho
 
 
 class SiteornithoPublishedListView(generic.ListView):
@@ -19,47 +18,57 @@ class SiteornithoPublishedListView(generic.ListView):
     template_name = "siteornitho/siteornitho_list.html"
 
 
-class SiteOrnithoPaginate(generic.ListView):
-    paginate_by = 1
-    model = SiteOrnitho
-    context_object_name = "site"
-    template_name = "siteornitho/siteornitho_detail.html"
+def catalogue(request, page=1):
+    sites = SiteOrnitho.objects.all()
+    form = SearchSiteForm()
+    paginator = Paginator(sites, 1)
+
+    try:
+        sites = paginator.page(page)
+    except EmptyPage:
+        # if we exceed the page limit we return the last page
+        sites = paginator.page(paginator.num_pages)
+
+    m1, m2 = utils.periode_interet(sites.object_list[0])
+    next_page = page + 1
+    if next_page > paginator.num_pages:
+        next_page = paginator.num_pages
+    previous_page = page - 1
+    if previous_page < 1:
+        previous_page = 1
+
+    context = {
+        "sites": sites,
+        "m1": m1,
+        "m2": m2,
+        "previous_page": previous_page,
+        "next_page": next_page,
+        "form": form,
+    }
+
+    return render(request, "siteornitho/siteornitho_detail.html", context)
 
 
-class DetailListView(generic.ListView):
-    template_name = "siteornitho/siteornitho_detail.html"
-    context_object_name = "site"
+def sites(request):
 
-    def get_queryset(self):
-        data = SiteOrnitho.objects.filter(pk=self.kwargs["pk"], status=1)
-
-        if data.exists() == False:
-            messages.add_message(self.request, messages.INFO, "Aucune fiche trouvée")
-
-        return data
+    sites, municipalite = utils.search_sites(request)
+    form = SearchSiteForm(initial={"municipalite": municipalite})
+    context = {"filter": sites, "form": form, "municipalite": municipalite}
+    return render(request, "siteornitho/sites.html", context)
 
 
-def search(request):
-    data = SiteOrnitho.objects.all()
-    filtered = SiteOrnithoFilter(request.GET, queryset=data)
-    return render(request, "siteornitho/siteornitho_filter.html", {"filter": filtered})
+def site(request, pk):
+    municipalite = ""
+    if request.GET["municipalite"]:
+        municipalite = request.GET.get("municipalite")
 
-
-# class FilterView(generic.ListView):
-#     model = SiteOrnitho
-
-#     def get_queryset(self):
-#         qs = self.model.objects.all()
-#         filtered_list = SiteOrnithoFilter(self.request.GET, queryset=qs)
-#         return filtered_list.qs
-
-
-"""
-from siteornitho.models import SiteOrnitho
-from django.core.paginator import Paginator
-site=SiteOrnitho.objects.all().select_related()
-paginator=Paginator(site,1)
-pobj=paginator.get_page(2)
-pobj[0]
-pobj[0].description_generale
-"""
+    form = SearchSiteForm(initial={"municipalite": municipalite})
+    sites = SiteOrnitho.objects.get(pk=pk)
+    m1, m2 = utils.periode_interet(sites)
+    context = {
+        "sites": sites,
+        "m1": m1,
+        "m2": m2,
+        "form": form,
+    }
+    return render(request, "siteornitho/site.html", context)

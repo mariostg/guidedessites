@@ -5,7 +5,7 @@
 <ul>
 {% for s in object_list %}
 <li>
-    <a href=" {% url 'detail_site' s.pk %} ">
+    <a href=" {% url 'site' s.pk %} ">
         Site: {{s.nom_du_site}} 
         Auteur: {{s.auteur}} 
         Auteur Pk: {{s.pk}}</a>
