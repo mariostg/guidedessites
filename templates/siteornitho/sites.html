@@ -26,7 +26,7 @@
         <ul>
             {% for site in filter %}
             <li>
-                <a href="{% url 'site' site.pk%}?municipalite={{municipalite}}">{{ site.nom_du_site }}</a>
+                <a href="{% url 'site' site.pk%}?municipalite={{initial.municipalite}}&nom_du_site={{initial.nom_du_site}}&transport={{initial.transport}}">{{ site.nom_du_site }}</a>
             </li>
             {% endfor %}
         </ul>

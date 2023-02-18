@@ -1,3 +1,4 @@
+from django.db.models import Q
 from .models import SiteOrnitho
 
 
@@ -12,8 +13,41 @@ def periode_interet(site):
 
 
 def search_sites(request):
+
     municipalite = None
+    nom_du_site = ""
+    transport = "off"
+    sous_habitat = ""
+    sites = SiteOrnitho.objects.all()
     if request.GET.get("municipalite"):
         municipalite = request.GET.get("municipalite")
-    sites = SiteOrnitho.objects.filter(municipalite=municipalite)
-    return sites, municipalite
+        sites = sites.filter(
+            municipalite__exact=municipalite,
+        )
+    if request.GET.get("nom_du_site"):
+        nom_du_site = request.GET.get("nom_du_site")
+        sites = sites.filter(
+            nom_du_site__icontains=nom_du_site,
+        )
+    if request.GET.get("sous_habitat"):
+        sous_habitat = request.GET.getlist("sous_habitat")
+        qobj = Q(sous_habitat=sous_habitat.pop())
+        for sh in sous_habitat:
+            qobj = qobj | Q(sous_habitat=sh)
+        print(qobj)
+        sites = sites.filter(qobj)
+    if request.GET.get("transport"):
+        sites = sites.filter(
+            transport=True,
+        )
+    else:
+        transport = False
+
+    search_criterion = {
+        "municipalite": municipalite,
+        "nom_du_site": nom_du_site,
+        "transport": transport,
+        "sous_habitat": sous_habitat,
+    }
+    print(search_criterion)
+    return sites, search_criterion

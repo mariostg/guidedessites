@@ -12,10 +12,22 @@ id="mySidebar"
 <h3>Trouver un site</h3>
     <h6>Critère de sélection</h6>
     <hr />
-    <form action="{% url 'sites' %}" method="GET">
+    <form id='search_form' action="{% url 'sites' %}" method="GET">
+        <div>
+            <label for="nom_du_site">{{form.nom_du_site.label}}</label>
+            {{form.nom_du_site}}
+        </div> 
         <div>
             <label for="municipalite">{{form.municipalite.label}}</label>
             {{form.municipalite}}
+        </div> 
+        <div>
+            <label for="sous_habitat">{{form.sous_habitat.label}}</label>
+            {{form.sous_habitat}}
+        </div> 
+        <div>
+            <label for="">{{form.transport.label}}</label>
+            {{form.transport}}
         </div> 
         
         <p>

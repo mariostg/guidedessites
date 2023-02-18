@@ -51,18 +51,37 @@ def catalogue(request, page=1):
 
 def sites(request):
 
-    sites, municipalite = utils.search_sites(request)
-    form = SearchSiteForm(initial={"municipalite": municipalite})
-    context = {"filter": sites, "form": form, "municipalite": municipalite}
+    sites, initial = utils.search_sites(request)
+    form = SearchSiteForm(initial=initial)
+    context = {
+        "filter": sites,
+        "form": form,
+        "initial": initial,
+    }
     return render(request, "siteornitho/sites.html", context)
 
 
 def site(request, pk):
     municipalite = ""
-    if request.GET["municipalite"]:
+    nom_du_site = ""
+    transport = "off"
+    sous_habitat = ""
+    if "municipalite" in request.GET:
         municipalite = request.GET.get("municipalite")
+    if "nom_du_site" in request.GET:
+        nom_du_site = request.GET.get("nom_du_site")
+    if "transport" in request.GET:
+        transport = request.GET.get("transport")
+    if "sous_habitat" in request.GET:
+        sous_habitat = request.GET.get("sous_habitat")
 
-    form = SearchSiteForm(initial={"municipalite": municipalite})
+    initial = {
+        "municipalite": municipalite,
+        "nom_du_site": nom_du_site,
+        "transport": transport,
+        "sous_habitat": sous_habitat,
+    }
+    form = SearchSiteForm(initial=initial)
     sites = SiteOrnitho.objects.get(pk=pk)
     m1, m2 = utils.periode_interet(sites)
     context = {
