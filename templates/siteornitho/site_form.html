@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{% load static %}
+{% load verbose_names %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="{% static 'siteornitho/base.css'%}" />
+        <link rel="stylesheet" href="{% static 'siteornitho/style.css' %}" />
+        <link rel="stylesheet" href="{% static 'siteornitho/layout.css' %}" />
+        <link rel="stylesheet" href="{% static 'uikit/styles/modules/_button.css' %}" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="form-container">
+            <div class="header">
+                <h1>Site ornithologique</h1>
+            </div>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form.errors }}
+                {{ form.non_field_errors }}
+                <div class="row col2">
+                    <div class="entry">
+                        <label for="nom_du_site">Nom du site</label> {{form.nom_du_site}}
+                    </div>
+                    <div class="entry">
+                        <label for="municipalite">Municipalité</label>
+                        <div class="select"> {{form.municipalite}} </div>
+                    </div>
+                </div>
+                <div class="row col2">
+                    <div class="entry">
+                        <label for="locid">Localisation eBird</label> {{form.locid}}
+                    </div>
+                    <div class="entry">
+                        <label for="website">Site Web</label> {{form.url}}
+                        {% comment %} <label for="website">{% get_verbose_name site "url" %}</label> {{form.url}} {% endcomment %}
+                    </div>
+                </div>
+                <div class="row col2">
+                    <div class="entry">
+                        <label for="longitude">Longitude</label>{{form.longitude}}
+                    </div>
+                    <div class="entry">
+                        <label for="latitude">Latitude</label>{{form.latitude}}
+                    </div>
+                </div>
+                <div class="row col2">
+                    <div class="entry">
+                        <label for="periode_debut">Début période d'intérêt</label>{{form.periode_interet_debut}}
+                    </div>
+                    <div class="entry">
+                        <label for="periode_fin">Fin période d'intérêt</label>{{form.periode_interet_fin}}
+                    </div>
+                </div>
+                <div class="entry">
+                    <label for="sous-habitat">Sous-habitat</label>
+                    <div class="select">{{form.sous_habitat}} </div>
+                </div>
+                <div class="row col2">
+                    <label class="form-control">{{form.transport}} Transport </label>
+                    <label class="form-control">{{form.acces_gratuit}} Accès gratuit </label>
+                    <label class="form-control">{{form.toilette}} Toilettes disponible </label>
+                    <label class="form-control">{{form.picnique}} Aire de picnique </label>
+                    <label class="form-control">{{form.banc}} Banc </label>
+                </div>
+                <div class="entry">
+                    <label for="stakeholder">Propriétaire ou partenaires</label>{{form.stakeholder}}
+                </div>
+                <div class="entry">
+                    <label for="description-generale" >Description générale</label >{{form.description_generale}}
+                </div>
+            <div class="entry">
+                <label for="bon-a-savoir">Bon à savoir</label>{{form.bon_a_savoir}}
+            </div>
+            <div class="entry">
+                <label for="enjeux">Enjeux</label>{{form.enjeux}}
+            </div>
+            <div class="row col2">
+                <div class="entry">
+                    <label for="auteur">Auteur de ce site</label>{{form.auteur}} 
+                </div> 
+                <div class="entry">
+                    <label>Status </label>
+                    <div class="select">
+                        {{form.status}}
+                    </div>
+                </div>
+            </div>
+            <div class="row col2 row--button">
+                <input class='button' type="submit" value='Sauvegarder'>
+                {% comment %} <button class="button">Sauvegarder</button> {% endcomment %}
+                <button class="button button--delete">Effacer</button>
+            </div>
+        </form>
+        <footer class="">
+            <span>Dernière modification: 3 jan 2022</span>
+            <span>Mario St-Gelais</span>
+        </footer>
+        {% comment %} {% endblock content %} {% endcomment %}

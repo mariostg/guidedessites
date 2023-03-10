@@ -113,7 +113,7 @@
     <hr />
 
     <!-- Contact -->
-    <div class="w3-container" id="contact">
+    {% comment %} <div class="w3-container" id="contact">
         <h2>Obtenir plus d'information ou commenter ce site</h2>
         <form action="" target="_blank">
             <p>
@@ -130,8 +130,9 @@
                 Envoyer
             </button>
         </form>
-    </div>
-
+    </div> {% endcomment %}
+    <a class="button btn--sm" href="{% url 'edit-site' sites.pk %}">Modifier</a>
+    <a class="button btn--sm button--delete" href="{% url 'delete-site' sites.pk %}">Effacer</a>
     <footer
         class="w3-container w3-padding-16"
         style="margin-top: 32px"

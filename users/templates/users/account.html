@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Main Section -->
+  <main class="settingsPage profile my-md">
+    <div class="container">
+      <div class="layout">
+        <div class="column column--1of3">
+          <div class="card text-center">
+            <div class="card__body dev">
+              <a class="button button--small" href="{% url 'edit-account' %}">Modifier</a>
+              <img class="avatar avatar--xl dev__avatar" src="{{profile.profile_image.url}}" />
+              <h2>{{ profile.name }}</h2>
+              <p>{{ profile.phone}}</p>
+              <p>{{ profile.email}}</p>
+              <p>{{profile.location}}</p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </main>
+  {% endblock content %}

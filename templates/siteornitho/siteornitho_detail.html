@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% load l10n %}
 {% block content %}
 {% include 'siteornitho/siteornitho_search_form.html'%}
 
@@ -45,6 +45,7 @@
             style="width: 100%; cursor: pointer"
             onclick="currentDiv({{ forloop.counter }})"
             title="{{i.title}}"
+            alt="{{i.title}}"
             />
         </div>
         {% endfor %}
@@ -57,9 +58,13 @@
             <p>{{ sites.0.url|default:"&nbsp;" }}</p>
 
             <p>Site ebird</p>
-            <p>{{sites.0.locid|default:"&nbsp;"}}</p>
+            {% if sites.0.locid %}
 
-            <p>municipalité</p>
+            <p><a class='globe' target="_blank" href="https://ebird.org/qc/hotspot/{{sites.0.locid}}">{{sites.0.locid}}</a></p>
+            
+            {% endif %}
+
+            <p>Municipalité</p>
             <p>{{sites.0.municipalite|default:"&nbsp;"}}</p>
 
             <p>Coordonnées</p>
@@ -113,9 +118,10 @@
         <p>{{sites.0.stakeholder|default:"&nbsp;"}}</p>
     </div>
     <hr />
-
+    <a class="button btn--sm" href="{% url 'edit-site' sites.0.pk %}">Modifier</a>
+    <a class="button btn--sm button--delete" href="{% url 'delete-site' sites.0.pk %}">Effacer</a>
     <!-- Contact -->
-    <div class="w3-container" id="contact">
+    {% comment %} <div class="w3-container" id="contact">
         <h2>Obtenir plus d'information ou commenter ce site</h2>
         <form action="" target="_blank">
             <p>
@@ -149,13 +155,11 @@
                 Envoyer
             </button>
         </form>
-    </div>
+    </div> {% endcomment %}
+    <footer class="w3-container w3-padding-16" style="margin-top: 32px" >
+        Dernière mise a jour:   {{sites.0.miseajour|localize}} It is {% now "jS F Y H:i" %}
 
-    <footer
-        class="w3-container w3-padding-16"
-        style="margin-top: 32px"
-    ></footer>
-
+    </footer>
     <!-- End page content -->
 </div>
 

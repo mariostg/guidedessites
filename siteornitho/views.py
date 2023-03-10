@@ -4,8 +4,8 @@ from django.core.paginator import Paginator, EmptyPage
 from django.views import generic
 from django.contrib import messages
 from .filters import SiteOrnithoFilter
-from .models import SiteOrnitho
-from .forms import SearchSiteForm
+from .models import SiteOrnitho, SiteOrnithoImage
+from .forms import SearchSiteForm, SiteForm, ImageForm
 from . import utils
 
 
@@ -91,3 +91,50 @@ def site(request, pk):
         "form": form,
     }
     return render(request, "siteornitho/site.html", context)
+
+
+def edit_site(request, pk):
+    site = SiteOrnitho.objects.get(id=pk)
+    form = SiteForm(instance=site)
+
+    if request.method == "POST":
+        form = SiteForm(request.POST, instance=site)
+        if form.is_valid():
+            form.save()
+            return redirect("sites")
+    return render(request, "siteornitho/site_form.html", {"form": form, "site": site})
+
+
+def add_site(request):
+    if request.method == "POST":
+        form = SiteForm(request.POST)
+        if form.is_valid():
+            site = form.save()
+            return redirect("site", site.id)
+            # return redirect("sites")
+    else:
+        form = SiteForm
+
+    return render(request, "siteornitho/site_form.html", {"form": form})
+
+
+def delete_site(request, pk):
+    site = SiteOrnitho.objects.get(id=pk)
+    if request.method == "POST":
+        site.delete()
+        return redirect("sites")
+    context = {"object": site}
+    return render(request, "siteornitho/delete_template.html", context)
+
+
+def add_photo(request):
+    if request == "POST":
+        form = ImageForm(request.POST)
+        if form.is_valid():
+            image = form.save()
+            return redirect("sites")
+            # return redirect("image", image.id)
+    else:
+        form = ImageForm
+
+    return render(request, "siteornitho/image_form.html", {"form": form})

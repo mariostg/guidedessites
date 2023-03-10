@@ -1,7 +1,6 @@
 from django.urls import path
 from . import views
 
-# app_name = "siteornitho"
 urlpatterns = [
     path("", views.HomeView.as_view(), name="home"),
     path("sites/catalogue/", views.catalogue, name="catalogue"),
@@ -11,4 +10,8 @@ urlpatterns = [
     path(
         "site/liste/", views.SiteornithoPublishedListView.as_view(), name="detail_list"
     ),
+    path("site/<int:pk>/edit/", views.edit_site, name="edit-site"),
+    path("site/<int:pk>/delete/", views.delete_site, name="delete-site"),
+    path("site/add/", views.add_site, name="add-site"),
+    path("image/add", views.add_photo, name="add-photo"),
 ]

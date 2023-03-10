@@ -1,0 +1,82 @@
+:root {
+    padding: 3rem;
+}
+
+form {
+    display: grid;
+    place-content: center;
+    /* min-height: 100vh; */
+}
+
+.form-container > form {
+    display: grid;
+    gap: 10px;
+}
+.form-container > .header,
+.form-container > footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 0.5em;
+    font-size: 1.5rem;
+}
+
+.form-control {
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
+}
+
+input[type="checkbox"] {
+    margin: 0;
+    width: 1.15em;
+    height: 1.15em;
+
+    transform: translateY(-0.075em);
+
+    display: grid;
+    place-content: center;
+}
+input[type="checkbox"]::before {
+    width: 0.65em;
+    height: 0.65em;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: 120ms transform ease-in-out;
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+input[type="checkbox"]:focus {
+    outline: max(2px, 0.15em) solid currentColor;
+    outline-offset: max(2px, 0.15em);
+}
+
+.row {
+    display: grid;
+    /* grid-template-columns: 1fr 1fr; */
+    gap: 10px;
+    padding: 0.5rem;
+    /* justify-items: flex-start; */
+}
+.row.col2 {
+    /* display: grid; */
+    grid-template-columns: 1fr 1fr;
+    /* gap: 10px; */
+    /* justify-items: flex-start; */
+}
+
+.row--button {
+    padding: 0.5em 5em;
+}
+.entry > label,
+.row > label {
+    display: block;
+    font-size: 2rem;
+}
+
+.row > .form-control {
+    display: flex;
+}

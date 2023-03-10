@@ -48,47 +48,33 @@ class SiteOrnitho(models.Model):
     url = models.URLField(
         verbose_name="Site Web", max_length=200, null=True, blank=True
     )
-    # Auteur..
     auteur = models.CharField(max_length=125, verbose_name="Auteur")
-    # photo ..
-    # photo_auteur ..
-    # photo_date ..
-    # miseajour
     miseajour = models.DateField("Mise à jour", auto_now=True)
-    # municipalite..
-    municipalite = models.ForeignKey(Municipalite, on_delete=models.RESTRICT)
-    # stakeholder..
+    municipalite = models.ForeignKey(
+        Municipalite, on_delete=models.RESTRICT, verbose_name="Municipalité"
+    )
     stakeholder = models.CharField(
         verbose_name="Partenaire/propriétaire", max_length=255, null=True, blank=True
     )
-    # periode_interet..
     periode_interet_debut = models.IntegerField(choices=Mois.choices)
     periode_interet_fin = models.IntegerField(
         choices=Mois.choices, null=True, blank=True
     )
-
-    # habitat_dominant..
-    # sous-habitat..
     sous_habitat = models.ManyToManyField(
         SousHabitat, related_name="sous_habitats", verbose_name=("Sous habitat")
     )
-    # description_generale..
     description_generale = models.TextField(
-        verbose_name="Description générale", max_length=1024
+        verbose_name="Description générale", max_length=1024, blank=True, null=True
     )
-    # transport..
     transport = models.BooleanField(verbose_name="Transport en commun", default=False)
-    # acces_gratuit..
     acces_gratuit = models.BooleanField(verbose_name="Accès gratuit", default=False)
-    # Bon_a_savoir..
-    bon_a_savoir = models.TextField(verbose_name="Bon à savoir", max_length=1024)
-    # toilettes..
     toilette = models.BooleanField(verbose_name="Toilettes", default=False)
-    # picnique..
     picnique = models.BooleanField(verbose_name="Table à picnique", default=False)
-    # banc..
     banc = models.BooleanField(verbose_name="Banc disponible", default=False)
-    # enjeux..
+
+    bon_a_savoir = models.TextField(
+        verbose_name="Bon à savoir", max_length=1024, blank=True, null=True
+    )
     enjeux = models.TextField(
         verbose_name="Enjeux de conservation", max_length=1024, blank=True, null=True
     )
