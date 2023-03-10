@@ -1,33 +1,42 @@
 <nav
-class="w3-sidebar w3-light-grey w3-collapse w3-top"
+class="w3-sidebar w3-light-grey w3-collapse"
 style="z-index: 3; width: 260px"
 id="mySidebar"
 >
 <!-- Sidebar/menu -->
-<div class="w3-container w3-display-container w3-padding-16">
+<div>
+    <div class='header'>
+        <h3>Trouver un site</h3>
+    </div>
     <i
     onclick="w3_close()"
     class="fa fa-remove w3-hide-large w3-button w3-transparent w3-display-topright"
     ></i>
-<h3>Trouver un site</h3>
-    <h6>Critère de sélection</h6>
     <hr />
     <form id='search_form' action="{% url 'sites' %}" method="GET">
-        <div>
-            <label for="nom_du_site">{{form.nom_du_site.label}}</label>
-            {{form.nom_du_site}}
+        <div class='row'>
+            <div class="entry">
+                <label for="nom_du_site">{{form.nom_du_site.label}}
+                </label>
+                {{form.nom_du_site}}
+            </div>
         </div> 
-        <div>
-            <label for="municipalite">{{form.municipalite.label}}</label>
-            {{form.municipalite}}
+        <div class='row'>
+            <label>{{form.municipalite.label}} {{form.municipalite}} </label>
         </div> 
-        <div>
-            <label for="sous_habitat">{{form.sous_habitat.label}}</label>
-            {{form.sous_habitat}}
+        <div class='row'>
+            <label>{{form.sous_habitat.label}} {{form.sous_habitat}} </label>
         </div> 
-        <div>
-            <label for="">{{form.transport.label}}</label>
-            {{form.transport}}
+        <div class='row'>
+            <label>Période d'intérêt
+                <div class="select"> {{form.periode_interet_debut}} </div>
+            </label>
+        </div> 
+        <div class='row'>
+            <label class='form-control'>
+                {{form.transport}} 
+                {{form.transport.label}} 
+            </label>
         </div> 
         
         <p>

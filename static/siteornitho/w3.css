@@ -230,11 +230,11 @@ h6 {
 .w3-wide {
     letter-spacing: 4px;
 }
-hr {
+/* hr {
     border: 0;
     border-top: 1px solid #eee;
     margin: 20px 0;
-}
+} */
 .w3-image {
     max-width: 100%;
     height: auto;

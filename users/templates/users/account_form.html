@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<!-- Main Section -->
+<main class="grid--wrap grid--center">
+    {% comment %} <div class="content-box"> {% endcomment %}
+        {% comment %} <div class="formWrapper"> {% endcomment %}
+            <a class="backButton" href="{% url 'account' %}"><i class="im im-angle-left"></i>Back</a>
+            <br>
+
+            <form class="form" method="POST" action="{% url 'edit-account' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {% for field in form %}
+                <div class="col-2">
+                    <label for="formInput#text">{{field.label}}</label>
+                    {{field}}
+                </div>
+                {% endfor %}
+                <input class="button" type="submit" value="Submit" />
+                <a class="button" href="{% url 'account' %}">Back</a>
+            </form>
+        {% comment %} </div> {% endcomment %}
+    {% comment %} </div> {% endcomment %}
+</main>
+
+{% endblock content %}

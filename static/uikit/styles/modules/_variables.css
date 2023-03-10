@@ -1,0 +1,51 @@
+:root {
+    --camo-black: #373538;
+    --camo-dark-grey: #5c5c5b;
+    --camo-grey: #9495a5;
+    --camo-green: #4a5444;
+    --camo-tan: #b49d80;
+    --camo-olive: #595142;
+    --camo-earth: #ac7e54;
+
+    --color-main: #5aa5b9;
+    --color-main-light: #e6faff;
+    --color-sub: darkslategrey;
+    --color-sub-light: #51546e;
+    --color-sub-lighter: #ededfd;
+    --color-text: #000;
+    --color-label: #fff;
+    --color-gray: #8b8b8b;
+    --color-light: #e5e7eb;
+    --color-light-gray: #767676;
+    --color-bg: #f8fafd;
+    --color-white: #fffefd;
+    --color-white-light: #f3f3f3;
+
+    --color-success: #359e64;
+    --color-success-bg: #def8e8;
+    --color-error: #fc4b0b;
+    --color-error-bg: #fff2ee;
+
+    --button-color: Darkgreen;
+    --button-active: #000;
+    --button-delete: #a02128;
+
+    --form-control-color: var(--button-delete);
+    --form-control-disabled: #959495;
+    --form-background: var(--camo-grey);
+    --form-header: var(--camo-green);
+    --form-footer: var(--camo-green);
+    --form-title: var(--camo-tan);
+    --row-odd: peru;
+    --row-even: sandybrown;
+
+    --font-base: "Poppins", arial, helvetica, "Segoe UI", roboto, ubuntu,
+        sans-serif;
+    --font-monospace: "Fira Code", "Courier New", courier, monospace;
+    --font-regular: 300;
+    --font-medium: 500;
+    --font-bold: 700;
+
+    --generic-shadow: 1px 1px 5px #00000010;
+    --generic-transition: all 0.3s ease-in-out;
+}

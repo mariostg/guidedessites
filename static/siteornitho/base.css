@@ -1,0 +1,33 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5% /*Defines what 1rem is 10/16*/;
+}
+
+body {
+    box-sizing: border-box;
+}
+:root {
+    --button-color: Darkgreen;
+    --button-active: #000;
+    --button-delete: #a02128;
+    --form-control-color: tomato;
+    --form-control-disabled: #959495;
+    --form-background: lightsteelblue;
+    --form-color: #000;
+    --header-color: #446ca2;
+    --select-border: #777;
+    --select-focus: blue;
+    --select-arrow: var(--select-border);
+    --rouge: tomato;
+    --vert: DarkGreen;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+}

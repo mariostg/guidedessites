@@ -1,5 +1,6 @@
 from django import forms
-from .models import SiteOrnitho
+from .models import SiteOrnitho, SiteOrnithoImage
+from django.forms import widgets
 
 
 class SearchSiteForm(forms.ModelForm):
@@ -21,13 +22,70 @@ class SearchSiteForm(forms.ModelForm):
         super(SearchSiteForm, self).__init__(*args, **kwargs)
 
         for name, field in self.fields.items():
-            if field.widget.input_type == "checkbox":
-                field.widget.attrs.update({"class": "w3-check"})
-            else:
-                field.widget.attrs.update({"class": "w3-input"})
+            field.widget.attrs.update({"class": "input"})
             field.required = False
 
-        # self.fields["periode_interet_fin"].required = False
-        # help_texts = {
-        #     "transport": "Transport en commun disponible à proximité",
-        # }
+
+class SiteForm(forms.ModelForm):
+    class Meta:
+        model = SiteOrnitho
+        fields = [
+            "nom_du_site",
+            "municipalite",
+            "locid",
+            "longitude",
+            "latitude",
+            "url",
+            "auteur",
+            "periode_interet_debut",
+            "periode_interet_fin",
+            "sous_habitat",
+            "description_generale",
+            "transport",
+            "acces_gratuit",
+            "bon_a_savoir",
+            "toilette",
+            "picnique",
+            "banc",
+            "enjeux",
+            "status",
+            "stakeholder",
+        ]
+        template_name = "siteornitho/site_form.html"
+
+    def __init__(self, *args, **kwargs):
+        super(SiteForm, self).__init__(*args, **kwargs)
+
+        for name, field in self.fields.items():
+            field.widget.attrs.update({"class": "input"})
+
+
+class ImageForm(forms.ModelForm):
+    class Meta:
+        model = SiteOrnithoImage
+        fields = [
+            "siteornitho",
+            "title",
+            "description",
+            "photo_author",
+            "photo_date",
+            "image",
+        ]
+        template_name = "siteornitho/image_form.html"
+
+        widgets = {
+            "photo_date": forms.DateInput(
+                format=("%Y-%m-%d"),
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "Select a date",
+                    "type": "date",
+                },
+            ),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(ImageForm, self).__init__(*args, **kwargs)
+
+        for name, field in self.fields.items():
+            field.widget.attrs.update({"class": "input"})

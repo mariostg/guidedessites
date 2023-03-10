@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <p>Êtes-vous certain de voulor effacer "{{ object }}"</p>
+    
+    <button><a href="{% url 'sites' %}" style='text-decoration:none;'>Retour</a></button>
+    
+    <input type="submit" value="Confirm" />
+</form>
+{% endblock content %}
