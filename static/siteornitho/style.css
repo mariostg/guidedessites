@@ -71,10 +71,45 @@ a.button--delete,
 button.button--delete {
     background-color: var(--button-delete);
 }
+
 .button--row {
     margin-top: 0.5rem;
 }
 
+/*
+Pop ups hint display on hover
+*/
+
+[data-title]:hover:before {
+    opacity: 1;
+    transition: all 0.1s ease 0.5s;
+    visibility: visible;
+}
+[data-title]:before {
+    content: attr(data-title);
+    position: absolute;
+    bottom: -1.6em;
+    left: -100%;
+    padding: 4px 4px 4px 8px;
+    color: #222;
+    white-space: nowrap;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px #222;
+    background-image: -moz-linear-gradient(top, #f8f8f8, #cccccc);
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #f8f8f8),
+        color-stop(1, #cccccc)
+    );
+    opacity: 0;
+    z-index: 99999;
+    visibility: hidden;
+}
+[data-title] {
+    position: relative;
+}
 /*Learn about this technique:
 @link https://moderncss.dev/pure-css-custom-checkbox-style/
 */
@@ -110,14 +145,15 @@ input.input[type="date"],
 input.input[type="url"],
 select.input,
 textarea.input {
-    font-size: 2rem;
+    font-size: 1.8rem;
     /* min-width: 24rem; */
     width: 100%;
-    padding: 1.2rem 1.5rem;
+    padding: 0.6rem 1rem;
     border-radius: 0.5rem;
     border: 2px solid var(--color-light);
     transition: all 0.3s ease-in-out;
     background-color: #fff;
+    padding-left: 4px;
     color: var(--camo-black);
 }
 

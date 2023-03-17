@@ -29,7 +29,6 @@ figcaption {
     content: "\2713";
     display: inline-block;
     color: green;
-    /* padding: 20px; */
 }
 .crossmark::before {
     content: "\2717";

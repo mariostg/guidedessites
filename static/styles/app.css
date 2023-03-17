@@ -9,6 +9,9 @@ img {
 /*=======================
   Header Section
   ========================*/
+header.aside_menu {
+    background-color: var(--camo-black);
+}
 .header {
     position: sticky;
     z-index: 111;
@@ -36,10 +39,12 @@ img {
     background-color: var(--color-gray);
 }
 .header__nav > ul {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     list-style: none;
+    justify-content: space-between;
     gap: 6.5rem;
+    padding: 0 1rem;
 }
 .header__nav > ul > li {
     margin-left: 10px;
@@ -63,12 +68,28 @@ img {
     pointer-events: all;
 }
 
+#mySidebar {
+    display: block;
+    height: 100%;
+    background-color: #fff;
+    position: fixed !important;
+    z-index: 1;
+    overflow: auto;
+    z-index: 3;
+    width: 260px;
+}
+
 @media screen and (max-width: 800px) {
+    w3-main {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
     .header__logo {
         position: relative;
         z-index: 999;
     }
-    .toggle-menu {
+    .toggle-menu,
+    .search-menu {
         position: relative;
     }
 
@@ -159,6 +180,9 @@ img {
         padding: 1rem 3rem;
         border-radius: 3px;
         background: var(--color-sub-light);
+    }
+    #mySidebar {
+        display: none;
     }
 }
 
