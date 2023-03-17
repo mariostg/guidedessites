@@ -14,13 +14,13 @@
     <div class="w3-container">
         <div class="entete">
             {% if sites.has_previous%}
-            <a class='precedent' href='{% url "catalogue" previous_page %}'></a>
+            <a class='precedent' href='{% url "catalogue" previous_page %}' data-title='Fiche précédente'></a>
             {%else%}
             <p></p>
             {% endif %}
             <h2>{{ sites.0.nom_du_site}}</h2>
             {% if sites.has_next%}
-            <a class='suivant' href='{% url "catalogue" next_page %}'></a>
+            <a class='suivant' href='{% url "catalogue" next_page %}' data-title="Fiche suivante"></a>
             {% endif%}
         </div>
         {% for i in sites.0.images.all %}
@@ -118,8 +118,10 @@
         <p>{{sites.0.stakeholder|default:"&nbsp;"}}</p>
     </div>
     <hr />
+    {% if request.user.is_authenticated %}
     <a class="button btn--sm" href="{% url 'edit-site' sites.0.pk %}">Modifier</a>
     <a class="button btn--sm button--delete" href="{% url 'delete-site' sites.0.pk %}">Effacer</a>
+    {% endif %}
     <!-- Contact -->
     {% comment %} <div class="w3-container" id="contact">
         <h2>Obtenir plus d'information ou commenter ce site</h2>

@@ -1,4 +1,4 @@
-{% load static %}
+{% load static %} 
 <header class="header">
     <div class="container container--narrow">
         <a href="#" class="header__logo">
@@ -14,6 +14,7 @@
     </div>
 
     <nav class="header__nav">
+        {% comment %} Main menu toggle for small screen {% endcomment %}
         <input type="checkbox" id="responsive-menu" />
         <label for="responsive-menu" class="toggle-menu">
             <span>Menu</span>
@@ -28,6 +29,8 @@
             <li class="header__menuItem" title="Votre profil">
                 <a href="{% url 'account' %}">{{user}}</a>
             </li>
+            {% else %}
+                <li class="header__menuItem"> <a href="{% url 'login' %}">Connexion</a> </li>
             {% endif %}
         </ul>
     </nav>

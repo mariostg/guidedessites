@@ -91,6 +91,7 @@ def site(request, pk):
         "form": form,
     }
     return render(request, "siteornitho/site.html", context)
+    return render(request, "siteornitho/siteornitho_detail.html", context)
 
 
 def edit_site(request, pk):
