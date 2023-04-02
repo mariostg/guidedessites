@@ -44,7 +44,7 @@
         <h4><strong>Sommaire</strong></h4>
         <section class='two-col'>
             <p>Site web</p>
-            {% if sites.url %} <a href="{{sites.url}}">{{sites.url}}</a> {% else %} <p class="crossmark"></p> {% endif %}
+            {% if sites.url %} <a target="_blank" href="{{sites.url}}">{{sites.url}}</a> {% else %} <p class="crossmark"></p> {% endif %}
 
             <p>Site Ebird</p>
             {% if sites.locid %}
