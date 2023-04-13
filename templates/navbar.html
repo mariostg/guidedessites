@@ -1,37 +1,32 @@
 {% load static %} 
-<header class="header">
-    <div class="container container--narrow">
-        <a href="#" class="header__logo">
-            <img
-                src="{% static 'images/logo.png' %} "
-                alt="Login System Logo"
-            />
+<header class="site-header">
+    <div class="site-header__logo">
+        <a href="/">
+            <img src="{% static 'images/logo.png' %}" alt="Login System Logo" />
         </a>
-        <div class="site-title">
-            <h1>Guide des sites</h1>
-            <h3>Club des ornithologues de l'Outaouais</h3>
-        </div>
     </div>
+    <div class="site-header--title">
+        <h1>Club des ornithologues de l'Outaouais</h1>
+        <h3>Guide des sites</h3>
+    </div>
+</header>
 
-    <nav class="header__nav">
+    <nav class="site-nav">
         {% comment %} Main menu toggle for small screen {% endcomment %}
-        <input type="checkbox" id="responsive-menu" />
+        {% comment %} <input type="checkbox" id="responsive-menu" />
         <label for="responsive-menu" class="toggle-menu">
             <span>Menu</span>
             <div class="toggle-menu__lines"></div>
-        </label>
-        <ul class="header__menu">
-            <li class="header__menuItem"><a href="{% url 'catalogue' %}">Catalogue</a></li>
+        </label> {% endcomment %}
+        <div class="block block--spaced">
+            <a class="btn btn--link" href="{% url 'catalogue' %}">Catalogue</a>
             {% if request.user.is_authenticated %}
-            <li class="header__menuItem"> <a href="{% url 'logout' %}" class="button button--small">Déconnexion</a> </li>
-            <li class="header__menuItem"> <a href="{% url 'add-site' %}" class="button button--small">Ajouter site</a> </li>
-            <li class="header__menuItem"> <a href="{% url 'add-photo' %}" class="button button--small">Ajouter image</a> </li>
-            <li class="header__menuItem" title="Votre profil">
-                <a href="{% url 'account' %}">{{user}}</a>
-            </li>
+             <a class="btn btn--link" href="{% url 'logout' %}" class="button button--small">Déconnexion</a>
+             <a class="btn btn--link" href="{% url 'add-site' %}" class="button button--small">Ajouter site</a>
+             <a class="btn btn--link" href="{% url 'add-photo' %}" class="button button--small">Ajouter image</a>
+             <a class="btn btn--link" href="{% url 'account' %}">{{user}}</a>
             {% else %}
-                <li class="header__menuItem"> <a href="{% url 'login' %}">Connexion</a> </li>
+            <a class="btn btn--link" href="{% url 'login' %}">Connexion</a>
             {% endif %}
-        </ul>
+        </div>
     </nav>
-</header>

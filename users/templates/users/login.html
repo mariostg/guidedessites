@@ -1,46 +1,55 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %} 
-  <div class="auth">
 
-    <div class='card header auth__header text-center'>
-    <h2>Guide des sites</h2>
-    <h4>Administration</h4>
-  </div>
-    <div class="card">
-
-      <div class="auth__header text-center">
-      </div>
-
-      <form action="#" class="form auth__form" method="POST">
-        {% csrf_token %}
-        <div class="row">
-          <div class="entry">
-          <label for='username'>Nom d'utilisateur: </label>
-            <input class="input" type="text" name="username"placeholder="Enter your username..." />
-          </div>
-        </div>
-        
-        <div class="row">
-          <div class="entry">
-            <label for='password' >Mot de passe: </label>
-            <input id='formInput#password' class="input" type="password" name="password" placeholder="••••••••" />
-          </div>
-        </div>
-          <div class="row">
-          <label id='show_password' class='form-control'>
-            <input type="checkbox" onclick="togglePassword()">
-            Afficher mot de passe
-          </label>
+  <section class="block block--centered">
+    <div class="form">
+        <div class="form__header">
+            <h2>Guide des sites</h2>
+            <h4>Administration</h4>
         </div>
 
-        <div class="auth__actions">
-          <input class="btn btn--sub btn--lg" type="submit" value="Se connecter" />
-          {% comment %} <a href="forgetpassword.html">Forgot Password?</a> {% endcomment %}
+        <form action="#" method="POST">
+            {% csrf_token %}
+            <div class="form__fields">
+                <label class="label" for="username">Nom d'utilisateur </label>
+                <input
+                    class="input"
+                    type="text"
+                    name="username"
+                    placeholder="Saisir votre nom d'utilisateur..."
+                />
+
+                <label class="label" for="password">Mot de passe: </label>
+                <input
+                    class="input"
+                    id="formInput#password"
+                    class="input"
+                    type="password"
+                    name="password"
+                    placeholder="••••••••"
+                />
+
+                <label class="label checkbox-label right" id="show_password">
+                    <input class="input" type="checkbox" onclick="togglePassword()" />
+                    Montrer le mot de passe
+                </label>
+            </div>
+
+            <div class="block block--spaced">
+                <input class="btn" type="submit" value="Log In" />
+                <a class="btn btn--link" href="forgetpassword.html">Mot de passe oublié?</a>
+            </div>
+        </form>
+
+        <div class="columns">
+            <div class="rows">
+                <p>Contacter le responsable</p>
+                <a class="btn btn--link" href="mailto:">mario@mail.ca</a>
+            </div>
         </div>
-      </form>
     </div>
-  </div>
+</section>
 
   <script>
     function togglePassword() {
