@@ -1,0 +1,103 @@
+@import "../base/colors";
+body {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.body {
+    display: flex;
+}
+.merge {
+    grid-column: 1/-1;
+}
+
+.left-nav,
+.fiche {
+    padding-top: 1rem;
+}
+.fiche {
+    padding-left: 1rem;
+    margin-left: 275px;
+}
+.left-nav {
+    position: fixed;
+    width: 235px;
+}
+.block {
+    // background-color: $color-theme-light;
+    gap: 1rem;
+
+    &--centered {
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+    }
+    &--spaced {
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
+.columns {
+    display: grid;
+    column-gap: 1.5rem;
+    padding: 2rem;
+    justify-items: center;
+
+    &__aligned {
+        align-items: center;
+    }
+}
+
+.rows {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.c2 {
+    grid-template-columns: 1fr 1fr;
+}
+.c3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+.c4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+.header {
+    background-color: $color-theme;
+    color: $color-theme-light;
+    padding: 1.5rem 1rem;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    &--logo {
+        max-width: 225px;
+    }
+}
+.site-header {
+    display: flex;
+    background-color: $color-theme;
+    color: $color-theme-light;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+    &__logo {
+        border-radius: 50%;
+        background-color: $color-white;
+        max-width: 225px;
+    }
+    &__title {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        padding: 0 12rem;
+    }
+}
+
+.footnote {
+    text-align: right;
+    font-size: $size-small;
+}
+.zebra tr:nth-child(odd) {
+    background-color: $color-theme-light;
+}

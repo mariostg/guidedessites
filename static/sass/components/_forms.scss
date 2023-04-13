@@ -1,0 +1,157 @@
+@use "../base/colors" as *;
+.form {
+    background-color: $color-theme-form-background;
+    border-left: 1px solid $color-theme;
+    border-right: 1px solid $color-theme;
+    border-radius: 8px;
+    display: grid;
+    justify-content: center;
+    align-items: start;
+    align-content: start;
+    width: fit-content;
+    &__row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 4rem;
+        &.c1 {
+            display: flex;
+        }
+    }
+    &__col {
+        display: flex;
+        flex-direction: column;
+    }
+    &__fields {
+        display: grid;
+        // grid-template-columns: 200px 1fr;
+        align-items: center;
+        gap: 14px;
+        padding: 2rem;
+        & > .right {
+            grid-column: 1/-1;
+            justify-content: end;
+        }
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        border-radius: 8px 8px 0 0;
+        background-color: $color-theme;
+        color: $color-theme-background;
+        font-size: 3rem;
+        align-items: center;
+        justify-content: center;
+        padding: 0rem 2rem;
+        &--small {
+            font-size: $size-normal;
+        }
+    }
+
+    &__logo {
+        min-width: 32px;
+        min-height: 32px;
+        background-color: #f8f8ff;
+        padding: 2rem;
+        border-radius: 50%;
+    }
+
+    &__footer {
+        grid-column-start: 1/-1;
+        background-color: $color-theme;
+        color: $color-theme-background;
+        text-align: center;
+        font-size: 1rem;
+        padding: 0 2rem;
+        border-radius: 0px 0px 8px 8px;
+    }
+
+    &__body {
+        display: grid;
+        padding: 0 2rem;
+        align-content: start;
+    }
+
+    &--two-col {
+        grid-template-columns: auto auto;
+        gap: 3rem;
+    }
+    &--three-col {
+        grid-template-columns: auto auto auto;
+        gap: 3rem;
+    }
+}
+
+.input,
+.select,
+.checkbox {
+    font-size: 2rem;
+    line-height: 1.1;
+    background-color: $color-white;
+    border-radius: 0.5rem;
+    border: 2px solid $color-theme;
+    // border: transparent;
+    font-family: inherit;
+    padding: 0.5em;
+    transition: 180ms box-shadow ease-in-out;
+    width: 400px;
+    &:focus {
+        border-color: $color-theme;
+        box-shadow: $focus-shadow;
+        outline: 3px solid transparent;
+    }
+    &:hover {
+        opacity: 0.8;
+        box-shadow: $hover-shadow;
+        background-color: $color-theme-light;
+    }
+}
+.label {
+    font-weight: $font-regular;
+    display: block;
+    font-size: $size-medium;
+    color: $color-theme;
+}
+
+.select {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    line-height: 1.1;
+    &::after {
+        grid-template-areas: "select";
+        content: "";
+        width: 0.8em;
+        height: 0.5em;
+        background-color: $color-theme;
+        clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+        justify-self: end;
+    }
+}
+
+/*Move to typography*/
+select {
+    appearance: none;
+    font-size: $size-medium;
+    position: relative;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    cursor: pointer;
+    line-height: 1.1;
+    z-index: 1;
+    background-color: transparent;
+    outline: none;
+}
+
+select,
+.select:after {
+    grid-area: select;
+}
+
+.textarea {
+    &--wide {
+        width: 800px;
+    }
+}

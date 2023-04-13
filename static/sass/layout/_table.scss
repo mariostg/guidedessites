@@ -1,0 +1,29 @@
+@use "../base/colors" as *;
+table {
+    font-size: 1.8rem;
+    border-collapse: collapse;
+    & > caption {
+        font-size: 2.5rem;
+        background-color: $color-theme;
+        color: $color-white;
+    }
+    & > thead {
+        background-color: $color-theme-light;
+    }
+}
+th,
+td {
+    padding: 1.2rem 2rem;
+    text-align: left;
+}
+tbody {
+    & tr:nth-child(odd) {
+        background-color: $color-theme-row-odd;
+    }
+    & tr:nth-child(even) {
+        background-color: $color-theme-row-even;
+    }
+}
+tr {
+    vertical-align: middle;
+}

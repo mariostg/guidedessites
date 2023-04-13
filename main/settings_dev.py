@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "sass_processor",
     "geographie",
     "habitat",
     "siteornitho",
@@ -124,7 +125,7 @@ LANGUAGE_CODE = "en-us"
 TIME_ZONE = "EST"
 
 USE_I18N = True
-#USE_L10N=False
+# USE_L10N=False
 USE_TZ = True
 
 
@@ -142,6 +143,15 @@ STATIC_URL = "/static/"
 # MEDIA_URL = "/images/"
 
 STATICFILES_DIRS = [BASE_DIR / "static"]
+
+# SASS stuff
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "sass_processor.finders.CssFinder",
+]
+## Django Sass
+SASS_PROCESSOR_ROOT = BASE_DIR / "static"
 
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

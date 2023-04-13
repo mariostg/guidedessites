@@ -1,0 +1,52 @@
+// $box-shadow: rgba(0, 0, 0, 0.2);
+
+$color-btn-back: #404040;
+$color-btn-delete: firebrick;
+$color-btn: #359e64;
+
+$color-white: #f3f3f3;
+
+$color-status-error-bg: #fff2ee;
+$color-status-error: firebrick;
+$color-status-success-bg: #def8e8;
+$color-status-success: #359e64;
+
+// $color-theme: #1d3030;
+// $color-theme-medium: #437070;
+// $color-theme-light: #8fbcbc;
+// $color-theme-background: #a5b9d2;
+// $color-theme-form-background: #bfd9d9;
+
+$color-theme: #446ca2;
+$color-theme-medium: #6f93c3;
+$color-theme-light: #dbe4f0;
+$color-theme-background: #a5b9d2;
+$color-theme-form-background: #a5b9d2;
+// $color-shadow: hsla(214, 41%, 45%, 0.8);
+$color-shadow: hsla(214, 41%, 45%, 0.8);
+$hover-shadow: 0 3px 5px $color-shadow;
+$focus-shadow: 0 0 0 2px $color-shadow;
+$btn-shadow: 0 3px 5px $color-shadow;
+
+$color-theme-black: #373538;
+$color-theme-form-control-disabled: #959495;
+$color-theme-narratif: #b49d80;
+$color-theme-row-even: #faf2eb;
+$color-theme-row-odd: #eaccae;
+$color-theme-text: #595142;
+
+$font-base: arial, helvetica, sans-serif;
+$font-bold: 700;
+$font-medium: 500;
+$font-regular: 300;
+$font-monospace: "Courier New", courier, monospace;
+$size-small: 1rem;
+$size-normal: 1.5rem;
+$size-medium: 2rem;
+
+$generic-transition: all 0.3s ease-in-out;
+
+$shadow-focus: $color-shadow;
+
+$checkbox-color: red;
+$checkbox-disabled: #959495;

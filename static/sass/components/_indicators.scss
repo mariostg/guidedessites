@@ -1,0 +1,21 @@
+.hint-warn {
+    background-color: $color-status-error-bg;
+    color: $color-status-error;
+}
+.nofreeze {
+    color: $color-status-success;
+}
+.freeze {
+    color: $color-status-error;
+}
+.status {
+    padding: 0.2rem 0.4rem;
+    &--warning {
+        color: $color-status-error;
+        background-color: $color-status-error-bg;
+    }
+    &--ok {
+        color: $color-status-success;
+        background-color: $color-status-success-bg;
+    }
+}
