@@ -19,7 +19,7 @@
                     </div>
                     <div class="form__field">
                         <label class="label" for="municipalite">Municipalité</label>
-                        <div class="select"> {{form.municipalite}} </div>
+                         {{form.municipalite}} 
                     </div>
                 </div>
                 <div class="form__row">
@@ -49,7 +49,7 @@
                     </div>
                     <div class="form__field">
                         <label class="label" class="label" for="periode_fin" >Fin période d'intérêt</label>
-                        <div class="select"> {{form.periode_interet_fin}} </div>
+                         {{form.periode_interet_fin}}
                     </div>
                 </div>
                 <div class="form__row">
@@ -59,14 +59,17 @@
                             {{form.sous_habitat}}
                         </div>
                     </div>
+                    <div class="form_field">
+
+                        <label class="label checkbox-label"> Status </label> {{form.status}}
+                    </div>
                 </div>
                 <div class="form__row">
                     <label class="label checkbox-label"> {{form.transport}} Transport </label>
-                    <label class="label checkbox-label" class="label"> {{form.acces_gratuit}} Accès gratuit </label>
-                    <label class="label checkbox-label" class="label">{{form.toilette}}  Toilettes disponible </label>
-                    <label class="label checkbox-label" class="label">{{form.picnique}} Aire de picnique </label>
-                    <label class="label checkbox-label" class="label">{{form.banc}} Banc </label>
-                    <label class="label checkbox-label"> Status </label> {{form.status}}
+                    <label class="label checkbox-label"> {{form.acces_gratuit}} Accès gratuit </label>
+                    <label class="label checkbox-label">{{form.toilette}}  Toilettes disponible </label>
+                    <label class="label checkbox-label">{{form.picnique}} Aire de picnique </label>
+                    <label class="label checkbox-label">{{form.banc}} Banc </label>
                 </div>
                 <div class="form__row">
                     <div class="form__field">
