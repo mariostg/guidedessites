@@ -1,7 +1,9 @@
 from django.urls import path
-from .views import MrcListView, MunicipaliteListView
+from . import views
 
 urlpatterns = [
-    path('listemrc/',MrcListView.as_view() , name='mrc-liste'),
-    path('listemunicipalite/',MunicipaliteListView.as_view() , name='municipalite-liste'),
+    path("mrcs/", views.mrcs, name="mrcs"),
+    path("addmrc/", views.add_mrc, name="add-mrc"),
+    path("update-mrc/<int:pk>", views.update_mrc, name="update-mrc"),
+    path("delete-mrc/<int:pk>", views.delete_mrc, name="delete-mrc"),
 ]

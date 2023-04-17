@@ -84,8 +84,9 @@
                 <div class="form__row">
                     <label class="label" for="stakeholder">Propriétaire ou partenaires</label> {{form.stakeholder}}
                 </div>
-                <div class="form__row">
-                    <label class="label" for="description-generale">Description générale</label> {{form.description_generale}}
+                <div>
+                    <label class="label" for="description-generale">Description générale</label> 
+                    <textarea class='textarea--full-width' name="description_generele" rows='10' value="{{form.description_generale.value}}"></textarea> 
                 </div>
                 <div class="form__row">
                     <label class="label" for="bon-a-savoir">Bon à savoir</label> {{form.bon_a_savoir}}

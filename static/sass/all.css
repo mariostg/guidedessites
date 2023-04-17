@@ -279,6 +279,9 @@ select,
 .textarea--wide {
   width: 800px; }
 
+.textarea--full-width {
+  width: 100%; }
+
 .site-nav {
   background-color: #6f93c3; }
 
