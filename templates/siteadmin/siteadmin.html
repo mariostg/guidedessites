@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header>
+    <h2>Administration du guide des sites</h2>
+</header>
+<section class="block block--centered">
+    <article class="form">
+        <div class="form__header">
+            Listes
+        </div>
+        <div class="form__body">
+            <a class="btn btn--link" href="{% url "municipalites" %}">Municipalités</a>
+            <a class="btn btn--link" href="{% url "mrcs" %}">MRC</a>
+            <a class="btn btn--link" href="#">Habitats</a>
+            <a class="btn btn--link" href="#">Sous-habitats</a>
+            <a class="btn btn--link" href="{% url "sites" %}">Sites ornithologiques</a>
+        </div>
+    </article>
+</section>
+{% endblock content %}
