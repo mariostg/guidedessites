@@ -12,8 +12,8 @@
         <div class="form__body">
             <a class="btn btn--link" href="{% url "municipalites" %}">Municipalités</a>
             <a class="btn btn--link" href="{% url "mrcs" %}">MRC</a>
-            <a class="btn btn--link" href="#">Habitats</a>
-            <a class="btn btn--link" href="#">Sous-habitats</a>
+            <a class="btn btn--link" href="{% url 'habitats'%}">Habitats</a>
+            <a class="btn btn--link" href="{% url 'sous-habitats'%}">Sous-habitats</a>
             <a class="btn btn--link" href="{% url "sites" %}">Sites ornithologiques</a>
         </div>
     </article>

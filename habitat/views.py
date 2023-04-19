@@ -1,30 +1,52 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import TemplateView, ListView
 
 from .models import Habitat, SousHabitat
-
-class HabitatView(TemplateView):
-    template_name='habitat/habitat.html'
-    titre="Nos habitats"
-    context={'titre':titre}
-
-class HabitatListView(ListView):
-    model=Habitat
-
-class SousHabitatListView(ListView):
-    model=SousHabitat
-
-def index(request):
-    # return HttpResponse("Page geographie")
-    context = {'titre': "Bienvenue sur la page Habitat"}
-    return render(request, 'habitat.html', context)
+from .forms import HabitatForm, SousHabitatForm
 
 
-def habitat_list(request):
-    habitat = Habitat.objects.all()
-    return render(request, 'habitat_list.html', {'habitat': habitat})
+def habitats(request):
+    data = Habitat.objects.all()
+    return render(request, "habitat/habitat-list.html", {"data": data})
 
 
-def sous_habitat_list(request):
+def add_habitat(request):
+    if request.method == "POST":
+        form = HabitatForm(request.POST)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.created_by = request.user
+            form.save()
+            return redirect("habitats")
+    else:
+        form = HabitatForm
+
+    return render(request, "habitat/habitat_form.html", {"form": form})
+
+
+def delete_habitat(request, pk):
+    data = Habitat.objects.get(id=pk)
+    if request.method == "POST":
+        data.delete()
+        return redirect("habitats")
+    context = {"data": data}
+    return render(request, "siteornitho/delete_template.html", context)
+
+
+def update_habitat(request, pk):
+    data = Habitat.objects.get(pk=pk)
+    form = HabitatForm(instance=data)
+
+    if request.method == "POST":
+        form = HabitatForm(request.POST, instance=data)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.updated_by = request.user
+            form.save()
+            return redirect("habitats")
+    return render(request, "habitat/habitat_form.html", {"form": form, "data": data})
+
+
+def sous_habitats(request):
     sous_habitat = SousHabitat.objects.all()
-    return render(request, 'sous_habitat_list.html', {'sous_habitat': sous_habitat})
+    return render(request, "sous_habitat_list.html", {"sous_habitat": sous_habitat})

@@ -1,8 +1,13 @@
 from django.urls import path
-from .views import HabitatView, HabitatListView,SousHabitatListView 
+from . import views
 
 urlpatterns = [
-    path('', HabitatView.as_view()),
-    path('liste/', HabitatListView.as_view(), name='habitat-liste'),
-    path('listesoushabitat/', SousHabitatListView.as_view(),name='sous-habitat-liste'),
+    path("habitats/", views.habitats, name="habitats"),
+    path("sous-habitats/", views.sous_habitats, name="sous-habitats"),
+]
+
+urlpatterns += [
+    path("add-habitat/", views.add_habitat, name="add-habitat"),
+    path("update-habitat/<int:pk>", views.update_habitat, name="update-habitat"),
+    path("delete-habitat/<int:pk>", views.delete_habitat, name="delete-habitat"),
 ]
