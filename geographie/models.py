@@ -6,10 +6,10 @@ from datetime import date
 class Mrc(models.Model):
     name = models.CharField("nom", max_length=75, unique=True)
     created_by = models.ForeignKey(
-        settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, related_name="Creator"
+        settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, related_name="Mrc_Creator"
     )
     updated_by = models.ForeignKey(
-        settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, related_name="Modifier"
+        settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, related_name="Mrc_Modifier"
     )
     created_at = models.DateTimeField("Date création", auto_now_add=True)
     updated_at = models.DateTimeField("Date mise à jour", auto_now=True)
