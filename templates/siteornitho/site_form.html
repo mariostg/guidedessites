@@ -4,7 +4,6 @@
 
     <div class="form">
         <header class="form__header">
-            <div class="form__logo"></div>
             <h1>Site ornithologique</h1>
         </header>
         <form action="" method="POST">
@@ -55,9 +54,7 @@
                 <div class="form__row">
                     <div class="form__field">
                         <label class="label" class="label" for="sous-habitat">Sous-habitat</label>
-                        <div class="select">
                             {{form.sous_habitat}}
-                        </div>
                     </div>
                     <div class="form_field">
 
@@ -81,18 +78,21 @@
                         <input class="input" type="text" />
                     </div>
                 </div>
-                <div class="form__row">
-                    <label class="label" for="stakeholder">Propriétaire ou partenaires</label> {{form.stakeholder}}
+                <div>
+                    <label class="label" for="stakeholder">Propriétaire ou partenaires</label>
+                    <textarea class='textarea--full-width' name="description_generele" rows='10' value="{{form.stakeholder.value}}"></textarea> 
                 </div>
                 <div>
                     <label class="label" for="description-generale">Description générale</label> 
                     <textarea class='textarea--full-width' name="description_generele" rows='10' value="{{form.description_generale.value}}"></textarea> 
                 </div>
-                <div class="form__row">
-                    <label class="label" for="bon-a-savoir">Bon à savoir</label> {{form.bon_a_savoir}}
+                <div>
+                    <label class="label" for="bon-a-savoir">Bon à savoir</label> 
+                    <textarea class='textarea--full-width' name="description_generele" rows='10' value="{{form.bon_a_savoir.value}}"></textarea> 
                 </div>
-                <div class="form__row">
-                    <label class="label" for="enjeux">Enjeux</label>{{form.enjeux}}
+                <div>
+                    <label class="label" for="enjeux">Enjeux</label>
+                    <textarea class='textarea--full-width' name="description_generele" rows='10' value="{{form.enjeux.value}}"></textarea> 
                 </div>
                 <div class="form__row">
                     <button class="btn">Sauvegarder</button>
