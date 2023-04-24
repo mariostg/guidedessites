@@ -170,3 +170,4 @@ LOGGING = {
         "level": "WARNING",
     },
 }
+LOGIN_URL = "/guidedessites/users/login/"

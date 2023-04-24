@@ -144,7 +144,7 @@ SASS_PROCESSOR_ROOT = BASE_DIR / "static"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOG_FILE = "/home/mariostg/logs/django-errors.log"
-
+LOGIN_URL = "/guidedessites/users/login/"
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
