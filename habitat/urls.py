@@ -11,3 +11,9 @@ urlpatterns += [
     path("update-habitat/<int:pk>", views.update_habitat, name="update-habitat"),
     path("delete-habitat/<int:pk>", views.delete_habitat, name="delete-habitat"),
 ]
+
+urlpatterns += [
+    path("add-sous-habitat/", views.add_sous_habitat, name="add-sous-habitat"),
+    path("update-sous-habitat/<int:pk>", views.update_sous_habitat, name="update-sous-habitat"),
+    path("delete-sous-habitat/<int:pk>", views.delete_sous_habitat, name="delete-sous-habitat"),
+]

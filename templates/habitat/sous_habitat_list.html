@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block titre %}Sous Habitats sur le territoire du COO{% endblock titre %}
+
+{% block pagetitle %}
+<h1>Sous Habitats sur le territoire du COO</h1>
+{% endblock pagetitle %}
+
+{% block content %}
+<main class="block block--centered">
+    <table>
+        <caption>Sous-Habitats du territoire du COO</caption>
+        <thead>
+            <tr>
+                <th>Sous-habitat</th>
+                <th>Habitat</th>
+                <th>Crée</th>
+                <th>Mise à jour</th>
+                <th colspan=2></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in data %}
+            <tr>
+            <td>{{d.sous_habitat}}</td>
+            <td>{{d.habitat}}</td>
+            <td>{{d.created_by}}, {{d.created_at}}</td>
+            <td>{{d.updated_by}}, {{d.updated_at}}</td>
+            {% if user.is_authenticated %}
+                <td>
+                    <a class='btn' href="{% url "update-sous-habitat" d.pk %}">Modifier</a>
+                </td>
+                <td>
+                    <a class='btn btn-delete' href="{% url "delete-sous-habitat" d.pk %}">Effacer</a>
+                </td>
+            {% endif %}
+            </tr>
+            {% endfor %} 
+
+        </tbody>
+        {% if user.is_authenticated %}
+        <tfoot>
+            <tr><td colspan=5><a class='btn' href="{% url 'add-sous-habitat' %}">Ajouter</a></td></tr>
+        </tfoot>
+        {% endif %}
+    </table>
+</main>
+
+{% endblock content %}

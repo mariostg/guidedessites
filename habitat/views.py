@@ -48,5 +48,42 @@ def update_habitat(request, pk):
 
 
 def sous_habitats(request):
-    sous_habitat = SousHabitat.objects.all()
-    return render(request, "sous_habitat_list.html", {"sous_habitat": sous_habitat})
+    data = SousHabitat.objects.all()
+    return render(request, "habitat/sous_habitat_list.html", {"data": data})
+
+
+def add_sous_habitat(request):
+    if request.method == "POST":
+        form = SousHabitatForm(request.POST)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.created_by = request.user
+            form.save()
+            return redirect("sous-habitats")
+    else:
+        form = SousHabitatForm
+
+    return render(request, "habitat/sous_habitat_form.html", {"form": form})
+
+
+def delete_sous_habitat(request, pk):
+    data = SousHabitat.objects.get(id=pk)
+    if request.method == "POST":
+        data.delete()
+        return redirect("sous-habitats")
+    context = {"data": data}
+    return render(request, "siteornitho/delete_template.html", context)
+
+
+def update_sous_habitat(request, pk):
+    data = SousHabitat.objects.get(pk=pk)
+    form = SousHabitatForm(instance=data)
+
+    if request.method == "POST":
+        form = SousHabitatForm(request.POST, instance=data)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.updated_by = request.user
+            form.save()
+            return redirect("sous-habitats")
+    return render(request, "habitat/sous_habitat_form.html", {"form": form, "data": data})

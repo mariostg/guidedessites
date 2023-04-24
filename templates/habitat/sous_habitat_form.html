@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="block block--centered">
+
+    <div class="form">
+        <header class="form__header">
+            <h1>Habitat</h1>
+        </header>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.errors }}
+            {{ form.non_field_errors }}
+            <div class="form__fields">
+                <div class="form_field">
+                    <label class="label">{{form.habitat.label}}</label>{{form.habitat}}
+                </div>
+                <div class="form_field">
+                    <label class="label">{{form.sous_habitat.label}}</label>{{form.sous_habitat}}
+                </div>
+                <div class="form__row">
+                    <button class="btn">Sauvegarder</button>
+                    <button class="btn btn-delete">Effacer</button>
+                </div>
+            </div>
+        </form>
+        <footer class="form__footer">
+            <span>Dernière modification: 3 jan 2022</span>
+            <span>Mario St-Gelais</span>
+        </footer>
+    </div>
+</section>
+{% endblock content %}
