@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage
-
+from django.conf import settings
+from django.contrib.auth.decorators import login_required
 from django.views import generic
 from django.contrib import messages
 from .filters import SiteOrnithoFilter
@@ -106,7 +107,10 @@ def edit_site(request, pk):
     return render(request, "siteornitho/site_form.html", {"form": form, "site": site})
 
 
+@login_required
+# @login_required(login_url="/guidedessites/users/login/")
 def add_site(request):
+    print(f"ULR {settings.LOGIN_URL}")
     if request.method == "POST":
         form = SiteForm(request.POST)
         if form.is_valid():

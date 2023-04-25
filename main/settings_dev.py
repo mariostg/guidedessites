@@ -85,7 +85,8 @@ TEMPLATES = [
         },
     },
 ]
-
+# to use custom templates such as textarea.html
+FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
 WSGI_APPLICATION = "main.wsgi.application"
 
 
