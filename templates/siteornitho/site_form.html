@@ -10,7 +10,7 @@
             {% csrf_token %}
             {{ form.errors }}
             {{ form.non_field_errors }}
-            <div class="form__fields">
+            <section class="form__fields-flex">
                 <div class="form__row">
                     <div class="form__field">
                         <label class="label" for="nom_du_site">Nom du site</label>
@@ -56,10 +56,6 @@
                         <label class="label" class="label" for="sous-habitat">Sous-habitat</label>
                             {{form.sous_habitat}}
                     </div>
-                    <div class="form_field">
-
-                        <label class="label checkbox-label"> Status </label> {{form.status}}
-                    </div>
                 </div>
                 <div class="form__row">
                     <label class="label checkbox-label"> {{form.transport}} Transport </label>
@@ -77,20 +73,23 @@
                         <label class="label" for="miseajour">Date de mise à jour</label>
                         <input class="input" type="text" />
                     </div>
+                    <div class="form_field">
+                        <label class="label"> Status </label> {{form.status}}
+                    </div>
                 </div>
-                <div>
+                <div class='form__field'>
                     <label class="label" for="stakeholder">Propriétaire ou partenaires</label>
                     <textarea class='textarea--full-width' name="description_generele" rows='10' value="{{form.stakeholder.value}}"></textarea> 
                 </div>
-                <div>
+                <div class='form__field'>
                     <label class="label" for="description-generale">Description générale</label> 
                     <textarea class='textarea--full-width' name="description_generele" rows='10' value="{{form.description_generale.value}}"></textarea> 
                 </div>
-                <div>
+                <div class='form__field'>
                     <label class="label" for="bon-a-savoir">Bon à savoir</label> 
                     <textarea class='textarea--full-width' name="description_generele" rows='10' value="{{form.bon_a_savoir.value}}"></textarea> 
                 </div>
-                <div>
+                <div class='form__field'>
                     <label class="label" for="enjeux">Enjeux</label>
                     <textarea class='textarea--full-width' name="description_generele" rows='10' value="{{form.enjeux.value}}"></textarea> 
                 </div>
@@ -98,7 +97,7 @@
                     <button class="btn">Sauvegarder</button>
                     <button class="btn btn-delete">Effacer</button>
                 </div>
-            </div>
+            </section>
         </form>
         <footer class="form__footer">
             <span>Dernière modification: 3 jan 2022</span>

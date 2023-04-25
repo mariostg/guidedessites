@@ -6,10 +6,14 @@ $color-btn: #359e64;
 
 $color-white: #f3f3f3;
 
-$color-status-error-bg: #fff2ee;
-$color-status-error: firebrick;
-$color-status-success-bg: #def8e8;
-$color-status-success: #359e64;
+$color-status-error-bg: firebrick;
+$color-status-error: $color-white;
+$color-status-success-bg: #359e64;
+$color-status-success: $color-white;
+$color-status-info-bg: #2196f3;
+$color-status-info: $color-white;
+$color-status-warning-bg: #ff5722;
+$color-status-warning: $color-white;
 
 // $color-theme: #1d3030;
 // $color-theme-medium: #437070;
@@ -43,6 +47,9 @@ $font-monospace: "Courier New", courier, monospace;
 $size-small: 1rem;
 $size-normal: 1.5rem;
 $size-medium: 2rem;
+
+$form-background: #9495a5;
+$form-control-disabled: #959495;
 
 $generic-transition: all 0.3s ease-in-out;
 

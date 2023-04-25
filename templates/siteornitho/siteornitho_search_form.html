@@ -1,57 +1,51 @@
-<nav
-class="w3-sidebar w3-light-grey w3-collapse"
-style="z-index: 3; width: 260px"
-id="mySidebar"
->
-<!-- Sidebar/menu -->
-<div>
-    <div class='header'>
-        <h3>Trouver un site</h3>
-    </div>
-    <i
-    onclick="w3_close()"
-    class="w3-hide-large w3-button w3-transparent w3-display-topright"
-    >cacher</i>
-    <hr />
-    <form id='search_form' action="{% url 'sites' %}" method="GET">
-        <div class='row'>
-            <div class="entry">
-                <label for="nom_du_site">{{form.nom_du_site.label}}
+<aside class="form form--collapsible" id="filter-form">
+    <form action="{% url 'sites' %}" method="GET">
+        <div class="form__header">Trouver un sites</div> 
+            <section class="form__fields_flex">
+                <div class="form__row">
+                    <div class="form__field">
+                        <label class='label' for="nom_du_site">{{form.nom_du_site.label}}</label>
+                        {{form.nom_du_site}}
+                        
+                    </div>
+                </div>
+                
+                <label class='label'>{{form.municipalite.label}} {{form.municipalite}} </label>
+                <label class='label'>{{form.sous_habitat.label}} {{form.sous_habitat}} </label>
+                <label class='label'>Période d'intérêt
+                    <div> {{form.periode_interet_debut}} </div>
                 </label>
-                {{form.nom_du_site}}
+                <label class='label checkbox-label'>
+                    {{form.transport}} 
+                    {{form.transport.label}} 
+                </label>
+            </section>
+            <div class="block block--spaced">
+                <button class="btn">Lancer recherche</button>
             </div>
-        </div> 
-        <div class='row'>
-            <label>{{form.municipalite.label}} {{form.municipalite}} </label>
-        </div> 
-        <div class='row'>
-            <label>{{form.sous_habitat.label}} {{form.sous_habitat}} </label>
-        </div> 
-        <div class='row'>
-            <label>Période d'intérêt
-                <div> {{form.periode_interet_debut}} </div>
-            </label>
-        </div> 
-        <div class='row'>
-            <label class='form-control'>
-                {{form.transport}} 
-                {{form.transport.label}} 
-            </label>
-        </div> 
-        
-        <p>
-            <button
-            class="w3-button w3-block w3-green w3-left-align"
-            type="submit"
-            >
-            Afficher les résultats
-        </button>
-        </p>
+              <div class="form__footer">&nbsp;</div>
     </form>
-</div>
-</nav>
+    <div id="expender" class="form__expender"><p>&nbsp;</p></div>
+</aside>
 
 
+<script>
+    const tg=document.getElementById('filter-form')
+    const expender=document.getElementById('expender')
+    const expender_width="-225px"
+    tg.style.marginLeft=expender_width
+    function asidetoggle(state){
+        let tg=document.getElementById('filter-form').style.marginLeft
+        console.log(tg)
+        if (tg==expender_width){
+            console.log('closed, need to opwn')
+            document.getElementById('filter-form').style.marginLeft="0"
+        }else{
+            console.log("open, beed to clise")
+            document.getElementById('filter-form').style.marginLeft=expender_width
+        }
+    }
 
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor: pointer" title="close side menu" id="menuOverlay" ></div>
+    expender.addEventListener("mouseover",(event)=>{asidetoggle()})
+    // expender.addEventListener("mouseleave" ,(event)=>{asidetoggle('off')})
+</script>

@@ -1,170 +1,170 @@
 @use "../base/colors" as *;
 .form {
-  background-color: $form-background;
-  border-left: 1px solid $color-theme;
-  border-right: 1px solid $color-theme;
-  border-radius: 8px;
-  display: grid;
-  justify-content: center;
-  align-items: start;
-  align-content: start;
-  width: fit-content;
-
-  &--collapsible {
-    grid-template-columns: 1fr 0px;
-    transition: $generic-transition;
-  }
-  section {
-    padding: 4px;
-  }
-  &__expender {
-    width: 12px;
-    background-color: $color-theme;
-    height: 100%;
-    position: relative;
-    left: -5px;
-    border-radius: 0 8px 8px 0;
-  }
-  &__fields {
+    background-color: $color-theme-background;
+    border-left: 1px solid $color-theme;
+    border-right: 1px solid $color-theme;
+    border-radius: 8px;
     display: grid;
-    grid-template-columns: 200px 1fr;
-    align-items: center;
-    gap: 14px;
-    padding: 2rem;
-    & > .right {
-      grid-column: 1/-1;
-      justify-content: end;
-    }
-  }
-  &__fields-flex {
-    display: grid;
-    align-items: center;
-    gap: 14px;
-    padding: 2rem;
-  }
-  &__row {
-    display: flex;
-    gap: 8px;
-  }
-  &__field {
-    display: flex;
-    flex-direction: column;
-    flex: auto;
-  }
-
-  &__header {
-    border-radius: 8px 8px 0 0;
-    background-color: $color-theme;
-    color: $color-theme-background;
-    text-align: center;
-    font-size: 3rem;
-    padding: 0 2rem;
-    &--small {
-      font-size: $size-normal;
-    }
-  }
-
-  &__footer {
-    grid-column-start: 1/-1;
-    background-color: $color-theme;
-    color: $color-theme-background;
-    text-align: center;
-    font-size: 1rem;
-    padding: 0 2rem;
-    border-radius: 0px 0px 8px 8px;
-  }
-
-  &__body {
-    display: grid;
-    padding: 0 2rem;
+    justify-content: center;
+    align-items: start;
     align-content: start;
-  }
+    width: fit-content;
 
-  &--two-col {
-    grid-template-columns: auto auto;
-    gap: 3rem;
-  }
-  &--three-col {
-    grid-template-columns: auto auto auto;
-    gap: 3rem;
-  }
+    &--collapsible {
+        grid-template-columns: 1fr 0px;
+        transition: $generic-transition;
+    }
+    section {
+        padding: 4px;
+    }
+    &__expender {
+        width: 12px;
+        background-color: $color-theme;
+        height: 100%;
+        position: relative;
+        left: -5px;
+        border-radius: 0 8px 8px 0;
+    }
+    &__fields {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        align-items: center;
+        gap: 14px;
+        padding: 2rem;
+        & > .right {
+            grid-column: 1/-1;
+            justify-content: end;
+        }
+    }
+    &__fields-flex {
+        display: grid;
+        align-items: center;
+        gap: 14px;
+        padding: 2rem;
+    }
+    &__row {
+        display: flex;
+        gap: 8px;
+    }
+    &__field {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    &__header {
+        border-radius: 8px 8px 0 0;
+        background-color: $color-theme;
+        color: $color-theme-background;
+        text-align: center;
+        font-size: 3rem;
+        padding: 0 2rem;
+        &--small {
+            font-size: $size-normal;
+        }
+    }
+
+    &__footer {
+        grid-column-start: 1/-1;
+        background-color: $color-theme;
+        color: $color-theme-background;
+        text-align: center;
+        font-size: 1rem;
+        padding: 0 2rem;
+        border-radius: 0px 0px 8px 8px;
+    }
+
+    &__body {
+        display: grid;
+        padding: 0 2rem;
+        align-content: start;
+    }
+
+    &--two-col {
+        grid-template-columns: auto auto;
+        gap: 3rem;
+    }
+    &--three-col {
+        grid-template-columns: auto auto auto;
+        gap: 3rem;
+    }
 }
 
 .select {
-  display: flex;
-  align-items: center;
-  // padding: 0.75rem;
-  cursor: pointer;
-  &::after {
-    content: "";
-    width: 0.8em;
-    height: 0.5em;
-    background-color: $color-theme;
-    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
-    justify-self: end;
-  }
+    display: flex;
+    align-items: center;
+    // padding: 0.75rem;
+    cursor: pointer;
+    &::after {
+        content: "";
+        width: 0.8em;
+        height: 0.5em;
+        background-color: $color-theme;
+        clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+        justify-self: end;
+    }
 }
 
 // .input {
 // }
 .input,
 .select {
-  //   font-size: 16px;
-  line-height: 1.1;
-  background-color: $color-white;
-  padding: 0.75rem;
-  border-radius: 0.5rem;
-  border: 2px solid $color-theme;
-  // border: transparent;
-  font-family: inherit;
-  // padding: 0.5em;
-  transition: 180ms box-shadow ease-in-out;
-  &:focus {
-    border-color: $color-theme;
-    box-shadow: $focus-shadow;
-    outline: 3px solid transparent;
-  }
-  &:hover {
-    opacity: 0.8;
-    box-shadow: $hover-shadow;
-    background-color: $color-theme-light;
-  }
+    //   font-size: 16px;
+    line-height: 1.1;
+    background-color: $color-white;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 2px solid $color-theme;
+    // border: transparent;
+    font-family: inherit;
+    // padding: 0.5em;
+    transition: 180ms box-shadow ease-in-out;
+    &:focus {
+        border-color: $color-theme;
+        box-shadow: $focus-shadow;
+        outline: 3px solid transparent;
+    }
+    &:hover {
+        opacity: 0.8;
+        box-shadow: $hover-shadow;
+        background-color: $color-theme-light;
+    }
 }
 .label {
-  font-weight: $font-regular;
-  display: block;
-  font-size: $size-medium;
-  color: $color-theme;
+    font-weight: $font-regular;
+    display: block;
+    font-size: $size-medium;
+    color: $color-theme;
 }
 
 /*Move to typography*/
 select {
-  appearance: none;
-  font-size: $size-medium;
-  position: relative;
-  border: none;
-  margin: 0;
-  width: 100%;
-  cursor: pointer;
-  // line-height: 1.1;
-  z-index: 1;
-  background-color: transparent;
-  outline: none;
+    appearance: none;
+    font-size: $size-medium;
+    position: relative;
+    border: none;
+    margin: 0;
+    width: 100%;
+    cursor: pointer;
+    // line-height: 1.1;
+    z-index: 1;
+    background-color: transparent;
+    outline: none;
 }
 
 select,
 .select:after {
-  grid-area: select;
+    grid-area: select;
 }
 
 input,
 select,
 textarea {
-  font-size: calc(max(16px, 2rem));
-  font-weight: 400;
+    font-size: calc(max(16px, 2rem));
+    font-weight: 400;
 }
 
 textarea {
-  grid-column: 1/-1;
-  resize: vertical;
+    grid-column: 1/-1;
+    resize: vertical;
 }
