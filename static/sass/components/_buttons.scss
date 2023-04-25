@@ -1,76 +1,77 @@
 @import "../base/colors";
 .btn {
-    // font-family: inherit;
-    // font-size: 1.5rem;
-    background-color: $color-btn;
-    border: none;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  font-family: inherit;
+  font-size: 1.5rem;
+  background-color: $color-btn;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-white;
+  border-radius: 4px;
+  box-shadow: $btn-shadow;
+  padding: 0.5em 1em;
+  min-width: 15ch;
+  min-height: 24px;
+  transition: 220ms all ease-in-out;
+  line-height: 1.1rem;
+  text-decoration: none;
+  margin: 0.5rem;
+  &:hover,
+  :active {
+    opacity: 0.6;
     color: $color-white;
-    border-radius: 4px;
+  }
+
+  &:focus {
+    outline-style: solid;
+    outline-color: transparent;
+    box-shadow: $focus-shadow;
+  }
+
+  &:disabled,
+  &.btn-disabled {
+    border: 1px solid $color-btn-back;
+    background-color: $color-theme-background;
+    color: $color-btn-back;
+    cursor: not-allowed;
+    opacity: 1;
+  }
+
+  &.btn-delete {
+    background-color: $color-btn-delete;
+  }
+
+  &.btn-back {
+    background-color: $color-btn-back;
+  }
+
+  &.btn--link {
+    background-color: inherit;
+    // color: set-color(inherit);
+    border: none;
+    box-shadow: 0 0 0 0px;
+
+    &:hover {
+      background-color: $color-theme-black;
+      color: $color-white;
+      border: 1px solid;
+      border: $color-white;
+      box-shadow: $hover-shadow;
+    }
+    &-small {
+      margin: 0;
+      padding: 0 8px;
+      min-width: fit-content;
+      min-height: 20px;
+      font-size: 1.1rem;
+    }
+  }
+  &.btn--link-dark {
+    background-color: inherit;
+    color: $color-theme-text;
+    border: none;
     box-shadow: $btn-shadow;
-    padding: 0.5em 1em;
-    min-width: 15ch;
-    min-height: 24px;
-    transition: 220ms all ease-in-out;
-    line-height: 1.1rem;
-    text-decoration: none;
-    // margin: 0.5rem;
-    &:hover,
-    :active {
-        opacity: 0.6;
-        color: $color-white;
-    }
-
-    &:focus {
-        outline-style: solid;
-        outline-color: transparent;
-        box-shadow: $focus-shadow;
-    }
-
-    &:disabled,
-    &.btn-disabled {
-        border: 1px solid $color-btn-back;
-        background-color: $color-theme-background;
-        color: $color-btn-back;
-        cursor: not-allowed;
-        opacity: 1;
-    }
-
-    &.btn-delete {
-        background-color: $color-btn-delete;
-    }
-
-    &.btn-confirm {
-        padding: 0 2rem;
-        min-width: 2ch;
-        max-width: 2ch;
-        background-color: #ff9933;
-    }
-    &.btn-back {
-        background-color: $color-btn-back;
-    }
-
-    &.btn--link {
-        background-color: inherit;
-        color: invert($color-theme-form-background);
-        border: none;
-        box-shadow: 0 0 0 0px;
-
-        &:hover {
-            background-color: $color-theme-black;
-            color: $color-white;
-            border: 1px solid;
-            border: $color-white;
-            box-shadow: $hover-shadow;
-        }
-    }
-    &.btn--link-dark {
-        // background-color: inherit;
-        color: $color-theme-text;
-        border: none;
-        box-shadow: $btn-shadow;
-    }
+  }
 }

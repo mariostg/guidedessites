@@ -1,5 +1,7 @@
 .summary {
-  padding: 2rem 0.5rem;
+  padding: 2rem 0.5rem 0 2rem;
+  max-width: 1200px;
+  min-width: 900px;
   &__header {
     background-color: $color-theme-black;
     color: #fff;
