@@ -1,6 +1,6 @@
 <aside class="form form--collapsible" id="filter-form">
     <form action="{% url 'sites' %}" method="GET">
-        <div class="form__header">Trouver un sites</div> 
+        <header class="form__header">Trouver un sites</header> 
             <section class="form__fields_flex">
                 <div class="form__row">
                     <div class="form__field">
@@ -32,7 +32,7 @@
 <script>
     const tg=document.getElementById('filter-form')
     const expender=document.getElementById('expender')
-    const expender_width="-230px"
+    const expender_width="-200px"
     tg.style.marginLeft=expender_width
     function asidetoggle(state){
         let tg=document.getElementById('filter-form').style.marginLeft

@@ -162,11 +162,19 @@ strong {
   align-items: start;
   align-content: start;
   width: fit-content; }
+  .form section {
+    padding: 4px; }
   .form--collapsible {
     grid-template-columns: 1fr 0px;
     transition: all 0.3s ease-in-out; }
-  .form section {
-    padding: 4px; }
+    .form--collapsible header {
+      font-size: 20px; }
+    .form--collapsible .input,
+    .form--collapsible .label,
+    .form--collapsible button {
+      font-size: 16px; }
+    .form--collapsible section {
+      padding-right: 9px; }
   .form__expender {
     width: 12px;
     background-color: #446ca2;
