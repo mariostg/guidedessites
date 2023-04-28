@@ -4,45 +4,49 @@
 {% block content %}
 {% include 'siteornitho/siteornitho_search_form.html'%}
 <!-- !PAGE CONTENT! -->
-<div class="w3-main w3-white" style="margin-left: 260px">
-    <!-- Push down content on small screens -->
-    <div class="w3-hide-large" style="margin-top: 80px"></div>
 
+<main class="block">
     <!-- Slideshow Header -->
-    <div class="w3-container">
-        <div class="entete_one_page">
+    <div>
+        <div class="header fiche_title">
+            <a href="#" class="precedent">Précédente</a>
             <h2>{{ sites.nom_du_site}}</h2>
+            <a class="suivant">Suivante</a>
         </div>
+
         {% for i in sites.images.all %}
         <div class="w3-display-container mySlides">
-            <img src="{{ i.image.url }}" style="width: 100%"
             alt={{ i.image}}
-            />
+        </div>
+        <div class="slides">
+            <img src="{{ i.image.url }}" style="width: 100%" />
             <figcaption>
                 {{ i.photo_author }} - {{i.photo_date}} <br>
                 {{ i.title}} {{i.description}}
             </figcaption>
         </div>
         {% endfor %}
-        
-    </div>
-    <div class="w3-row-padding w3-section">
-        {% for i in sites.images.all %}
-        <div class="w3-col s3">
-            <img
-            class="demo w3-opacity w3-hover-opacity-off"
-            src="{{ i.image.url}}"
-            style="width: 100%; cursor: pointer"
-            onclick="currentDiv({{ forloop.counter }})"
-            title="{{i.title}}"
-            />
-        </div>
-        {% endfor %}
     </div>
 
-    <div class="w3-container">
-        <h4><strong>Sommaire</strong></h4>
-        <section class='two-col'>
+    <div class="block">
+        {% for i in sites.images.all %}
+        <div class="miniatures">
+            <div class="miniature">
+                <img
+                src="{{ i.image.url}}"
+                style="width: 100%; cursor: pointer"
+                onclick="currentDiv({{ forloop.counter }})"
+                title="{{i.title}}"
+                alt="Jardin Place de la cité"
+                />
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <section class="information">
+        <div class="information__title">Sommaire</div>
+        <article class="information__detail">
             <p>Site web</p>
             {% if sites.url %} <a target="_blank" href="{{sites.url}}">{{sites.url}}</a> {% else %} <p class="crossmark"></p> {% endif %}
 
@@ -52,9 +56,9 @@
             {% else %}
                 <p class="crossmark"></p>
             {% endif %}
-                
-            <p>municipalité</p>
-            {% if sites.municipalite %} <p>{{sites.municipalite}}</p> {% else %} <p class="crossmark"></p> {% endif %}
+               
+            <p>Municipalité</p>
+            {% if sites.municipalite %} <p>{{sites.municipalite}}</p> {%else%} <p class="crossmark"></p> {%endif%}%
 
             <p>Coordonnées</p>
             <p>
@@ -86,21 +90,16 @@
             <p>Banc</p>
             <p class="{% if sites.banc%}checkmark{%else%}crossmark{% endif %}"</p>
 
-        </section>
-        <hr />
-
-        <h4><strong>Description de l'habitat</strong></h4>
-        <p>
-            Forestier non-défini; Forestier - conifères; Forestier -
-            mixte; Forestier - feuillus
-        </p>
-
-        <hr />
+        </article>
+        <hr>
+        <p class="information__title">Description de l'habitat</p>
+        <p>Forestier non-défini; Forestier - conifères; Forestier - mixte; Forestier - feuillus</p>
 
         <h4><strong>Description du site</strong></h4>
         <p>
             {{ sites.description_generale }}
         </p>
+
         <h4><strong>Bon à savoir</strong></h4>
         <p>{{sites.bon_a_savoir}}</p>
         <h4><strong>Enjeu de conservation</strong></h4>
@@ -109,28 +108,9 @@
         </p>
         <h4><strong>Propriétaire ou partenatiat</strong></h4>
         <p>{{sites.stakeholder|default:"&nbsp;"}}</p>
-    </div>
-    <hr />
+        <hr>
+    </section>
 
-    <!-- Contact -->
-    {% comment %} <div class="w3-container" id="contact">
-        <h2>Obtenir plus d'information ou commenter ce site</h2>
-        <form action="" target="_blank">
-            <p>
-                <input class="w3-input w3-border" type="text" placeholder="Nom" required name="Name" />
-            </p>
-            <p>
-                <input class="w3-input w3-border" type="text" placeholder="Courriel" required name="Email"
-                />
-            </p>
-            <p>
-                <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message" />
-            </p>
-            <button type="submit" class="w3-button w3-green w3-third">
-                Envoyer
-            </button>
-        </form>
-    </div> {% endcomment %}
     {% if request.user.is_authenticated %}
     <a class="button btn--sm" href="{% url 'edit-site' sites.pk %}">Modifier</a>
     <a class="button btn--sm button--delete" href="{% url 'delete-site' sites.pk %}">Effacer</a>
@@ -139,9 +119,10 @@
         class="w3-container w3-padding-16"
         style="margin-top: 32px"
     ></footer>
+</main>
+<!-- Contact -->
 
-    <!-- End page content -->
-</div>
+<footer class="">Dernière mise a jour: 7 mars 2023 It is 27th mars 2023 21:13</footer>
 
 
 <script>

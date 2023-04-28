@@ -452,7 +452,7 @@ input[type="checkbox"]:disabled {
   opacity: 0.6; }
 
 .information {
-  padding: 0rem;
+  padding-left: 1rem;
   display: flex;
   flex-direction: column; }
   .information__title {
@@ -487,6 +487,12 @@ a.suivant {
 .suivant::after {
   content: "\261E";
   font-size: 4rem; }
+
+.container main {
+  padding: 0 20px; }
+
+aside {
+  position: fixed; }
 
 .merge {
   grid-column: 1/-1; }

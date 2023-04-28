@@ -1,80 +1,88 @@
 @import "../base/colors";
 
+.container {
+    main {
+        padding: 0 20px;
+    }
+}
+aside {
+    position: fixed;
+}
 .merge {
-  grid-column: 1/-1;
+    grid-column: 1/-1;
 }
 
 .block {
-  padding: 1rem 1rem;
+    padding: 1rem 1rem;
 
-  &--centered {
-    display: grid;
-    justify-content: center;
-  }
-  &--spaced {
-    display: flex;
-    justify-content: space-around;
-  }
+    &--centered {
+        display: grid;
+        justify-content: center;
+    }
+    &--spaced {
+        display: flex;
+        justify-content: space-around;
+    }
 }
 
 .panel {
-  padding: 1rem 0;
+    padding: 1rem 0;
 }
 
 .frame {
-  padding: 0 1rem;
+    padding: 0 1rem;
 }
 
 .columns {
-  display: grid;
-  column-gap: 1.5rem;
-  padding: 2rem;
-  justify-items: center;
+    display: grid;
+    column-gap: 1.5rem;
+    padding: 2rem;
+    justify-items: center;
 }
 
 .rows {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .c2 {
-  grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 }
 .c3 {
-  grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 .c4 {
-  grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 }
 .header {
-  background-color: $color-theme;
-  color: $color-theme-light;
-  padding: 1.5rem 1rem;
+    background-color: $color-theme;
+    color: $color-theme-light;
+    padding: 1.5rem 1rem;
 
-  &--logo {
-    max-width: 175px;
-  }
+    &--logo {
+        max-width: 175px;
+    }
 }
 .site-header {
-  display: flex;
-  background-color: $color-theme;
-  color: $color-theme-light;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 3rem;
-  &__logo {
-    max-width: 175px;
-  }
-  &__title {
     display: flex;
-    flex-direction: column;
-    align-items: end;
-    padding: 0 12rem;
-  }
+    background-color: $color-theme;
+    color: $color-theme-light;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+    &__logo {
+        max-width: 175px;
+    }
+    &__title {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        padding: 0 12rem;
+    }
 }
 
 .footnote {
-  text-align: right;
-  font-size: $size-small;
+    text-align: right;
+    font-size: $size-small;
 }

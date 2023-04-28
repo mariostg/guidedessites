@@ -95,6 +95,7 @@ def site(request, pk):
     return render(request, "siteornitho/siteornitho_detail.html", context)
 
 
+@login_required
 def edit_site(request, pk):
     site = SiteOrnitho.objects.get(id=pk)
     form = SiteForm(instance=site)
