@@ -1,73 +1,59 @@
-<!DOCTYPE html>
-{% load static %}
-{% load verbose_names %}
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="{% static 'siteornitho/base.css'%}" />
-        <link rel="stylesheet" href="{% static 'siteornitho/style.css' %}" />
-        <link rel="stylesheet" href="{% static 'siteornitho/layout.css' %}" />
-        <link rel="stylesheet" href="{% static 'uikit/styles/modules/_button.css' %}" />
-        <title>Images</title>
-    </head>
-    <body>
-        <div class="form-container">
-            <div class="header">
-                <h1>Photos de site ornithologique</h1>
-            </div>
-            <form action="" method="POST">
-                {% csrf_token %}
-                {{ form.errors }}
-                {{ form.non_field_errors }}
-                <div class="row">
-                    <div class="entry">
+{% extends 'base.html' %}
+{% block content %}
+<main class="block block--centered">
+    <div class="form">
+        <div class="header">
+            <h1>Photos de site ornithologique</h1>
+        </div>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.errors }}
+            {{ form.non_field_errors }}
+            <section class="form__fields-flex">
+                <div class="form__row">
+                    <div class="form__field">
                         <label for="nom_du_site">Nom du site</label> 
-                        <div class="select">
                             {{form.siteornitho}}
-                        </div> 
                     </div>
                 </div>
-                <div class="row">
-                    <div class="entry">
+                <div class="form_row">
+                    <div class="form__field">
                         <label for="titre">Titre</label> 
                             {{form.title}}
                     </div>
                 </div>
-                <div class="row">
-                    <div class="entry">
+                <div class="form__row">
+                    <div class="form__field">
                         <label for="description">Description</label> 
                             {{form.description}}
                     </div>
                 </div>
-                <div class="row">
-                    <div class="entry">
+                <div class="form__row">
+                    <div class="form__field">
                         <label for="auteur">Auteur</label> 
                             {{form.photo_author}}
                     </div>
                 </div>
-                <div class="row">
-                    <div class="entry">
+                <div class="form__row">
+                    <div class="form__field">
                         <label for="date">Date</label> 
                             {{form.photo_date}}
                     </div>
                 </div>
-                <div class="row">
-                    <div class="entry">
+                <div class="form__row">
+                    <div class="form__field">
                         <label for="image">Image</label> 
                             {{form.image}}
                     </div>
                 </div>
-            <div class="row row--button">
-                <input class='button' type="submit" value='Sauvegarder'>
-                {% comment %} <button class="button">Sauvegarder</button> {% endcomment %}
-                <button class="button button--delete">Effacer</button>
-            </div>
+                <div class="form__row">
+                    <input class='btn' type="submit" value='Sauvegarder'>
+                </div>
+            </section>
         </form>
         <footer class="">
             <span>Dernière modification: 3 jan 2022</span>
             <span>Mario St-Gelais</span>
         </footer>
-    </body>
-</html>
+    </main>
+{% endblock content %}
