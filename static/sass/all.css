@@ -426,8 +426,8 @@ input[type="checkbox"]:disabled {
   align-items: center; }
 
 .slides {
-  display: flex;
-  flex-direction: column; }
+  display: grid;
+  justify-content: center; }
   .slides figcaption {
     background-color: #446ca2;
     color: #f3f3f3;
@@ -440,11 +440,14 @@ input[type="checkbox"]:disabled {
     display: none; }
   .slides .visible {
     display: flex; }
+  .slides img {
+    max-width: 1024px; }
 
 .miniatures {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 128px);
   gap: 3rem;
+  justify-content: center;
   padding: 1rem 3rem;
   background-color: #dbe4f0;
   border-radius: 1rem; }
@@ -500,7 +503,8 @@ a.suivant {
   padding: 0 20px; }
 
 aside {
-  position: fixed; }
+  position: fixed;
+  margin-left: -200px; }
 
 .merge {
   grid-column: 1/-1; }

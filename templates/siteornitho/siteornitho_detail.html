@@ -21,7 +21,6 @@
                 {% if sites.has_next%}
                 <a class='suivant' href='{% url "catalogue" next_page %}' data-title="Fiche suivante"></a>
                 {% endif%}
-
             </div>
             
             {% for i in sites.0.images.all %}
@@ -34,97 +33,92 @@
             </div>
             {% endfor %}
         </div>
-    </div>
-    
-    <div class="block">
-        <div class="miniatures">
-            {% for i in sites.0.images.all %}
-            <div class="miniature">
-                <img
-                src="{{ i.image.url}}"
-                src="../images/0U7A5050.JPG"
-                style="width: 100%; cursor: pointer"
-                onclick="currentDiv(1)"
-                onclick="currentDiv({{ forloop.counter }})"
-                title="{{i.title}}"
-                title="Jardin Place de la cité"
-                alt="Jardin Place de la cité"
-                alt="{{i.title}}"
-                />
+        
+        <div class="block">
+            <div class="miniatures">
+                {% for i in sites.0.images.all %}
+                <div class="miniature">
+                    <img class='demo'
+                    src="{{ i.image.url}}"
+                    style="width: 100%; cursor: pointer"
+                    onclick="currentDiv({{ forloop.counter }})"
+                    title="{{i.title}}"
+                    alt="{{i.title}}"
+                    />
+                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
+        
+        <section class="information">
+            <div class="information__title">Sommaire</div>
+            <article class="information__detail">
+                <p>Siteweb</p>
+                <p>{{ sites.0.url|default:"&nbsp;" }}</p>
+                
+                <p>Site ebird</p>
+                {% if sites.0.locid %}
+                <p><a class='globe' target="_blank" href="https://ebird.org/qc/hotspot/{{sites.0.locid}}">{{sites.0.locid}}</a></p>
+                {% endif %}
+                
+                <p>Municipalité</p>
+                <p>{{sites.0.municipalite|default:"&nbsp;"}}</p>
+                
+                <p>Coordonnées</p>
+                <a target="_blank"
+                href="https://www.google.com/maps?q={{site.0.latitude}},{{sites.0.longitude}}+(My+Point)&z=14&ll={{sites.0.latitude}},{{sites.0.longitude}}"
+                >{{sites.0.latitude}},{{sites.0.longitude}}</a>
+                
+                <p>Accès gratuit</p>
+                <p class="{% if sites.0.acces_gratuit %}checkmark{% else %}crossmark{% endif %}"></p>
+                
+                <p>Transport en commun</p>
+                <p class="{% if sites.0.transport%}checkmark {%else%}crossmark{% endif %}"></p>
+                
+                <p>période d'intérêt</p>
+                <p>{{m1}} {{m2}} </p>
+                
+                <p>Toilettes</p>
+                <p class="{% if sites.0.toilette%}checkmark{%else%}crossmark{% endif %}"></p>
+                
+                <p>Aire de picnique</p>
+                <p class="{% if sites.0.picnique%}checkmark{%else%}crossmark{% endif %}"></p>
+                
+                <p>Banc</p>
+                <p class="{% if sites.0.banc%}checkmark{%else%}crossmark{% endif %}"></p>
+            </article>
+            <hr>
+            <p class="information__title">Description de l'habitat</p>
+            <p>Forestier non-défini; Forestier - conifères; Forestier - mixte; Forestier - feuillus</p>
+            
+            <p class="information__title">Description du site</p>
+            <p> {{ sites.0.description_generale }} </p>
+            
+            <p class="information__title">Bon à savoir</p>
+            <p>{{sites.0.bon_a_savoir}}</p>
+            
+            <p class="information__title">Enjeu de conservation</p>
+            <p> {{sites.0.enjeux}} </p>
+            
+            <p class="information__title">Propriétaire ou partenatiat</p>
+            <p>{{sites.0.stakeholder|default:"&nbsp;"}}</p>
+            
+        </section>
+        <hr />
+        
+        {% if request.user.is_authenticated %}
+        <div class="block block--spaced">
+            <a class="btn" href="{% url 'edit-site' sites.0.pk %}">Modifier</a>
+            <a class="btn btn-delete" href="{% url 'delete-site' sites.0.pk %}">Effacer</a>
+        </div>
+        {% endif %}
+        
+        <footer class="w3-container w3-padding-16" style="margin-top: 32px" >
+            Dernière mise a jour:   {{sites.0.miseajour|localize}} It is {% now "jS F Y H:i" %}      
+        </footer>
+        <!-- End page content -->
     </div>
-
-    <section class="information">
-        <div class="information__title">Sommaire</div>
-        <article class="information__detail">
-            <p>Siteweb</p>
-            <p>{{ sites.0.url|default:"&nbsp;" }}</p>
-
-            <p>Site ebird</p>
-            {% if sites.0.locid %}
-            <p><a class='globe' target="_blank" href="https://ebird.org/qc/hotspot/{{sites.0.locid}}">{{sites.0.locid}}</a></p>
-            {% endif %}
-
-            <p>Municipalité</p>
-            <p>{{sites.0.municipalite|default:"&nbsp;"}}</p>
-
-            <p>Coordonnées</p>
-            <a target="_blank"
-            href="https://www.google.com/maps?q={{site.0.latitude}},{{sites.0.longitude}}+(My+Point)&z=14&ll={{sites.0.latitude}},{{sites.0.longitude}}"
-            >{{sites.0.latitude}},{{sites.0.longitude}}</a>
-
-            <p>Accès gratuit</p>
-            <p class="{% if sites.0.acces_gratuit %}checkmark{% else %}crossmark{% endif %}"></p>
-
-            <p>Transport en commun</p>
-            <p class="{% if sites.0.transport%}checkmark {%else%}crossmark{% endif %}"></p>
-
-            <p>période d'intérêt</p>
-            <p>{{m1}} {{m2}} </p>
-
-            <p>Toilettes</p>
-            <p class="{% if sites.0.toilette%}checkmark{%else%}crossmark{% endif %}"></p>
-
-            <p>Aire de picnique</p>
-            <p class="{% if sites.0.picnique%}checkmark{%else%}crossmark{% endif %}"></p>
-
-            <p>Banc</p>
-            <p class="{% if sites.0.banc%}checkmark{%else%}crossmark{% endif %}"></p>
-        </article>
-        <hr>
-        <p class="information__title">Description de l'habitat</p>
-        <p>Forestier non-défini; Forestier - conifères; Forestier - mixte; Forestier - feuillus</p>
-
-        <p class="information__title">Description du site</p>
-        <p> {{ sites.0.description_generale }} </p>
-
-        <p class="information__title">Bon à savoir</p>
-        <p>{{sites.0.bon_a_savoir}}</p>
-
-        <p class="information__title">Enjeu de conservation</p>
-        <p> {{sites.0.enjeux}} </p>
-
-        <p class="information__title">Propriétaire ou partenatiat</p>
-        <p>{{sites.0.stakeholder|default:"&nbsp;"}}</p>
-
-    </section>
-    <hr />
-
-    {% if request.user.is_authenticated %}
-    <div class="block block--spaced">
-        <a class="btn" href="{% url 'edit-site' sites.0.pk %}">Modifier</a>
-        <a class="btn btn-delete" href="{% url 'delete-site' sites.0.pk %}">Effacer</a>
-    </div>
-    {% endif %}
-
-    <footer class="w3-container w3-padding-16" style="margin-top: 32px" >
-        Dernière mise a jour:   {{sites.0.miseajour|localize}} It is {% now "jS F Y H:i" %}
-
-    </footer>
-    <!-- End page content -->
-</main>
+    </main>
 </div>
 <script>
     // Slideshow
@@ -137,7 +131,7 @@
 
     function showDivs(n) {
         var i;
-        var x = document.getElementsByClassName("mySlides");
+        var x = document.getElementsByClassName("slides");
         var dots = document.getElementsByClassName("demo");
         if (n > x.length) {
             slideIndex = 1;
@@ -150,12 +144,12 @@
         }
         for (i = 0; i < dots.length; i++) {
             dots[i].className = dots[i].className.replace(
-                " w3-opacity-off",
+                " opacity-off",
                 ""
             );
         }
-        x[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " w3-opacity-off";
+        x[slideIndex - 1].style.display = "grid";
+        dots[slideIndex - 1].className += " opacity-off";
     }
 </script>
 {% endif %}

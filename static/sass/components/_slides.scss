@@ -4,8 +4,8 @@
     align-items: center;
 }
 .slides {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    justify-content: center;
     & figcaption {
         background-color: $color-theme;
         color: $color-white;
@@ -21,12 +21,16 @@
     & .visible {
         display: flex;
     }
+    img {
+        max-width: 1024px;
+    }
 }
 
 .miniatures {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 128px);
     gap: 3rem;
+    justify-content: center;
     padding: 1rem 3rem;
     background-color: $color-theme-light;
     border-radius: 1rem;
@@ -89,3 +93,18 @@ a.suivant {
     content: "\261E";
     font-size: 4rem;
 }
+
+// .w3-opacity,
+// .w3-hover-opacity:hover {
+//     opacity: 0.6;
+// }
+// .w3-opacity-off,
+// .w3-hover-opacity-off:hover {
+//     opacity: 1;
+// }
+// .w3-opacity-max {
+//     opacity: 0.25;
+// }
+// .w3-opacity-min {
+//     opacity: 0.75;
+// }
