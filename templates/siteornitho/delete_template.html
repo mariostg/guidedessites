@@ -1,12 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form method="POST">
-    {% csrf_token %}
-    <p>Êtes-vous certain de voulor effacer "{{ object }}"</p>
-    
-    <button><a href="{% url 'sites' %}" style='text-decoration:none;'>Retour</a></button>
-    
-    <input type="submit" value="Confirm" />
-</form>
+<main class="block block--centered">
+    <div class="form">
+        <header class="header">
+            <h1>Effacer</h1>
+        </header>
+        <form method="POST">
+            {% csrf_token %}
+            <section class="form__fields-flex">
+                <p class='hint-warning'>Êtes-vous certain de voulor effacer "{{ object }}"</p>
+                <div class="block block--spaced">
+                    <a class='btn' href="{% url 'sites' %}" style='text-decoration:none;'>Retour</a>
+                    <input class='btn' type="submit" value="Confirm" />
+            
+                </div>
+            </section>
+        </form>
+</main>
 {% endblock content %}
