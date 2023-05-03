@@ -10,7 +10,7 @@
 <!-- !PAGE CONTENT! -->
     <div class="block">
     <!-- Slideshow Header -->
-        <div>
+        <div class='slideshow'>
             <div class="header fiche_title">
                 {% if sites.has_previous%}
                 <a class='precedent' href='{% url "catalogue" previous_page %}' data-title='Fiche précédente'></a>
@@ -25,11 +25,13 @@
             
             {% for i in sites.0.images.all %}
             <div class="slides" style="display: none">
-                <img src="{{ i.image.url }}" style="width: 100%" alt={{ i.image}} />
-                <figcaption>
-                    {{ i.photo_author }} - {{i.photo_date}} <br>
+                <div class='title'>
                     {{ i.title}} {{i.description}}
-                </figcaption>
+                </div>
+                <img src="{{ i.image.url }}" style="width: 100%" alt={{ i.image}} />
+                <div class='author'>
+                    {{ i.photo_author }} - {{i.photo_date}} <br>
+                </div>
             </div>
             {% endfor %}
         </div>

@@ -424,15 +424,24 @@ input[type="checkbox"]:disabled {
   grid-template-columns: auto 1fr auto;
   align-items: center; }
 
+.slideshow {
+  display: grid;
+  gap: 5px; }
+
 .slides {
   display: grid;
   justify-content: center; }
-  .slides figcaption {
+  .slides .title,
+  .slides .author {
     background-color: #446ca2;
     color: #f3f3f3;
     font: italic smaller sans-serif;
     padding: 5px 0;
-    text-align: center;
+    text-align: center; }
+  .slides .title {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem; }
+  .slides .author {
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem; }
   .slides .hidden {
