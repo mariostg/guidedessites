@@ -531,8 +531,11 @@ a.suivant {
   .album img {
     max-height: 132px; }
 
-.container main {
-  padding: 0 20px; }
+.container {
+  display: grid;
+  justify-content: center; }
+  .container main {
+    padding: 0 20px; }
 
 aside {
   position: fixed;

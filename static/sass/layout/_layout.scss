@@ -1,6 +1,8 @@
 @import "../base/colors";
 
 .container {
+    display: grid;
+    justify-content: center;
     main {
         padding: 0 20px;
     }
