@@ -3,6 +3,7 @@
 {% load l10n %}
 {% block content %}
 <section>
+    <a href='{% url 'add-image' %}' class='btn'>Ajouter Image</a>
     <article class="block">
         <div class="image-manager">
             {% for i in images %}

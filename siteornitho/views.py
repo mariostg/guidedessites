@@ -138,7 +138,7 @@ def images(request):
     return render(request, "siteornitho/images.html", {"images": qs})
 
 
-def add_photo(request):
+def add_image(request):
     print("Entering function")
     if request.method == "POST":
         form = ImageForm(request.POST, request.FILES)

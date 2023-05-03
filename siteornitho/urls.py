@@ -12,6 +12,6 @@ urlpatterns = [
     path("site/<int:pk>/delete/", views.delete_site, name="delete-site"),
     path("site/add/", views.add_site, name="add-site"),
     path("images/", views.images, name="images"),
-    path("image/add", views.add_photo, name="add-photo"),
+    path("image/add", views.add_image, name="add-image"),
     path("image/update/<int:pk>", views.update_image, name="update-image"),
 ]

@@ -24,7 +24,7 @@
              <a class="btn btn--link" href="{% url 'logout' %}" class="button button--small">Déconnexion</a>
              <a class="btn btn--link" href="{% url 'add-site' %}" class="button button--small">Ajouter site</a>
              <a class="btn btn--link" href="{% url 'site-admin' %}" class="button button--small">Administration</a>
-             <a class="btn btn--link" href="{% url 'add-photo' %}" class="button button--small">Ajouter image</a>
+             <a class="btn btn--link" href="{% url 'images' %}" class="button button--small">Images</a>
              <a class="btn btn--link" href="{% url 'account' %}">{{user}}</a>
             {% else %}
             <a class="btn btn--link" href="{% url 'login' %}">Connexion</a>
