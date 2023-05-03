@@ -178,3 +178,12 @@ def update_image(request, pk):
             form.save()
             return redirect("images")
     return render(request, "siteornitho/image_form.html", {"form": form})
+
+
+def delete_image(request, pk):
+    qs = SiteOrnithoImage.objects.get(id=pk)
+    if request.method == "POST":
+        qs.delete()
+        return redirect("images")
+    context = {"object": qs}
+    return render(request, "siteornitho/delete_template.html", context)

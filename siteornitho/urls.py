@@ -14,4 +14,5 @@ urlpatterns = [
     path("images/", views.images, name="images"),
     path("image/add", views.add_image, name="add-image"),
     path("image/update/<int:pk>", views.update_image, name="update-image"),
+    path("image/delete/<int:pk>", views.delete_image, name="delete-image"),
 ]

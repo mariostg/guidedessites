@@ -544,6 +544,8 @@ a.suivant {
   display: grid;
   justify-content: center; }
   .container main {
+    display: grid;
+    grid-template-columns: 1200px;
     padding: 0 20px; }
 
 aside {
