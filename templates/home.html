@@ -2,14 +2,13 @@
 
 {% block titre %} Guide des sites{% endblock titre %} 
 
-{% block pagetitle %}
-<h1>Guide des sites - Club des Ornithologes de l'Outaouais</h1>
-{% endblock pagetitle %}
+{% block title %}
+Guide des sites - Club des Ornithologes de l'Outaouais
+{% endblock title %}
 
 {% block content %}
-<h2>
-Introduction sur les lieux d’observations des oiseaux en Outaouais
-</h2>
+<main class='block'>
+<h2> Introduction sur les lieux d’observations des oiseaux en Outaouais </h2>
 <p>
 La région de l’Outaouais couvre une vaste étendue située sur le territoire traditionnel Algonquin; les ornithologues fréquentent principalement des zones urbaines et périurbaines de Gatineau, mais la région compte plus de 10 MRC sur une superficie de 30 467 km 2. Ces secteurs ruraux possèdent une grande diversité d’habitats qui offrent autant d’occasions de découvrir nos magnifiques espèces aviaires.
 </p>
@@ -27,5 +26,6 @@ Au fil du temps, cet outil sera mis à jour par nos bénévoles; afin de suggér
 
 <a href="{% url 'catalogue' %}">Catalogue des sites, Naviguer les site un par un</a>
 <a href="{% url "detail_list" %}">Liste des noms de sites</a>
+</main>
 {% endblock content %}
 

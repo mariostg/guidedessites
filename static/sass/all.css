@@ -348,18 +348,6 @@ textarea {
     background-color: #359e64;
     color: #f3f3f3; }
 
-.nofreeze {
-  color: #f3f3f3;
-  background-color: #2196f3;
-  padding: 0 8px;
-  border-radius: 14px; }
-
-.freeze {
-  color: #f3f3f3;
-  background-color: #ff5722;
-  padding: 0 8px;
-  border-radius: 14px; }
-
 .status {
   padding: 0.2rem 0.4rem; }
   .status--warning {
@@ -368,9 +356,6 @@ textarea {
   .status--ok {
     color: #f3f3f3;
     background-color: #359e64; }
-
-.negative {
-  color: red; }
 
 .checkbox-label {
   line-height: 1.1;
