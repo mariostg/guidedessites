@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load l10n %}
+{% block content %}
+<section>
+    <article class="block">
+        <div class="image-manager">
+            {% for i in images %}
+            <div class="form">
+                <div class="form__header">{{i.title}}</div>
+                <div class="form__fields">
+                    <div class="form__row">
+                        <img
+                            src="/media/{{i.image}}"
+                            alt="{{image.title}}"
+                        />
+                    </div>
+                    <div class="form__row">
+                        <div>{{i.photo_author}}</div>
+                        <div>{{i.photo_date}}</div>
+                    </div>
+                    <p>{{i.description}}</p>
+                    <div class="form__row">
+                        <a href="#" class="btn btn-delete">Effacer</a>
+                        <a href="#" class="btn">Modifier</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </article>
+</section>
+{% endblock content %}

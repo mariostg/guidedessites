@@ -5,7 +5,7 @@
         <div class="header">
             <h1>Photos de site ornithologique</h1>
         </div>
-        <form action="" method="POST">
+        <form method="POST"  enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.errors }}
             {{ form.non_field_errors }}

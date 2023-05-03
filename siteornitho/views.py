@@ -133,14 +133,36 @@ def delete_site(request, pk):
     return render(request, "siteornitho/delete_template.html", context)
 
 
-def add_photo(request):
-    if request == "POST":
-        form = ImageForm(request.POST)
-        if form.is_valid():
-            image = form.save()
-            return redirect("sites")
-            # return redirect("image", image.id)
-    else:
-        form = ImageForm
+def images(request):
+    qs = SiteOrnithoImage.objects.all()
+    return render(request, "siteornitho/images.html", {"images": qs})
 
-    return render(request, "siteornitho/image_form.html", {"form": form})
+
+def add_photo(request):
+    print("Entering function")
+    if request.method == "POST":
+        form = ImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            print("Image form is valid")
+            image = form.save()
+            img_obj = form.instance
+            return render(
+                request,
+                "siteornitho/image_form.html",
+                {
+                    "form": form,
+                    "img_obj": img_obj,
+                },
+            )
+        else:
+            print("Image not valid")
+    else:
+        print("MEthod is not posr")
+        form = ImageForm
+        return render(
+            request,
+            "siteornitho/image_form.html",
+            {
+                "form": form,
+            },
+        )

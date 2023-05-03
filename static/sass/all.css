@@ -22,9 +22,6 @@ body {
   font-size: 2rem;
   min-height: 100vh; }
 
-img {
-  width: 100%; }
-
 @media only screen and (min-width: 480px) {
   html {
     font-size: 56.25%; } }
@@ -498,6 +495,13 @@ a.suivant {
 .suivant::after {
   content: "\261E";
   font-size: 4rem; }
+
+.image-manager {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px; }
+  .image-manager img {
+    max-height: 132px; }
 
 .container main {
   padding: 0 20px; }
