@@ -13,4 +13,5 @@ urlpatterns = [
     path("site/add/", views.add_site, name="add-site"),
     path("images/", views.images, name="images"),
     path("image/add", views.add_photo, name="add-photo"),
+    path("image/update/<int:pk>", views.update_image, name="update-image"),
 ]

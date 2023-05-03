@@ -61,6 +61,10 @@
         display: flex;
         flex-direction: column;
         flex: 1;
+
+        img {
+            max-width: 132px;
+        }
     }
 
     &__header {

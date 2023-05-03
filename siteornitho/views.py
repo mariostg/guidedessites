@@ -166,3 +166,15 @@ def add_photo(request):
                 "form": form,
             },
         )
+
+
+def update_image(request, pk):
+    qs = SiteOrnithoImage.objects.get(id=pk)
+    form = ImageForm(instance=qs)
+
+    if request.method == "POST":
+        form = ImageForm(request.POST, request.FILES, instance=qs)
+        if form.is_valid():
+            form.save()
+            return redirect("images")
+    return render(request, "siteornitho/image_form.html", {"form": form})
