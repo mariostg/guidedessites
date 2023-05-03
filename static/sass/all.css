@@ -498,11 +498,37 @@ a.suivant {
   content: "\261E";
   font-size: 4rem; }
 
-.image-manager {
+.album {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px; }
-  .image-manager img {
+  .album .image {
+    background-color: #a5b9d2;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px; }
+    .album .image__header {
+      background-color: #6f93c3;
+      border-radius: 8px 8px 0 0;
+      text-align: center;
+      color: #f3f3f3; }
+    .album .image__body {
+      display: flex;
+      flex-direction: column; }
+      .album .image__body div:first-child {
+        align-self: center; }
+      .album .image__body .author,
+      .album .image__body .buttons {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px; }
+      .album .image__body .title,
+      .album .image__body .photo {
+        text-align: center; }
+      .album .image__body .description {
+        padding: 0 8px; }
+  .album img {
     max-height: 132px; }
 
 .container main {

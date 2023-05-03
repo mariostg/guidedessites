@@ -5,23 +5,25 @@
 <section>
     <a href='{% url 'add-image' %}' class='btn'>Ajouter Image</a>
     <article class="block">
-        <div class="image-manager">
+        <div class="album">
             {% for i in images %}
-            <div class="form">
-                <div class="form__header">{{i.title}}</div>
-                <div class="form__fields">
-                    <div class="form__row">
+            <div class="image">
+                <div class="image__header">{{i.siteornitho.nom_du_site}}</div>
+                <div class="image__body">
+                    <div class='title'>{{i.title}}</div>
+                    <div class='photo'>
                         <img
                             src="/media/{{i.image}}"
                             alt="{{image.title}}"
                         />
                     </div>
-                    <div class="form__row">
+                    <div class='description'>{{i.description}}</div>
+                    <div class='author'>
                         <div>{{i.photo_author}}</div>
                         <div>{{i.photo_date}}</div>
                     </div>
-                    <p>{{i.description}}</p>
-                    <div class="form__row">
+
+                    <div class='buttons'>
                         <a href="#" class="btn btn-delete">Effacer</a>
                         <a href="{% url 'update-image' i.pk %}" class="btn">Modifier</a>
                     </div>

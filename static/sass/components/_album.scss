@@ -1,0 +1,42 @@
+.album {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+
+    .image {
+        background-color: $color-theme-background;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        &__header {
+            background-color: $color-theme-medium;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+            color: $color-white;
+        }
+        &__body {
+            display: flex;
+            flex-direction: column;
+            div:first-child {
+                align-self: center;
+            }
+            .author,
+            .buttons {
+                display: flex;
+                justify-content: space-between;
+                padding: 0 10px;
+            }
+            .title,
+            .photo {
+                text-align: center;
+            }
+            .description {
+                padding: 0 8px;
+            }
+        }
+    }
+    img {
+        max-height: 132px;
+    }
+}
