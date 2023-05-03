@@ -1,50 +1,34 @@
 .hint {
-  display: flex;
-  align-items: center;
-  //   width: fit-content;
-  padding: 0 0.5rem;
-  gap: 1rem;
-  &-error {
-    background-color: $color-status-error-bg;
-    color: $color-status-error;
-  }
-  &-warning {
-    background-color: $color-status-warning-bg;
-    color: $color-status-warning;
-  }
-  &-info {
-    background-color: $color-status-info-bg;
-    color: $color-status-info;
-  }
-  &-success {
-    background-color: $color-status-success-bg;
-    color: $color-status-success;
-  }
-}
-.nofreeze {
-  color: $color-status-info;
-  background-color: $color-status-info-bg;
-  padding: 0 8px;
-  border-radius: 14px;
-}
-.freeze {
-  color: $color-status-warning;
-  background-color: $color-status-warning-bg;
-  padding: 0 8px;
-  border-radius: 14px;
+    display: flex;
+    align-items: center;
+    //   width: fit-content;
+    padding: 0 0.5rem;
+    gap: 1rem;
+    &-error {
+        background-color: $color-status-error-bg;
+        color: $color-status-error;
+    }
+    &-warning {
+        background-color: $color-status-warning-bg;
+        color: $color-status-warning;
+    }
+    &-info {
+        background-color: $color-status-info-bg;
+        color: $color-status-info;
+    }
+    &-success {
+        background-color: $color-status-success-bg;
+        color: $color-status-success;
+    }
 }
 .status {
-  padding: 0.2rem 0.4rem;
-  &--warning {
-    color: $color-status-error;
-    background-color: $color-status-error-bg;
-  }
-  &--ok {
-    color: $color-status-success;
-    background-color: $color-status-success-bg;
-  }
-}
-
-.negative {
-  color: red;
+    padding: 0.2rem 0.4rem;
+    &--warning {
+        color: $color-status-error;
+        background-color: $color-status-error-bg;
+    }
+    &--ok {
+        color: $color-status-success;
+        background-color: $color-status-success-bg;
+    }
 }
