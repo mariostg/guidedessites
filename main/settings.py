@@ -26,7 +26,7 @@ SECRET_KEY = "s#z!sa2vl00p=&uy*8oyyj^on)gj$bsvhu8hi3eya*0)y9("
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["ornitho.mariostg.org"]
+ALLOWED_HOSTS = ["www.mariostg.com","mariostg.com"]
 
 # Application definition
 
