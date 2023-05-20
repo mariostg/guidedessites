@@ -59,6 +59,14 @@ class SiteForm(forms.ModelForm):
         for name, field in self.fields.items():
             field.widget.attrs.update({"class": "input"})
 
+    def clean_latitude(self):
+        latitude = self.cleaned_data["latitude"]
+        if latitude > 90:
+            self.add_error("latitude", "Latitude ne peux excéder 90")
+        if latitude < -90:
+            self.add_error("latitude", "Latitude ne peux être inférieure à 90")
+        return latitude
+
 
 class ImageForm(forms.ModelForm):
     class Meta:
