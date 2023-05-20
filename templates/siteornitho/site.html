@@ -64,9 +64,8 @@
             <p>
                 {% if sites.longitude and sites.latitude %}
                 <a target="_blank"
-                    href="https://www.google.com/maps?q={{site.latitude}},{{sites.longitude}}+(My+Point)&z=14&ll={{sites.latitude}},{{sites.longitude}}"
-                    >{{sites.latitude}},{{sites.longitude}}</a
-                >
+                href="https://www.google.com/maps/place/{{sites.latitude}},{{sites.longitude}}">{{sites.latitude}},{{sites.longitude}}</a>
+                
                 {%else%}
                 <p class="crossmark"></p> 
                 {% endif %}
