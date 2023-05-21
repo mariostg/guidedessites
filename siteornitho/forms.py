@@ -64,8 +64,27 @@ class SiteForm(forms.ModelForm):
         if latitude > 90:
             self.add_error("latitude", "Latitude ne peux excéder 90")
         if latitude < -90:
-            self.add_error("latitude", "Latitude ne peux être inférieure à 90")
+            self.add_error("latitude", "Latitude ne peux être inférieure à -90")
         return latitude
+
+    def clean_longitude(self):
+        longitude = self.cleaned_data["longitude"]
+        if longitude > 180:
+            self.add_error("longitude", "Longitude ne peux excéder 180")
+        if longitude < -180:
+            self.add_error("longitude", "Longitude ne peux être inférieure à -180")
+        return longitude
+
+    # def clean_url(self):
+    #     url = self.cleaned_data["url"]
+    #     if not url:
+    #         print("NOT URL")
+    #         return url
+    #     if not url.startswith("http"):
+    #         print("NOT STARTS WITH")
+    #         self.add_error("url", "URL doit débuter avec http")
+    #         print("ADD ERROR")
+    #     return url
 
 
 class ImageForm(forms.ModelForm):
