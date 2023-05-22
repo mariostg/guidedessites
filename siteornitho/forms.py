@@ -75,16 +75,13 @@ class SiteForm(forms.ModelForm):
             self.add_error("longitude", "Longitude ne peux être inférieure à -180")
         return longitude
 
-    # def clean_url(self):
-    #     url = self.cleaned_data["url"]
-    #     if not url:
-    #         print("NOT URL")
-    #         return url
-    #     if not url.startswith("http"):
-    #         print("NOT STARTS WITH")
-    #         self.add_error("url", "URL doit débuter avec http")
-    #         print("ADD ERROR")
-    #     return url
+    def clean_locid(self):
+        locid = self.cleaned_data["locid"]
+        if not locid:
+            return locid
+        if not locid[0].isalpha():
+            self.add_error("locid", "Localisation doit débuter avec une lettre")
+        return locid
 
 
 class ImageForm(forms.ModelForm):

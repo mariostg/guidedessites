@@ -26,7 +26,7 @@ class SiteFormTest(TestCase):
         form = SiteForm(data=data)
         self.assertEqual(form.errors["longitude"], ["Longitude ne peux excéder 180"])
 
-    # def test_url_missing_http(self):
-    #     data = {"url": "www.mysite.com", "latitude": -190}
-    #     form = SiteForm(data=data)
-    #     self.assertEqual(form.errors["url"], ["URL doit débuter avec http"])
+    def test_locid_does_not_begin_with_letter(self):
+        data = {"locid": "-1234567"}
+        form = SiteForm(data=data)
+        self.assertEqual(form.errors["locid"], ["Localisation doit débuter avec une lettre"])
