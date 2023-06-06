@@ -7,11 +7,20 @@
         display: grid;
         grid-template-columns: 1200px;
         padding: 0 20px;
+        @include respond-small {
+            display: flex;
+            padding: 0;
+        }
+    }
+
+    @include respond-small {
+        display: flex;
     }
 }
 aside {
     position: fixed;
     margin-left: -200px;
+    visibility: hidden;
 }
 .merge {
     grid-column: 1/-1;
@@ -27,6 +36,9 @@ aside {
     &--spaced {
         display: flex;
         justify-content: space-around;
+    }
+    @include respond-small {
+        padding: 1rem 0;
     }
 }
 
@@ -84,6 +96,12 @@ aside {
         flex-direction: column;
         align-items: end;
         padding: 0 12rem;
+    }
+
+    @include respond-small {
+        background-color: red;
+        flex-direction: column;
+        font-size: 24px;
     }
 }
 

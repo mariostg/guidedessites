@@ -2,10 +2,19 @@
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
+    @include respond-small {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
 .slideshow {
     display: grid;
     gap: 5px;
+    @include respond-small {
+        display: flex;
+        flex-direction: column;
+    }
 }
 .slides {
     display: grid;
@@ -17,6 +26,10 @@
         font: italic smaller sans-serif;
         padding: 5px 0;
         text-align: center;
+    }
+    @include respond-small {
+        display: flex;
+        flex-direction: column;
     }
     .title {
         border-top-left-radius: 1rem;
@@ -34,6 +47,9 @@
     }
     img {
         max-width: 1024px;
+        @include respond-small {
+            width: 90%;
+        }
     }
 }
 
@@ -52,6 +68,10 @@
         & img {
             border-radius: 8px;
         }
+    }
+
+    @include respond-small {
+        padding: 0;
     }
 }
 
@@ -73,10 +93,16 @@
         color: $color-white;
         padding: 0.5rem 1.5rem;
         border-radius: 5px;
+        @include respond-small {
+            text-align: center;
+        }
     }
     &__detail {
         display: grid;
         grid-template-columns: 1fr 1fr;
+    }
+    @include respond-small {
+        padding: 0;
     }
 }
 
