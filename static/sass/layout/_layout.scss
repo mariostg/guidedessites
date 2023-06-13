@@ -4,6 +4,7 @@
   main {
     display: grid;
     grid-template-columns: 1024px;
+    padding-top: 25px;
     @include respond-small {
       display: flex;
       padding: 0;
@@ -17,7 +18,6 @@
 aside {
   position: fixed;
   margin-left: -200px;
-  visibility: hidden;
 }
 .merge {
   grid-column: 1/-1;

@@ -572,7 +572,8 @@ a.suivant {
 
 .container main {
   display: grid;
-  grid-template-columns: 1024px; }
+  grid-template-columns: 1024px;
+  padding-top: 25px; }
   @media (max-width: 650px) {
     .container main {
       display: flex;
@@ -583,8 +584,7 @@ a.suivant {
 
 aside {
   position: fixed;
-  margin-left: -200px;
-  visibility: hidden; }
+  margin-left: -200px; }
 
 .merge {
   grid-column: 1/-1; }

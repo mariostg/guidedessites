@@ -30,22 +30,12 @@
 
 
 <script>
-    const tg=document.getElementById('filter-form')
-    const expender=document.getElementById('expender')
-    const expender_width="-200px"
-    tg.style.marginLeft=expender_width
-    function asidetoggle(state){
-        let tg=document.getElementById('filter-form').style.marginLeft
-        console.log(tg)
-        if (tg==expender_width){
-            console.log('closed, need to opwn')
-            document.getElementById('filter-form').style.marginLeft="0"
+    function toggle_search_menu(){
+        let aside = document.querySelector('aside')
+        if (aside.style.visibility == 'hidden'){
+            aside.style.visibility='visible'
         }else{
-            console.log("open, beed to clise")
-            document.getElementById('filter-form').style.marginLeft=expender_width
+            aside.style.visibility='hidden'
         }
     }
-
-    expender.addEventListener("mouseover",(event)=>{asidetoggle()})
-    // expender.addEventListener("mouseleave" ,(event)=>{asidetoggle('off')})
 </script>
