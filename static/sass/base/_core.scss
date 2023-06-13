@@ -2,28 +2,31 @@
 *,
 *::after,
 *::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-rendering: optimizeLegibility;
-    color: inherit;
-    font-size: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  color: inherit;
+  font-size: inherit;
 }
 :root {
-    box-sizing: border-box;
-    line-height: 1.7;
+  box-sizing: border-box;
+  line-height: 1.7;
 }
 
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
-    line-height: 1.6;
-    font-weight: 400;
-    font-family: $font-base;
-    font-size: 2rem;
-    // color: $color-theme-text;
-    // background-color: $color-theme-background;
-    min-height: 100vh;
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: $font-base;
+  font-size: 2rem;
+  // color: $color-theme-text;
+  // background-color: $color-theme-background;
+  min-height: 100vh;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
 }
