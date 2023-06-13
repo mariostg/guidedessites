@@ -61,6 +61,9 @@ class SiteOrnitho(models.Model):
     def __str__(self):
         return f"{self.nom_du_site} - {self.municipalite}"
 
+    class Meta:
+        ordering = ("nom_du_site",)
+
     objects = models.Manager()  # The default manager.
     published = PublishedManager()  # Our custom manager.
 
