@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
 from .models import Mrc, Municipalite
 from .form import MrcForm, MunicipaliteForm
 
@@ -82,6 +83,11 @@ def add_municipalite(request):
             form.save()
             return redirect("municipalites")
     else:
-        form = MunicipaliteForm
+        mrc_count = Mrc.objects.all().count()
+        if mrc_count == 0:
+            messages.warning(request, "Il n'est pas possible d'ajouter une municipalité car il n'existe pas de MRC")
+            return redirect("municipalites")
+        else:
+            form = MunicipaliteForm
 
     return render(request, "geographie/municipalite_form.html", {"form": form})
