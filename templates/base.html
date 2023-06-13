@@ -14,12 +14,14 @@
 <body>
 {% include 'navbar.html' %}
 {% if messages %}
-{% for message in messages  %}
-    <div class='alert alert--{{message.tags}}'>
-        <p class='alert__message'>{{message}}</p>
-        <button class='alert__close'>x</button>
-    </div>
-{% endfor %}
+<div id="alerts">
+    {% for message in messages  %}
+        <div class='alert alert--{{message.tags}}'>
+            <p class='alert__message'>{{message}}</p>
+            <button class='alert__close'>x</button>
+        </div>
+    {% endfor %}
+</div>
 {% endif %}
 
 {% block content %}{% endblock content %}
@@ -37,4 +39,11 @@
         document.getElementById("mySidebar").style.display = "none";
         document.getElementById("menuOverlay").style.display = "none";
     }
+
+    setTimeout(() => {
+        const alerts = document.getElementById('alerts');
+        if (alerts){
+            alerts.style.display = 'none';
+        }
+      }, 1000); 
 </script>
