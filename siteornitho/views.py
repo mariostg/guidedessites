@@ -24,6 +24,18 @@ def catalogue(request, page=1):
     form = SearchSiteForm()
     paginator = Paginator(sites, 1)
 
+    if len(sites) == 0:
+        context = {
+            "sites": [],
+            "m1": 0,
+            "m2": 0,
+            "previous_page": 0,
+            "next_page": 0,
+            "form": form,
+        }
+        messages.warning(request, "Il n'y a pas de sites dans le catalogue")
+        return render(request, "siteornitho/siteornitho_detail.html", context)
+
     try:
         sites = paginator.page(page)
     except EmptyPage:
@@ -51,7 +63,6 @@ def catalogue(request, page=1):
 
 
 def sites(request):
-
     sites, initial = utils.search_sites(request)
     form = SearchSiteForm(initial=initial)
     context = {
