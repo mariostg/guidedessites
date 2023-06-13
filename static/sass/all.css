@@ -21,7 +21,7 @@ body {
   font-family: arial, helvetica, sans-serif;
   font-size: 2rem;
   min-height: 100vh;
-  max-width: 1280px;
+  max-width: 1024px;
   margin-left: auto;
   margin-right: auto; }
 
@@ -570,20 +570,17 @@ a.suivant {
   .album img {
     max-height: 132px; }
 
-.container {
+.container main {
   display: grid;
-  justify-content: center; }
-  .container main {
-    display: grid;
-    grid-template-columns: 1200px;
-    padding: 0 20px; }
-    @media (max-width: 650px) {
-      .container main {
-        display: flex;
-        padding: 0; } }
+  grid-template-columns: 1024px; }
   @media (max-width: 650px) {
-    .container {
-      display: flex; } }
+    .container main {
+      display: flex;
+      padding: 0; } }
+@media (max-width: 650px) {
+  .container {
+    display: flex; } }
+
 aside {
   position: fixed;
   margin-left: -200px;
