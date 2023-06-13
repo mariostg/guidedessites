@@ -32,5 +32,7 @@ venv.bak/
 
 #Vscode
 .vscode/
+#MacOs
+.DS_Store
 
 media/siteornitho/images/*
