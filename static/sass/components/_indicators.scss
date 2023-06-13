@@ -1,34 +1,56 @@
 .hint {
-    display: flex;
-    align-items: center;
-    //   width: fit-content;
-    padding: 0 0.5rem;
-    gap: 1rem;
-    &-error {
-        background-color: $color-status-error-bg;
-        color: $color-status-error;
-    }
-    &-warning {
-        background-color: $color-status-warning-bg;
-        color: $color-status-warning;
-    }
-    &-info {
-        background-color: $color-status-info-bg;
-        color: $color-status-info;
-    }
-    &-success {
-        background-color: $color-status-success-bg;
-        color: $color-status-success;
-    }
+  display: flex;
+  align-items: center;
+  //   width: fit-content;
+  padding: 0 0.5rem;
+  gap: 1rem;
+  &-error {
+    background-color: $color-status-error-bg;
+    color: $color-status-error;
+  }
+  &-warning {
+    background-color: $color-status-warning-bg;
+    color: $color-status-warning;
+  }
+  &-info {
+    background-color: $color-status-info-bg;
+    color: $color-status-info;
+  }
+  &-success {
+    background-color: $color-status-success-bg;
+    color: $color-status-success;
+  }
 }
 .status {
-    padding: 0.2rem 0.4rem;
-    &--warning {
-        color: $color-status-error;
-        background-color: $color-status-error-bg;
-    }
-    &--ok {
-        color: $color-status-success;
-        background-color: $color-status-success-bg;
-    }
+  padding: 0.2rem 0.4rem;
+  &--warning {
+    color: $color-status-error;
+    background-color: $color-status-error-bg;
+  }
+  &--ok {
+    color: $color-status-success;
+    background-color: $color-status-success-bg;
+  }
+}
+
+.alert {
+  display: flex;
+  padding: 2rem;
+  justify-content: space-around;
+}
+.alert--info {
+  background-color: #2196f3;
+  color: #f3f3f3;
+}
+.alert--success {
+  background-color: #359e64;
+  color: #f3f3f3;
+}
+.alert--warning {
+  background-color: #ff5722;
+  color: #f3f3f3;
+}
+.alert--error {
+  background-color: firebrick;
+  color: #f3f3f3;
 }
