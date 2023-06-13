@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import TemplateView, ListView
-
+from django.contrib import messages
 from .models import Habitat, SousHabitat
 from .forms import HabitatForm, SousHabitatForm
 
@@ -61,6 +61,13 @@ def add_sous_habitat(request):
             form.save()
             return redirect("sous-habitats")
     else:
+        counts = Habitat.objects.all().count()
+        if counts == 0:
+            messages.warning(
+                request,
+                "Il n'est pas possible d'ajouter un sous-habitat sans habitat définis.  Veuillez ajouter au moins un habitat.",
+            )
+            return redirect("habitats")
         form = SousHabitatForm
 
     return render(request, "habitat/sous_habitat_form.html", {"form": form})

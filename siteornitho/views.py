@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.views import generic
 from django.contrib import messages
 from .filters import SiteOrnithoFilter
-from .models import SiteOrnitho, SiteOrnithoImage
+from .models import SiteOrnitho, SiteOrnithoImage, SousHabitat
 from .forms import SearchSiteForm, SiteForm, ImageForm
 from . import utils
 
@@ -130,6 +130,13 @@ def add_site(request):
             return redirect("site", site.id)
             # return redirect("sites")
     else:
+        counts = SousHabitat.objects.all().count()
+        if counts == 0:
+            messages.warning(
+                request,
+                "Il n'est pas possible d'ajouter un site sans sous-habitat définis.  Veuillez definir au moins un sous-habitat",
+            )
+            return redirect("sous-habitats")
         form = SiteForm
 
     return render(request, "siteornitho/site_form.html", {"form": form})
