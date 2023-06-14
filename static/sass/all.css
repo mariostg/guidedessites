@@ -583,8 +583,7 @@ a.suivant {
     display: flex; } }
 
 aside {
-  position: fixed;
-  margin-left: -200px; }
+  position: fixed; }
 
 .merge {
   grid-column: 1/-1; }
