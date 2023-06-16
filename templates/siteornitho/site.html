@@ -15,29 +15,28 @@
         </div>
 
         {% for i in sites.images.all %}
-        <div class="w3-display-container mySlides">
-            alt={{ i.image}}
-        </div>
-        <div class="slides">
-            <img src="{{ i.image.url }}" style="width: 100%" />
-            <figcaption>
-                {{ i.photo_author }} - {{i.photo_date}} <br>
+        <div class="slides" style="display: none">
+            <div class='title'>
                 {{ i.title}} {{i.description}}
-            </figcaption>
+            </div>
+            <img src="{{ i.image.url }}" style="width: 100%" alt={{ i.image}} />
+            <div class='author'>
+                {{ i.photo_author }} - {{i.photo_date}} <br>
+            </div>
         </div>
         {% endfor %}
     </div>
 
     <div class="block">
-        {% for i in sites.images.all %}
         <div class="miniatures">
+            {% for i in sites.images.all %}
             <div class="miniature">
-                <img
+                <img class='demo'
                 src="{{ i.image.url}}"
                 style="width: 100%; cursor: pointer"
                 onclick="currentDiv({{ forloop.counter }})"
                 title="{{i.title}}"
-                alt="Jardin Place de la cité"
+                alt="{{i.title}}"
                 />
             </div>
             {% endfor %}
@@ -134,7 +133,7 @@
 
     function showDivs(n) {
         var i;
-        var x = document.getElementsByClassName("mySlides");
+        var x = document.getElementsByClassName("slides");
         var dots = document.getElementsByClassName("demo");
         if (n > x.length) {
             slideIndex = 1;
