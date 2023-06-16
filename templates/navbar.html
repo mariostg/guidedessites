@@ -11,12 +11,6 @@
     </div>
 </header>
     <nav class="site-nav">
-        {% comment %} Main menu toggle for small screen {% endcomment %}
-        {% comment %} <input type="checkbox" id="responsive-menu" />
-        <label for="responsive-menu" class="toggle-menu">
-            <span>Menu</span>
-            <div class="toggle-menu__lines"></div>
-        </label> {% endcomment %}
         <div class="block block--spaced">
             {% if is_home != True %}
             <button class="btn btn--link"onclick='toggle_search_menu()'>Trouver un site</button>
