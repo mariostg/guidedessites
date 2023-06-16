@@ -12,11 +12,7 @@ from . import utils
 
 class HomeView(generic.TemplateView):
     template_name = "home.html"
-
-    def get_context_data(self, *args, **kwargs):
-        context = super(HomeView, self).get_context_data(*args, **kwargs)
-        context["is_home"] = True
-        return context
+    extra_context = {"is_home": True}
 
 
 class SiteornithoPublishedListView(generic.ListView):
