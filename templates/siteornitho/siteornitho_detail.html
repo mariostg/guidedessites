@@ -90,18 +90,26 @@
             </article>
             <p class="information__title">Description de l'habitat</p>
             <p>Forestier non-défini; Forestier - conifères; Forestier - mixte; Forestier - feuillus</p>
-            
+
+            {% if sites.0.description_generale %}
             <p class="information__title">Description du site</p>
             <p> {{ sites.0.description_generale }} </p>
-            
+            {% endif %}
+
+            {% if sites.0.bon_a_savoir %}
             <p class="information__title">Bon à savoir</p>
             <p>{{sites.0.bon_a_savoir}}</p>
-            
+            {% endif %}
+
+            {% if sites.0.enjeux %}
             <p class="information__title">Enjeu de conservation</p>
             <p> {{sites.0.enjeux}} </p>
-            
+            {% endif %}
+
+            {% if sites.0.stakeholder != 'None' %}
             <p class="information__title">Propriétaire ou partenatiat</p>
             <p>{{sites.0.stakeholder|default:"&nbsp;"}}</p>
+            {% endif %}
             
         </section>
         <hr />
