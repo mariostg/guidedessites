@@ -29,13 +29,13 @@ body {
   font-family: arial, helvetica, sans-serif; }
 
 .hr {
-  border: 2px solid #446ca2;
-  background-color: #446ca2;
+  border: 2px solid #1d3030;
+  background-color: #1d3030;
   margin-top: 1px; }
   .hr--thin {
-    border: 1px solid #446ca2; }
+    border: 1px solid #1d3030; }
   .hr--wide {
-    border: 5px solid #446ca2; }
+    border: 5px solid #1d3030; }
 
 input,
 textarea {
@@ -69,7 +69,7 @@ h3 {
 header > h2,
 header > h3,
 footer {
-  background-color: #446ca2;
+  background-color: #1d3030;
   color: #f3f3f3;
   padding: 0em 0.5em; }
 
@@ -92,6 +92,10 @@ strong {
 
 strong {
   font-weight: 500; }
+
+img.logo {
+  border-radius: 50%;
+  background-color: #fff; }
 
 .btn {
   font-family: inherit;
@@ -155,8 +159,8 @@ strong {
 @use "../base/colors" as *;
 .form {
   background-color: #a5b9d2;
-  border-left: 1px solid #446ca2;
-  border-right: 1px solid #446ca2;
+  border-left: 1px solid #1d3030;
+  border-right: 1px solid #1d3030;
   border-radius: 8px;
   display: grid;
   justify-content: center;
@@ -178,7 +182,7 @@ strong {
       padding-right: 9px; }
   .form__expender {
     width: 12px;
-    background-color: #446ca2;
+    background-color: #1d3030;
     height: 100%;
     position: relative;
     left: -5px;
@@ -208,7 +212,7 @@ strong {
       max-width: 132px; }
   .form__header {
     border-radius: 8px 8px 0 0;
-    background-color: #446ca2;
+    background-color: #1d3030;
     color: #a5b9d2;
     text-align: center;
     font-size: 3rem;
@@ -217,7 +221,7 @@ strong {
       font-size: 1.5rem; }
   .form__footer {
     grid-column-start: 1/-1;
-    background-color: #446ca2;
+    background-color: #1d3030;
     color: #a5b9d2;
     text-align: center;
     font-size: 1rem;
@@ -242,7 +246,7 @@ strong {
     content: "";
     width: 0.8em;
     height: 0.5em;
-    background-color: #446ca2;
+    background-color: #1d3030;
     clip-path: polygon(100% 0%, 0 0%, 50% 100%);
     justify-self: end; }
 
@@ -252,25 +256,25 @@ strong {
   background-color: #f3f3f3;
   padding: 0.75rem;
   border-radius: 0.5rem;
-  border: 2px solid #446ca2;
+  border: 2px solid #1d3030;
   font-family: inherit;
   transition: 180ms box-shadow ease-in-out; }
   .input:focus,
   .select:focus {
-    border-color: #446ca2;
+    border-color: #1d3030;
     box-shadow: 0 0 0 2px rgba(68, 108, 162, 0.8);
     outline: 3px solid transparent; }
   .input:hover,
   .select:hover {
     opacity: 0.8;
     box-shadow: 0 3px 5px rgba(68, 108, 162, 0.8);
-    background-color: #dbe4f0; }
+    background-color: #8fbcbc; }
 
 .label {
   font-weight: 300;
   display: block;
   font-size: 2rem;
-  color: #446ca2; }
+  color: #1d3030; }
 
 /*Move to typography*/
 select {
@@ -300,7 +304,7 @@ textarea {
   resize: vertical; }
 
 .site-nav {
-  background-color: #6f93c3; }
+  background-color: #437070; }
 
 .summary {
   padding: 2rem 0.5rem 0 2rem;
@@ -324,7 +328,7 @@ textarea {
   .summary__footer {
     display: flex;
     justify-content: space-around;
-    background-color: #6f93c3;
+    background-color: #437070;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
     padding: 1rem; }
@@ -450,7 +454,7 @@ input[type="checkbox"]:disabled {
   justify-content: center; }
   .slides .title,
   .slides .author {
-    background-color: #446ca2;
+    background-color: #1d3030;
     color: #f3f3f3;
     font: italic smaller sans-serif;
     padding: 5px 0;
@@ -480,7 +484,7 @@ input[type="checkbox"]:disabled {
   gap: 3rem;
   justify-content: center;
   padding: 1rem 3rem;
-  background-color: #dbe4f0;
+  background-color: #8fbcbc;
   border-radius: 1rem; }
   .miniatures .miniature > :hover {
     opacity: 0.6; }
@@ -501,7 +505,7 @@ input[type="checkbox"]:disabled {
   flex-direction: column; }
   .information__title {
     font-size: 2rem;
-    background-color: #6f93c3;
+    background-color: #437070;
     color: #f3f3f3;
     padding: 0.5rem 1.5rem;
     border-radius: 5px; }
@@ -548,7 +552,7 @@ a.suivant {
     flex-direction: column;
     gap: 5px; }
     .album .image__header {
-      background-color: #6f93c3;
+      background-color: #437070;
       border-radius: 8px 8px 0 0;
       text-align: center;
       color: #f3f3f3; }
@@ -626,16 +630,16 @@ aside {
   grid-template-columns: repeat(4, 1fr); }
 
 .header {
-  background-color: #446ca2;
-  color: #dbe4f0;
+  background-color: #1d3030;
+  color: #8fbcbc;
   padding: 1.5rem 1rem; }
   .header--logo {
     max-width: 175px; }
 
 .site-header {
   display: flex;
-  background-color: #446ca2;
-  color: #dbe4f0;
+  background-color: #1d3030;
+  color: #8fbcbc;
   justify-content: space-between;
   align-items: center;
   padding: 0 3rem; }
@@ -661,10 +665,10 @@ table {
   border-collapse: collapse; }
   table > caption {
     font-size: 2.5rem;
-    background-color: #446ca2;
+    background-color: #1d3030;
     color: #f3f3f3; }
   table > thead {
-    background-color: #dbe4f0; }
+    background-color: #8fbcbc; }
 
 th,
 td {
