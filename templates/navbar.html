@@ -10,7 +10,6 @@
         <h3>Guide des sites</h3>
     </div>
 </header>
-
     <nav class="site-nav">
         {% comment %} Main menu toggle for small screen {% endcomment %}
         {% comment %} <input type="checkbox" id="responsive-menu" />
@@ -19,7 +18,9 @@
             <div class="toggle-menu__lines"></div>
         </label> {% endcomment %}
         <div class="block block--spaced">
+            {% if is_home != True %}
             <button class="btn btn--link"onclick='toggle_search_menu()'>Trouver un site</button>
+            {% endif %}
             <a class="btn btn--link" href="{% url 'catalogue' %}">Catalogue</a>
             {% if request.user.is_authenticated %}
              <a class="btn btn--link" href="{% url 'logout' %}" class="button button--small">Déconnexion</a>
