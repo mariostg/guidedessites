@@ -1,3 +1,4 @@
+import PIL.Image
 from django.db import models
 
 from geographie.models import Municipalite
@@ -78,3 +79,15 @@ class SiteOrnithoImage(models.Model):
 
     def __str__(self) -> str:
         return f"{self.title} - {self.photo_author}"
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        img = PIL.Image.open(self.image)
+        width, height = img.size
+        target_width = 1024
+        h_coefficient = width / 1024
+        target_height = height / h_coefficient
+        img = img.resize((int(target_width), int(target_height)), PIL.Image.ANTIALIAS)
+        img.save(self.image.path, quality=100)
+        img.close()
+        self.image.close()
