@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load l10n %}
+{% load image_tags %}
 {% block content %}
 <section>
     <a href='{% url 'add-image' %}' class='btn'>Ajouter Image</a>
@@ -23,7 +24,7 @@
                         <div>{{i.photo_date}}</div>
                     </div>
                     <div class='metadata'>
-                        <div>{{i.image}}</div>
+                        <div>{% get_file_name i.image.name %}</div>
                         <div>{{i.width}} X {{i.height}} pixels</div>
                     </div>
 
