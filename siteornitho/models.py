@@ -91,3 +91,10 @@ class SiteOrnithoImage(models.Model):
         img.save(self.image.path, quality=100)
         img.close()
         self.image.close()
+
+    def get_size(self):
+        img = PIL.Image.open(self.image)
+        width, height = img.size
+        img.close()
+        size = {"width": width, "height": height}
+        return size

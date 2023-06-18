@@ -21,6 +21,10 @@
             div:first-child {
                 align-self: center;
             }
+            .metadata {
+                font-size: small;
+                padding: 0 10px;
+            }
             .author,
             .buttons {
                 display: flex;

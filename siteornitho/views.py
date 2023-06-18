@@ -154,6 +154,10 @@ def delete_site(request, pk):
 
 def images(request):
     qs = SiteOrnithoImage.objects.all()
+    for im in qs:
+        size = im.get_size()
+        im.width = size["width"]
+        im.height = size["height"]
     return render(request, "siteornitho/images.html", {"images": qs})
 
 

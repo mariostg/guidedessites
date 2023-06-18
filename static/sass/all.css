@@ -561,6 +561,9 @@ a.suivant {
       flex-direction: column; }
       .album .image__body div:first-child {
         align-self: center; }
+      .album .image__body .metadata {
+        font-size: small;
+        padding: 0 10px; }
       .album .image__body .author,
       .album .image__body .buttons {
         display: flex;
