@@ -36,3 +36,6 @@ venv.bak/
 .DS_Store
 
 media/siteornitho/images/*
+
+#Sass map files
+all.css.map
