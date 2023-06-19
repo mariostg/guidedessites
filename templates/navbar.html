@@ -11,7 +11,7 @@
     </div>
 </header>
     <nav class="site-nav">
-        <div class="block block--spaced">
+        {% comment %} <div class="block block--spaced"> {% endcomment %}
             {% if is_home != True %}
             <button class="btn btn--link"onclick='toggle_search_menu()'>Trouver un site</button>
             {% endif %}
@@ -25,5 +25,5 @@
             {% else %}
             <a class="btn btn--link" href="{% url 'login' %}">Connexion</a>
             {% endif %}
-        </div>
+        {% comment %} </div> {% endcomment %}
     </nav>

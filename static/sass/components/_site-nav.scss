@@ -1,3 +1,10 @@
 .site-nav {
-  background-color: $color-theme-medium;
+    background-color: $color-theme-medium;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem 0;
+
+    @include respond-small {
+        flex-direction: column;
+    }
 }

@@ -304,8 +304,13 @@ textarea {
   resize: vertical; }
 
 .site-nav {
-  background-color: #437070; }
-
+  background-color: #437070;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem 0; }
+  @media (max-width: 650px) {
+    .site-nav {
+      flex-direction: column; } }
 .summary {
   padding: 2rem 0.5rem 0 2rem;
   max-width: 1200px;
