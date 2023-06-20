@@ -55,38 +55,42 @@
         <section class="information">
             <div class="information__title">Sommaire</div>
             <article class="information__detail">
-                <p>Siteweb</p>
-                <p>{{ sites.0.url|default:"&nbsp;" }}</p>
-                
-                <p>Site ebird</p>
-                {% if sites.0.locid %}
-                <p><a class='globe' target="_blank" href="https://ebird.org/qc/hotspot/{{sites.0.locid}}">{{sites.0.locid}}</a></p>
-                {% endif %}
-                
-                <p>Municipalité</p>
-                <p>{{sites.0.municipalite|default:"&nbsp;"}}</p>
-                
-                <p>Coordonnées</p>
-                <a target="_blank"
-                href="https://www.google.com/maps/place/{{sites.0.latitude}},{{sites.0.longitude}}">{{sites.0.latitude}},{{sites.0.longitude}}</a>
-                
-                <p>Accès gratuit</p>
-                <p class="{% if sites.0.acces_gratuit %}checkmark{% else %}crossmark{% endif %}"></p>
-                
-                <p>Transport en commun</p>
-                <p class="{% if sites.0.transport%}checkmark {%else%}crossmark{% endif %}"></p>
-                
-                <p>Période d'intérêt</p>
-                <p>{{m1}} {{m2}} </p>
-                
-                <p>Toilettes</p>
-                <p class="{% if sites.0.toilette%}checkmark{%else%}crossmark{% endif %}"></p>
-                
-                <p>Aire de picnique</p>
-                <p class="{% if sites.0.picnique%}checkmark{%else%}crossmark{% endif %}"></p>
-                
-                <p>Banc</p>
-                <p class="{% if sites.0.banc%}checkmark{%else%}crossmark{% endif %}"></p>
+                <div class="geographie">
+                    <p>Siteweb</p>
+                    <p>{{ sites.0.url|default:"&nbsp;" }}</p>
+                    
+                    <p>Site ebird</p>
+                    {% if sites.0.locid %}
+                    <p><a class='globe' target="_blank" href="https://ebird.org/qc/hotspot/{{sites.0.locid}}">{{sites.0.locid}}</a></p>
+                    {% endif %}
+                    
+                    <p>Municipalité</p>
+                    <p>{{sites.0.municipalite|default:"&nbsp;"}}</p>
+                    
+                    <p>Coordonnées</p>
+                    <a target="_blank"
+                    href="https://www.google.com/maps/place/{{sites.0.latitude}},{{sites.0.longitude}}">{{sites.0.latitude}},{{sites.0.longitude}}</a>     
+                </div>
+                <div class="attributes">
+
+                    <p>Accès gratuit</p>
+                    <p class="{% if sites.0.acces_gratuit %}checkmark{% else %}crossmark{% endif %}"></p>
+                    
+                    <p>Transport en commun</p>
+                    <p class="{% if sites.0.transport%}checkmark {%else%}crossmark{% endif %}"></p>
+                    
+                    <p>Période d'intérêt</p>
+                    <p>{{m1}} {{m2}} </p>
+                    
+                    <p>Toilettes</p>
+                    <p class="{% if sites.0.toilette%}checkmark{%else%}crossmark{% endif %}"></p>
+                    
+                    <p>Aire de picnique</p>
+                    <p class="{% if sites.0.picnique%}checkmark{%else%}crossmark{% endif %}"></p>
+                    
+                    <p>Banc</p>
+                    <p class="{% if sites.0.banc%}checkmark{%else%}crossmark{% endif %}"></p>
+                </div>
             </article>
             <p class="information__title">Description de l'habitat</p>
             <p>Forestier non-défini; Forestier - conifères; Forestier - mixte; Forestier - feuillus</p>

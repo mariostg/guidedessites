@@ -105,6 +105,15 @@
             grid-template-columns: 1fr;
         }
     }
+    .geographie {
+        display: grid;
+        grid-template-columns: 0.3fr 1fr;
+        align-content: baseline;
+    }
+    .attributes {
+        display: grid;
+        grid-template-columns: 0.4fr 0.5fr;
+    }
     @include respond-small {
         padding: 0;
     }
