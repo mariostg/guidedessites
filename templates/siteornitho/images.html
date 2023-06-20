@@ -9,7 +9,7 @@
         <div class="album">
             {% for i in images %}
             <div class="image">
-                <div class="image__header">{{i.siteornitho.nom_du_site}}</div>
+                <div class="image__header"><a href="{% url 'site' i.siteornitho.pk%}">{{i.siteornitho.nom_du_site}}</a></div>
                 <div class="image__body">
                     <div class='title'>{{i.title}}</div>
                     <div class='photo'>
