@@ -500,6 +500,7 @@ input[type="checkbox"]:disabled {
     border-radius: 8px; }
   @media (max-width: 650px) {
     .miniatures {
+      grid-template-columns: repeat(3, 110px);
       padding: 0; } }
 .opacity-off {
   opacity: 1; }
@@ -523,6 +524,9 @@ input[type="checkbox"]:disabled {
   .information__detail {
     display: grid;
     grid-template-columns: 1fr 1fr; }
+    @media (max-width: 650px) {
+      .information__detail {
+        grid-template-columns: 1fr; } }
   @media (max-width: 650px) {
     .information {
       padding: 0; } }

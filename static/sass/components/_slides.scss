@@ -71,6 +71,7 @@
     }
 
     @include respond-small {
+        grid-template-columns: repeat(3, 110px);
         padding: 0;
     }
 }
@@ -100,6 +101,9 @@
     &__detail {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        @include respond-small {
+            grid-template-columns: 1fr;
+        }
     }
     @include respond-small {
         padding: 0;
