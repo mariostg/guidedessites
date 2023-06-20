@@ -207,6 +207,9 @@ img.logo {
   .form__row {
     display: flex;
     gap: 8px; }
+    @media (max-width: 650px) {
+      .form__row {
+        flex-direction: column; } }
   .form__field {
     display: flex;
     flex-direction: column;
