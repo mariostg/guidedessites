@@ -34,7 +34,7 @@ class SiteOrnitho(models.Model):
     nom_du_site = models.CharField(max_length=125, verbose_name="Nom du site")
     # adresse
     # locid (hotspot)..
-    locid = models.CharField(max_length=8, verbose_name="Id de localisation", null=True, blank=True)
+    locid = models.CharField(max_length=8, verbose_name="Id de localisation", unique=True, null=True, blank=True)
     # longitude..
     longitude = models.DecimalField(verbose_name="Longitude", max_digits=9, decimal_places=6)
     # latitude..
