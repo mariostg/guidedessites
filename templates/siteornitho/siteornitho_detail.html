@@ -56,11 +56,13 @@
             <div class="information__title">Sommaire</div>
             <article class="information__detail">
                 <div class="geographie">
+                    {% if sites.0.url %}
                     <p>Siteweb</p>
-                    <p>{{ sites.0.url|default:"&nbsp;" }}</p>
+                    <p>{{ sites.0.url}}</p>
+                    {% endif %}
                     
-                    <p>Site ebird</p>
                     {% if sites.0.locid %}
+                    <p>Site ebird</p>
                     <p><a class='globe' target="_blank" href="https://ebird.org/qc/hotspot/{{sites.0.locid}}">{{sites.0.locid}}</a></p>
                     {% endif %}
                     
