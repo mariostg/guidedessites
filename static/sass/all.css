@@ -79,7 +79,8 @@ header > h2 {
 
 p,
 span,
-strong {
+strong,
+a {
   font-size: 1.8rem;
   font-weight: 300; }
 
