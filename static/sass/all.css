@@ -257,7 +257,8 @@ img.logo {
     justify-self: end; }
 
 .input,
-.select {
+.select,
+textarea {
   line-height: 1.1;
   background-color: #f3f3f3;
   padding: 0.75rem;
@@ -266,12 +267,14 @@ img.logo {
   font-family: inherit;
   transition: 180ms box-shadow ease-in-out; }
   .input:focus,
-  .select:focus {
+  .select:focus,
+  textarea:focus {
     border-color: #1d3030;
     box-shadow: 0 0 0 2px rgba(68, 108, 162, 0.8);
     outline: 3px solid transparent; }
   .input:hover,
-  .select:hover {
+  .select:hover,
+  textarea:hover {
     opacity: 0.8;
     box-shadow: 0 3px 5px rgba(68, 108, 162, 0.8);
     background-color: #8fbcbc; }
