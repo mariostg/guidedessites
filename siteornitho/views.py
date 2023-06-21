@@ -12,7 +12,6 @@ from . import utils
 
 class HomeView(generic.TemplateView):
     template_name = "home.html"
-    extra_context = {"is_home": True}
 
 
 class SiteornithoPublishedListView(generic.ListView):
@@ -58,6 +57,7 @@ def catalogue(request, page=1):
         "previous_page": previous_page,
         "next_page": next_page,
         "form": form,
+        "is_catalogue": True,
     }
 
     return render(request, "siteornitho/siteornitho_detail.html", context)

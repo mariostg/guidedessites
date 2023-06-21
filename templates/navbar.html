@@ -12,7 +12,7 @@
 </header>
     <nav class="site-nav">
         {% comment %} <div class="block block--spaced"> {% endcomment %}
-            {% if is_home != True %}
+            {% if is_catalogue == True %}
             <button class="btn btn--link"onclick='toggle_search_menu()'>Trouver un site</button>
             {% endif %}
             <a class="btn btn--link" href="{% url 'catalogue' %}">Catalogue</a>
