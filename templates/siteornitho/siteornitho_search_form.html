@@ -1,4 +1,4 @@
-<aside class="form form--collapsible" id="filter-form">
+<aside class="form form--collapsible" id="filter-form" style='visibility:hidden'>
     <form action="{% url 'sites' %}" method="GET">
         <header class="form__header" onclick='toggle_search_menu()'>Trouver un sites</header> 
             <section class="form__fields_flex">
@@ -25,7 +25,6 @@
             </div>
               <div class="form__footer">&nbsp;</div>
     </form>
-    <div id="expender" class="form__expender"><p>&nbsp;</p></div>
 </aside>
 
 
