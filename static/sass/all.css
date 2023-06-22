@@ -321,6 +321,12 @@ textarea {
   @media (max-width: 650px) {
     .site-nav {
       flex-direction: column; } }
+  @media (min-width: 768px) {
+    .site-nav {
+      background-color: orange; }
+      .site-nav .btn {
+        min-width: 10ch;
+        font-size: 1.5rem; } }
 .summary {
   padding: 2rem 0.5rem 0 2rem;
   max-width: 1200px;

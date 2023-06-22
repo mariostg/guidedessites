@@ -7,4 +7,12 @@
     @include respond-small {
         flex-direction: column;
     }
+
+    @include respond-medium {
+        .btn {
+            min-width: 10ch;
+            font-size: 1.5rem;
+        }
+        background-color: orange;
+    }
 }
