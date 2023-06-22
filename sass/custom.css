@@ -5128,4 +5128,8 @@ progress {
   .d-print-none {
     display: none !important; } }
 
+.logo {
+  border-radius: 50%;
+  background-color: #fff; }
+
 /*# sourceMappingURL=custom.css.map */

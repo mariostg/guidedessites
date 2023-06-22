@@ -1,0 +1,14 @@
+{% load static %} 
+<header class="container p-3 bg-primary text-bg-primary">
+    <div class="row">
+        <div class="col-sm-4 col-md-6">
+            <a href="{% url 'home' %}">
+                <img class='logo' src="{% static 'images/logo.png' %}" alt="Login System Logo" />
+            </a>
+        </div>
+        <div class='col-sm-8 col-md-6'>
+            <h1>Club des ornithologues de l'Outaouais</h1>
+            <h3>Guide des sites</h3>
+        </div>
+    </div>
+</header>
