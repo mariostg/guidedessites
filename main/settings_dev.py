@@ -153,7 +153,7 @@ STATICFILES_FINDERS = [
     "sass_processor.finders.CssFinder",
 ]
 ## Django Sass
-SASS_PROCESSOR_ROOT = BASE_DIR / "static"
+SASS_PROCESSOR_ROOT = BASE_DIR / "sass"
 
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
