@@ -6,7 +6,7 @@
 
 // 2. Include any default variable overrides here
 $primary: #1d3030;
-$secondary: #437070;
+$secondary: rgb(143, 188, 188);
 
 // 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
 @import "../bootstrap/variables";
@@ -25,6 +25,7 @@ $secondary: #437070;
 @import "../bootstrap/type";
 @import "../bootstrap/images";
 @import "../bootstrap/containers";
+@import "../bootstrap/carousel";
 @import "../bootstrap/grid";
 @import "../bootstrap/helpers";
 @import "../bootstrap/navbar";
