@@ -30,7 +30,14 @@ $secondary: rgb(143, 188, 188);
 @import "../bootstrap/helpers";
 @import "../bootstrap/navbar";
 @import "../bootstrap/nav";
-
+@import "../bootstrap/buttons";
+@import "../bootstrap/forms/floating-labels";
+@import "../bootstrap/forms/form-check";
+@import "../bootstrap/forms/form-control";
+@import "../bootstrap/forms/form-select";
+@import "../bootstrap/forms/form-text";
+@import "../bootstrap/forms/labels";
+@import "../bootstrap/forms/validation";
 // 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
 @import "../bootstrap/utilities/api";
 

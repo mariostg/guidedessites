@@ -1,29 +1,14 @@
-<aside class="form form--collapsible" id="filter-form" style='visibility:hidden'>
+<aside class="fixed-top w-25 translate-middle-y top-50" id="filter-form">
     <form action="{% url 'sites' %}" method="GET">
-        <header class="form__header" onclick='toggle_search_menu()'>Trouver un sites</header> 
-            <section class="form__fields_flex">
-                <div class="form__row">
-                    <div class="form__field">
-                        <label class='label' for="nom_du_site">{{form.nom_du_site.label}}</label>
-                        {{form.nom_du_site}}
-                        
-                    </div>
-                </div>
-                
-                <label class='label'>{{form.municipalite.label}} {{form.municipalite}} </label>
-                <label class='label'>{{form.sous_habitat.label}} {{form.sous_habitat}} </label>
-                <label class='label'>Période d'intérêt
-                    <div> {{form.periode_interet_debut}} </div>
-                </label>
-                <label class='label checkbox-label'>
-                    {{form.transport}} 
-                    {{form.transport.label}} 
-                </label>
+        <header class="p-3 bg-primary text-secondary container" onclick='toggle_search_menu()'>Trouver un sites</header> 
+        <section class="container bg-secondary">
+                <div class="mb-3">{{form.nom_du_site.label_tag}}{{form.nom_du_site}}</div>
+                <div class="mb-3">{{form.municipalite.label}} {{form.municipalite}}</div>
+                <div class="mb-3">{{form.sous_habitat.label}} {{form.sous_habitat}}</div>
+                <div class='mb-3'><label class='form-label'>Période d'intérêt</label> {{form.periode_interet_debut}}</div>
+                <div class="mb-3">{{form.transport}}</div>
+                <div class="text-center"><button type='button' class="btn btn-success">Lancer recherche</button></div>
             </section>
-            <div class="block block--spaced">
-                <button class="btn">Lancer recherche</button>
-            </div>
-              <div class="form__footer">&nbsp;</div>
     </form>
 </aside>
 
@@ -37,4 +22,4 @@
             aside.style.visibility='hidden'
         }
     }
-</script>
+</script> 
