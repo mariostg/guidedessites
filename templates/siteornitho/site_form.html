@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<section class="block block--centered">
+<section class="container bg-form">
     <div class="form">
         <header class="form__header">
             <h1>Site ornithologique</h1>
@@ -9,98 +9,42 @@
             {% csrf_token %}
             {{ form.errors }}
             {{ form.non_field_errors }}
-            <section class="form__fields-flex">
+                <div class="row">
+                    <div class="col"> {{form.nom_du_site.label_tag}} {{form.nom_du_site}} </div>
+                    <div class="col"> {{form.municipalite.label_tag}} {{form.municipalite}} </div>
+                </div>
+                <div class="row">
+                    <div class="col"> {{form.locid.label_tag}} {{form.locid}} </div>
+                    <div class="col"> {{form.url.label_tag}} {{form.url}} </div>
+                </div>
+                <div class="row">
+                    <div class="col"> {{form.longitude.label_tag}} {{form.longitude}} </div>
+                    <div class="col"> {{form.latitude.label_tag}} {{form.latitude}} </div>
+                </div>
+                <div class="row">
+                    <div class="col"> {{form.periode_interet_debut.label_tag}} {{form.periode_interet_debut}} </div>
+                    <div class="col"> {{form.periode_interet_fin.label_tag}} {{form.periode_interet_fin}} </div>
+                </div>
+                    <div class="row">
+                        <div class="col"> {{form.sous_habitat.label_tag}} {{form.sous_habitat}} </div>
+                        <div class="col">
+                            <div class="row">Commodites:</div>
+                            <div class="row"> {{form.transport}} {{form.acces_gratuit}} {{form.toilette}} </div>
+                            <div class="row"> {{form.banc}} {{form.picnique}} </div>
+                        </div>
+                    </div>
+                <div class="row">
+                    <div class="col">{{form.auteur.label_tag}}{{form.auteur}} </div>
+                    <div class="col"> {{form.status.label_tag}}{{form.status}} </div>
+                </div>
+                <div class='row p-2'> {{form.stakeholder.label_tag}}{{form.stakeholder}} </div>
+                <div class='row p-2'> {{form.description_generale.label_tag}} {{form.description_generale}} </div>
+                <div class='row p-2'> {{form.bon_a_savoir.label_tag}} {{form.bon_a_savoir}} </div>
+                <div class='row p-2'> {{form.enjeux.label_tag}} {{form.enjeux}} </div>
                 <div class="form__row">
-                    <div class="form__field">
-                        <label class="label" for="nom_du_site">Nom du site</label>
-                        {{form.nom_du_site}}
-                    </div>
-                    <div class="form__field">
-                        <label class="label" for="municipalite">Municipalité</label>
-                         {{form.municipalite}} 
-                    </div>
-                </div>
-                <div class="form__row">
-                    <div class="form__field">
-                        <label class="label" for="locid">Localisation eBird</label>
-                        {{form.locid}}
-                    </div>
-                    <div class="form__field">
-                        <label class="label" for="website">website</label>
-                        {{form.url}}
-                    </div>
-                </div>
-                <div class="form__row">
-                    <div class="form__field">
-                        <label class="label" for="longitude">longitude</label>
-                        {{form.longitude}}
-                    </div>
-                    <div class="form__field">
-                        <label class="label" class="label" for="latitude">latitude</label>
-                        {{form.latitude}}
-                    </div>
-                </div>
-                <div class="form__row">
-                    <div class="form__field">
-                        <label class="label" class="label" for="periode_debut">Début période d'intérêt</label>
-                        {{form.periode_interet_debut}}
-                    </div>
-                    <div class="form__field">
-                        <label class="label" class="label" for="periode_fin" >Fin période d'intérêt</label>
-                         {{form.periode_interet_fin}}
-                    </div>
-                </div>
-                <div class="form__row">
-                    <div class="form__field">
-                        <label class="label" class="label" for="sous-habitat">Sous-habitat</label>
-                            {{form.sous_habitat}}
-                    </div>
-                </div>
-                <div class="form__row">
-                    <div class="form__field">
-                        <label class="label checkbox-label"> {{form.transport}} Transport </label>
-                        <label class="label checkbox-label"> {{form.acces_gratuit}} Accès gratuit </label>
-                        <label class="label checkbox-label">{{form.toilette}}  Toilettes disponible </label>
-                    </div>
-                    <div class="form__field">
-                        <label class="label checkbox-label">{{form.banc}} Banc </label>
-                        <label class="label checkbox-label">{{form.picnique}} Aire de picnique </label>
-                    </div>
-                </div>
-                <div class="form__row">
-                    <div class="form__field">
-                        <label class="label" for="auteur">Auteur de ce site</label>
-                        {{form.auteur}}
-                    </div>
-                    <div class="form__field">
-                        <label class="label" for="miseajour">Date de mise à jour</label>
-                        <input class="input" type="text" />
-                    </div>
-                    <div class="form_field">
-                        <label class="label"> Status </label> {{form.status}}
-                    </div>
-                </div>
-                <div class='form__field'>
-                    <label class="label" for="stakeholder">Propriétaire ou partenaires</label>
-                    <textarea class='textarea--full-width' name="stakeholder" rows='10' >{{form.stakeholder.value}}</textarea> 
-                </div>
-                <div class='form__field'>
-                    <label class="label" for="description_generale">Description générale</label> 
-                    <textarea class='textarea--full-width' name="description_generale" rows='10' >{{form.description_generale.value}}</textarea> 
-                </div>
-                <div class='form__field'>
-                    <label class="label" for="bon_a_savoir">Bon à savoir</label> 
-                    <textarea class='textarea--full-width' name="bon_a_savoir" rows='10'>{{form.bon_a_savoir.value}}</textarea> 
-                </div>
-                <div class='form__field'>
-                    <label class="label" for="enjeux">Enjeux</label>
-                    <textarea class='textarea--full-width' name="enjeux" rows='10'>{{form.enjeux.value}}</textarea> 
-                </div>
-                <div class="form__row">
-                    <button class="btn">Sauvegarder</button>
+                    <button class="btn btn-submit">Sauvegarder</button>
                     <button class="btn btn-delete">Effacer</button>
                 </div>
-            </section>
         </form>
         <footer class="form__footer">
             <span>Dernière modification: 3 jan 2022</span>

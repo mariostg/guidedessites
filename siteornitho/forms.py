@@ -53,6 +53,8 @@ class SiteForm(forms.ModelForm):
         ]
         template_name = "siteornitho/site_form.html"
 
+        widgets = {"stakeholder": forms.Textarea(attrs={"rows": 3})}
+
     def __init__(self, *args, **kwargs):
         super(SiteForm, self).__init__(*args, **kwargs)
 
