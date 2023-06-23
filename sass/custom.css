@@ -5784,4 +5784,15 @@ progress {
   border-radius: 50%;
   background-color: #fff; }
 
+.checkmark::before {
+  content: "\2713";
+  display: inline-block;
+  color: green;
+  /* padding: 20px; */ }
+
+.crossmark::before {
+  content: "\2717";
+  display: inline-block;
+  color: red; }
+
 /*# sourceMappingURL=custom.css.map */
