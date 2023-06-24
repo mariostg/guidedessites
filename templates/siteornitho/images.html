@@ -23,9 +23,9 @@
                         <div>{{i.width}} X {{i.height}} pixels</div>
                     </div>
 
-                    <div class='buttons row justify-content-evenly'>
-                        <a class="btn btn-delete col-3" href="{% url 'delete-image' i.pk %}">Effacer</a>
-                        <a class='btn btn-submit col-3' href="{% url 'update-image' i.pk %}" class="btn">Modifier</a>
+                    <div class='buttons row gap-4 p-3 justify-content-evenly'>
+                        <a class="btn btn-delete  col-md-12 col-lg-4" href="{% url 'delete-image' i.pk %}">Effacer</a>
+                        <a class='btn btn-submit  col-md-12 col-lg-4' href="{% url 'update-image' i.pk %}" class="btn">Modifier</a>
                     </div>
                 </div>
             </div>
