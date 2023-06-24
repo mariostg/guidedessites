@@ -131,20 +131,18 @@
         <h3 class="p-1 bg-secondary text-white rounded-2">Propriétaire ou partenatiat</h3>
         <p>{{sites.0.stakeholder|default:"&nbsp;"}}</p>
         {% endif %}
-        
-    <hr />
-        
+    
     {% if request.user.is_authenticated %}
-    <div class="block block--spaced">
-        <a class="btn" href="{% url 'edit-site' sites.0.pk %}">Modifier</a>
-        <a class="btn btn-delete" href="{% url 'delete-site' sites.0.pk %}">Effacer</a>
+    <div class="row justify-content-around">
+        <a class="btn btn-submit col-3" href="{% url 'edit-site' sites.0.pk %}">Modifier</a>
+        <a class="btn btn-delete col-3" href="{% url 'delete-site' sites.0.pk %}">Effacer</a>
     </div>
     {% endif %}
     
     <!-- End page content -->
 </main>
-<footer class="w3-container w3-padding-16" style="margin-top: 32px" >
-    Dernière mise a jour:   {{sites.0.miseajour|localize}} It is {% now "jS F Y H:i" %}      
+<footer class="container bg-secondary text-white mt-1" >
+    Dernière mise a jour:   {{sites.0.miseajour|localize}}     
 </footer>
 <script>
     const carousel = new bootstrap.Carousel('#mycaroussel')
