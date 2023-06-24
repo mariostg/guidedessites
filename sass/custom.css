@@ -6854,4 +6854,16 @@ textarea.form-control-lg {
   display: inline-block;
   color: red; }
 
+a.precedent,
+a.suivant {
+  text-decoration: none; }
+
+.precedent::after {
+  content: "\261C";
+  font-size: 4rem; }
+
+.suivant::after {
+  content: "\261E";
+  font-size: 4rem; }
+
 /*# sourceMappingURL=custom.css.map */

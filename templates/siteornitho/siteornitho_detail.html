@@ -5,6 +5,21 @@
     {% include 'siteornitho/siteornitho_search_form.html'%}
     
 {% if sites.0 %}
+
+<!-- Slideshow Header -->
+<div class='container bg-secondary row m-auto align-items-baseline text-center'>
+    {% if sites.has_previous%}
+    <a class='precedent col' href='{% url "catalogue" previous_page %}' data-title='Fiche précédente'></a>
+    {%else%}
+    <p class='col'></p>
+    {% endif %}
+    <h2 class='col'>{{ sites.0.nom_du_site}}</h2>
+    {% if sites.has_next%}
+    <a class='suivant col' href='{% url "catalogue" next_page %}' data-title="Fiche suivante"></a>
+    {% else %}
+    <p class='col'></p>
+    {% endif%}
+</div>
 <div class="container p-0">
 <div id="demo" class="carousel slide" data-bs-ride="carousel">
     <!-- Indicators/dots -->
