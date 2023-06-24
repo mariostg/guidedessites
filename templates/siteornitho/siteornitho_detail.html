@@ -7,7 +7,7 @@
 {% if sites.0 %}
 
 <!-- Slideshow Header -->
-<div class='container bg-secondary row m-auto align-items-baseline text-center'>
+<div class='container bg-secondary row m-auto align-items-baseline text-center mt-1 rounded-2'>
     {% if sites.has_previous%}
     <a class='precedent col' href='{% url "catalogue" previous_page %}' data-title='Fiche précédente'></a>
     {%else%}
@@ -30,7 +30,8 @@
     </div> {% endcomment %}
   
     <!-- The slideshow/carousel -->
-    <div class="carousel-inner">
+    {% if sites.0.images.all %}
+    <div class="carousel-inner mt-1 mb-1">
       {% for i in sites.0.images.all %}
         <div class="carousel-item {% if forloop.first %} active {% endif%}">
             <img src="{{ i.image.url }}" class="d-block w-100" alt="{{ i.image }}">
@@ -41,19 +42,20 @@
         </div>
       {% endfor %}
     </div>
-  
+
     <!-- Left and right controls/icons -->
     <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
+        <span class="carousel-control-prev-icon"></span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
+        <span class="carousel-control-next-icon"></span>
     </button>
+    {% endif %}
 </div>
 </div>
 
 <!-- !PAGE CONTENT! -->
-<main class="container p-0">
+<main class="container p-0 mt-1">
     <h3 class="p-1 bg-secondary text-white rounded-2">Sommaire</h3>
 
     <div class="row">
