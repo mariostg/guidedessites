@@ -2,12 +2,11 @@
 
     <nav class="navbar navbar-expand-lg bg-secondary" style='margin:0 -12px'>
         <div class="container-fluid">
-            <ul class='navbar-nav'>
-                <button class="navbar-toggler" type='button' data-bs-toggle='collapse' data-bs-target="#navbarSupportedContent">
-                    <span class='navbar-toggler-icon'></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
+            <button class="navbar-toggler" type='button' data-bs-toggle='collapse' data-bs-target="#navbarSupportedContent">
+                <span class='navbar-toggler-icon'></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                <ul class='navbar-nav'>
                     {% if is_catalogue == True %}
                     <button class="btn btn--link"onclick='toggle_search_menu()'>Trouver un site</button>
                     {% endif %}
@@ -31,10 +30,9 @@
                     <li class="nav-item">
                     <a class="nav-link" href="{% url 'login' %}">Connexion</a>
                     </li>
-                </div>
-                {% endif %}
-    
-            </ul>
+                    {% endif %}
+                </ul>
+            </div>
         </div>
     </nav>
 </div>
