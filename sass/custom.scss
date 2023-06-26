@@ -16,9 +16,9 @@ $form: #a5b9d2;
 
 // 4. Include any default map overrides here
 $custom-colors: (
-    "submit": $submit,
-    "delete": $delete,
-    "form": $form,
+  "submit": $submit,
+  "delete": $delete,
+  "form": $form,
 );
 $theme-colors: map-merge($theme-colors, $custom-colors);
 // 5. Include remainder of required parts
@@ -50,34 +50,55 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 
 // 8. Add additional custom code here
 .logo {
-    border-radius: 50%;
-    background-color: $white;
+  border-radius: 50%;
+  background-color: $white;
 }
 
 .checkmark::before {
-    content: "\2713";
-    display: inline-block;
-    color: green;
-    /* padding: 20px; */
+  content: "\2713";
+  display: inline-block;
+  color: green;
+  /* padding: 20px; */
 }
 
 .crossmark::before {
-    content: "\2717";
-    display: inline-block;
-    color: red;
+  content: "\2717";
+  display: inline-block;
+  color: red;
 }
 
 a.precedent,
 a.suivant {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .precedent::after {
-    content: "\261C";
-    font-size: 4rem;
+  content: "\261C";
+  font-size: 4rem;
 }
 
 .suivant::after {
-    content: "\261E";
-    font-size: 4rem;
+  content: "\261E";
+  font-size: 4rem;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 1rem;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }

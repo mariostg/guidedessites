@@ -34,11 +34,9 @@
     <div class="carousel-inner mt-1 mb-1">
       {% for i in sites.0.images.all %}
         <div class="carousel-item {% if forloop.first %} active {% endif%}">
+            <div class="container bg-secondary text-center">{{i.title}}</div>
             <img src="{{ i.image.url }}" class="d-block w-100" alt="{{ i.image }}">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>{{i.title}} - {{i.photo_author}}</h5>
-              <p>{{i.description}}, {{i.photo_date}}</p>
-            </div>
+            <div class="container bg-secondary text-center">{{i.description}} - {{i.photo_author}}, {{i.photo_date}}</div>
         </div>
       {% endfor %}
     </div>

@@ -1,21 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<header>
+<header class='container text-center'>
     <h2>Administration du guide des sites</h2>
 </header>
-<section class="block block--centered">
-    <article class="form">
+    <article class="container text-center">
         <div class="form__header">
             Listes
         </div>
-        <div class="form__body">
-            <a class="btn btn--link" href="{% url "municipalites" %}">Municipalités</a>
-            <a class="btn btn--link" href="{% url "mrcs" %}">MRC</a>
-            <a class="btn btn--link" href="{% url 'habitats'%}">Habitats</a>
-            <a class="btn btn--link" href="{% url 'sous-habitats'%}">Sous-habitats</a>
-            <a class="btn btn--link" href="{% url "sites" %}">Sites ornithologiques</a>
-        </div>
+        <ul class="nav flex-column">
+            <li>
+                <a class="btn btn-success" href="{% url "municipalites" %}">Municipalités</a>
+            </li>
+            <li>
+                <a class="btn btn-success" href="{% url "mrcs" %}">MRC</a>
+            </li>
+            <li>
+                <a class="btn btn-success" href="{% url 'habitats'%}">Habitats</a>
+            </li>
+            <li>
+                <a class="btn btn-success" href="{% url 'sous-habitats'%}">Sous-habitats</a>
+            </li>
+            <li>
+                <a class="btn btn-success" href="{% url "sites" %}">Sites ornithologiques</a>
+            </li>
+        </ul>
     </article>
-</section>
 {% endblock content %}

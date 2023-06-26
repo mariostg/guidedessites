@@ -4,7 +4,7 @@
 {% load image_tags %}
 {% block content %}
 <section class='container bg-dark text-white'>
-    <a href='{% url 'add-image' %}' class='btn'>Ajouter Image</a>
+    <a href='{% url 'add-image' %}' class='btn btn-submit'>Ajouter Image</a>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             {% for i in images %}
             <div class="image border rounded-3 p-2">
