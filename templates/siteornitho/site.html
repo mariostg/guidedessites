@@ -13,35 +13,44 @@
             <h2>{{ sites.nom_du_site}}</h2>
             <span></span>
         </div>
-
-        {% for i in sites.images.all %}
-        <div class="slides" style="display: none">
-            <div class='title'>
-                {{ i.title}} {{i.description}}
-            </div>
-            <img src="{{ i.image.url }}" style="width: 100%" alt={{ i.image}} />
-            <div class='author'>
-                {{ i.photo_author }} - {{i.photo_date}} <br>
-            </div>
-        </div>
-        {% endfor %}
     </div>
 
-    <div class="block">
-        <div class="miniatures">
+    {% for i in sites.images.all %}
+    <div class='title'>
+        {{ i.title}} {{i.description}}
+    </div>
+    <div class="">
+      <img src="{{ i.image.url }}" class="" alt="{{ i.image}}">
+    </div>
+    <div class='author'>
+        {{ i.photo_author }} - {{i.photo_date}} <br>
+    </div>
+{% endfor %}
+
+    <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+
             {% for i in sites.images.all %}
-            <div class="miniature">
-                <img class='demo'
-                src="{{ i.image.url}}"
-                style="width: 100%; cursor: pointer"
-                onclick="currentDiv({{ forloop.counter }})"
-                title="{{i.title}}"
-                alt="{{i.title}}"
-                />
-            </div>
+                <div class='title'>
+                    {{ i.title}} {{i.description}}
+                </div>
+                <div class="carousel-item active">
+                  <img src="{{ i.image.url }}" class="d-block w-100" alt="{{ i.image}}">
+                </div>
+                <div class='author'>
+                    {{ i.photo_author }} - {{i.photo_date}} <br>
+                </div>
             {% endfor %}
         </div>
-    </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
 
     <section class="information">
         <div class="information__title">Sommaire</div>

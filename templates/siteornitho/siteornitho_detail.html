@@ -2,169 +2,150 @@
 {% load static %}
 {% load l10n %}
 {% block content %}
-<div class="container">
-{% include 'siteornitho/siteornitho_search_form.html'%}
-
+    {% include 'siteornitho/siteornitho_search_form.html'%}
+    
 {% if sites.0 %}
-<main>
-<!-- !PAGE CONTENT! -->
-    <div class="panel">
-    <!-- Slideshow Header -->
-        <div class='slideshow'>
-            <div class="header fiche_title">
-                {% if sites.has_previous%}
-                <a class='precedent' href='{% url "catalogue" previous_page %}' data-title='Fiche précédente'></a>
-                {%else%}
-                <p></p>
-                {% endif %}
-                <h2>{{ sites.0.nom_du_site}}</h2>
-                {% if sites.has_next%}
-                <a class='suivant' href='{% url "catalogue" next_page %}' data-title="Fiche suivante"></a>
-                {% endif%}
-            </div>
-            
-            {% for i in sites.0.images.all %}
-            <div class="slides" style="display: none">
-                <div class='title'>
-                    {{ i.title}} {{i.description}}
-                </div>
-                <img src="{{ i.image.url }}" style="width: 100%" alt={{ i.image}} />
-                <div class='author'>
-                    {{ i.photo_author }} - {{i.photo_date}} <br>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-        
-        <div class="block">
-            <div class="miniatures">
-                {% for i in sites.0.images.all %}
-                <div class="miniature">
-                    <img class='demo'
-                    src="{{ i.image.url}}"
-                    style="width: 100%; cursor: pointer"
-                    onclick="currentDiv({{ forloop.counter }})"
-                    title="{{i.title}}"
-                    alt="{{i.title}}"
-                    />
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-        
-        <section class="information">
-            <div class="information__title">Sommaire</div>
-            <article class="information__detail">
-                <div class="geographie">
-                    {% if sites.0.url %}
-                    <p>Siteweb</p>
-                    <p>{{ sites.0.url}}</p>
-                    {% endif %}
-                    
-                    {% if sites.0.locid %}
-                    <p>Site ebird</p>
-                    <p><a class='globe' target="_blank" href="https://ebird.org/qc/hotspot/{{sites.0.locid}}">{{sites.0.locid}}</a></p>
-                    {% endif %}
-                    
-                    <p>Municipalité</p>
-                    <p>{{sites.0.municipalite|default:"&nbsp;"}}</p>
-                    
-                    <p>Coordonnées</p>
-                    <a target="_blank"
-                    href="https://www.google.com/maps/place/{{sites.0.latitude}},{{sites.0.longitude}}">{{sites.0.latitude}},{{sites.0.longitude}}</a>     
-                </div>
-                <div class="attributes">
 
-                    <p>Accès gratuit</p>
-                    <p class="{% if sites.0.acces_gratuit %}checkmark{% else %}crossmark{% endif %}"></p>
-                    
-                    <p>Transport en commun</p>
-                    <p class="{% if sites.0.transport%}checkmark {%else%}crossmark{% endif %}"></p>
-                    
-                    <p>Période d'intérêt</p>
-                    <p>{{m1}} {{m2}} </p>
-                    
-                    <p>Toilettes</p>
-                    <p class="{% if sites.0.toilette%}checkmark{%else%}crossmark{% endif %}"></p>
-                    
-                    <p>Aire de picnique</p>
-                    <p class="{% if sites.0.picnique%}checkmark{%else%}crossmark{% endif %}"></p>
-                    
-                    <p>Banc</p>
-                    <p class="{% if sites.0.banc%}checkmark{%else%}crossmark{% endif %}"></p>
-                </div>
-            </article>
-            <p class="information__title">Description de l'habitat</p>
-            <p>Forestier non-défini; Forestier - conifères; Forestier - mixte; Forestier - feuillus</p>
-
-            {% if sites.0.description_generale %}
-            <p class="information__title">Description du site</p>
-            <p> {{ sites.0.description_generale }} </p>
-            {% endif %}
-
-            {% if sites.0.bon_a_savoir %}
-            <p class="information__title">Bon à savoir</p>
-            <p>{{sites.0.bon_a_savoir}}</p>
-            {% endif %}
-
-            {% if sites.0.enjeux %}
-            <p class="information__title">Enjeu de conservation</p>
-            <p> {{sites.0.enjeux}} </p>
-            {% endif %}
-
-            {% if sites.0.stakeholder != 'None' %}
-            <p class="information__title">Propriétaire ou partenatiat</p>
-            <p>{{sites.0.stakeholder|default:"&nbsp;"}}</p>
-            {% endif %}
-            
-        </section>
-        <hr />
-        
-        {% if request.user.is_authenticated %}
-        <div class="block block--spaced">
-            <a class="btn" href="{% url 'edit-site' sites.0.pk %}">Modifier</a>
-            <a class="btn btn-delete" href="{% url 'delete-site' sites.0.pk %}">Effacer</a>
-        </div>
-        {% endif %}
-        
-        <footer class="w3-container w3-padding-16" style="margin-top: 32px" >
-            Dernière mise a jour:   {{sites.0.miseajour|localize}} It is {% now "jS F Y H:i" %}      
-        </footer>
-        <!-- End page content -->
-    </div>
-    </main>
+<!-- Slideshow Header -->
+<div class='container bg-secondary row m-auto align-items-baseline text-center mt-1 rounded-2'>
+    {% if sites.has_previous%}
+    <a class='precedent col' href='{% url "catalogue" previous_page %}' data-title='Fiche précédente'></a>
+    {%else%}
+    <p class='col'></p>
+    {% endif %}
+    <h2 class='col'>{{ sites.0.nom_du_site}}</h2>
+    {% if sites.has_next%}
+    <a class='suivant col' href='{% url "catalogue" next_page %}' data-title="Fiche suivante"></a>
+    {% else %}
+    <p class='col'></p>
+    {% endif%}
 </div>
+<div class="container p-0">
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+    <!-- Indicators/dots -->
+    {% comment %} <div class="carousel-indicators">
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+    </div> {% endcomment %}
+  
+    <!-- The slideshow/carousel -->
+    {% if sites.0.images.all %}
+    <div class="carousel-inner mt-1 mb-1">
+      {% for i in sites.0.images.all %}
+        <div class="carousel-item {% if forloop.first %} active {% endif%}">
+            <img src="{{ i.image.url }}" class="d-block w-100" alt="{{ i.image }}">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>{{i.title}} - {{i.photo_author}}</h5>
+              <p>{{i.description}}, {{i.photo_date}}</p>
+            </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Left and right controls/icons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+    {% endif %}
+</div>
+</div>
+
+<!-- !PAGE CONTENT! -->
+<main class="container p-0 mt-1">
+    <h3 class="p-1 bg-secondary text-white rounded-2">Sommaire</h3>
+
+    <div class="row">
+        <div class="col">
+            {% if sites.0.url %}
+            <div class="row">
+                <p class='col'>Siteweb</p>
+                <p class='col'>{{ sites.0.url}}</p>
+            </div>
+            {% endif %}
+            {% if sites.0.locid %}
+            <div class="row">
+                <p class='col'>Site ebird</p>
+                <p class='col'><a class='globe' target="_blank" href="https://ebird.org/qc/hotspot/{{sites.0.locid}}">{{sites.0.locid}}</a></p>
+            </div>
+            {% endif %}
+            <div class="row">
+                <p class='col'>Municipalité</p>
+                <p class='col'>{{sites.0.municipalite|default:"&nbsp;"}}</p>
+            </div>
+            <div class="row">
+                <p class='col'>Coordonnées</p>
+                <a class='col' target="_blank"
+                href="https://www.google.com/maps/place/{{sites.0.latitude}},{{sites.0.longitude}}">{{sites.0.latitude}},{{sites.0.longitude}}</a>
+            </div>
+        </div>
+        <div class="col">
+            <div class="row">
+                <p class='col'>Accès gratuit</p>
+                <p class="col {% if sites.0.acces_gratuit %}checkmark{% else %}crossmark{% endif %}"></p>
+            </div>
+            <div class="row">
+                <p class='col'>Transport en commun</p>
+                <p class="col {% if sites.0.transport%}checkmark {%else%}crossmark{% endif %}"></p>
+            </div>
+            <div class="row">
+                <p class='col'>Période d'intérêt</p>
+                <p class='col'>{{m1}} {{m2}} </p>
+            </div>
+            <div class="row">
+                <p class='col'>Toilettes</p>
+                <p class="col {% if sites.0.toilette%}checkmark{%else%}crossmark{% endif %}"></p>
+            </div>
+            <div class="row">
+                <p class='col'>Aire de picnique</p>
+                <p class="col {% if sites.0.picnique%}checkmark{%else%}crossmark{% endif %}"></p>
+            </div>
+            <div class="row">
+                <p class='col'>Banc</p>
+                <p class="col {% if sites.0.banc%}checkmark{%else%}crossmark{% endif %}"></p>
+            </div>
+        </div>
+    </div>
+        <h3 class="p-1 bg-secondary text-white rounded-2">Description de l'habitat</h3>
+        <p>Forestier non-défini; Forestier - conifères; Forestier - mixte; Forestier - feuillus</p>
+
+        {% if sites.0.description_generale %}
+        <h3 class="p-1 bg-secondary text-white rounded-2">Description du site</h3>
+        <p> {{ sites.0.description_generale }} </p>
+        {% endif %}
+
+        {% if sites.0.bon_a_savoir %}
+        <h3 class="p-1 bg-secondary text-white rounded-2">Bon à savoir</h3>
+        <p>{{sites.0.bon_a_savoir}}</p>
+        {% endif %}
+
+        {% if sites.0.enjeux %}
+        <h3 class="p-1 bg-secondary text-white rounded-2">Enjeu de conservation</h3>
+        <p> {{sites.0.enjeux}} </p>
+        {% endif %}
+
+        {% if sites.0.stakeholder != 'None' %}
+        <h3 class="p-1 bg-secondary text-white rounded-2">Propriétaire ou partenatiat</h3>
+        <p>{{sites.0.stakeholder|default:"&nbsp;"}}</p>
+        {% endif %}
+    
+    {% if request.user.is_authenticated %}
+    <div class="row justify-content-around">
+        <a class="btn btn-submit col-3" href="{% url 'edit-site' sites.0.pk %}">Modifier</a>
+        <a class="btn btn-delete col-3" href="{% url 'delete-site' sites.0.pk %}">Effacer</a>
+    </div>
+    {% endif %}
+    
+    <!-- End page content -->
+</main>
+<footer class="container bg-secondary text-white mt-1" >
+    Dernière mise a jour:   {{sites.0.miseajour|localize}}     
+</footer>
 <script>
-    // Slideshow
-    var slideIndex = 1;
-    showDivs(slideIndex);
-
-    function currentDiv(n) {
-        showDivs((slideIndex = n));
-    }
-
-    function showDivs(n) {
-        var i;
-        var x = document.getElementsByClassName("slides");
-        var dots = document.getElementsByClassName("demo");
-        if (n > x.length) {
-            slideIndex = 1;
-        }
-        if (n < 1) {
-            slideIndex = x.length;
-        }
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(
-                " opacity-off",
-                ""
-            );
-        }
-        x[slideIndex - 1].style.display = "grid";
-        dots[slideIndex - 1].className += " opacity-off";
-    }
+    const carousel = new bootstrap.Carousel('#mycaroussel')
 </script>
 {% endif %}
 {% endblock content %}

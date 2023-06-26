@@ -3,39 +3,33 @@
 {% load l10n %}
 {% load image_tags %}
 {% block content %}
-<section>
+<section class='container bg-dark text-white'>
     <a href='{% url 'add-image' %}' class='btn'>Ajouter Image</a>
-    <article class="block">
-        <div class="album">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             {% for i in images %}
-            <div class="image">
-                <div class="image__header"><a href="{% url 'site' i.siteornitho.pk%}">{{i.siteornitho.nom_du_site}}</a></div>
-                <div class="image__body">
-                    <div class='title'>{{i.title}}</div>
-                    <div class='photo'>
-                        <img
-                            src="/media/{{i.image}}"
-                            alt="{{image.title}}"
-                        />
-                    </div>
-                    <div class='description'>{{i.description}}</div>
-                    <div class='author'>
+            <div class="image border rounded-3 p-2">
+                <div class="container text-center">
+                    <a class='text-white-50' href="{% url 'site' i.siteornitho.pk%}">{{i.siteornitho.nom_du_site}}</a></div>
+                <div class="col text-white-50">
+                    <div class='text-center'>{{i.title}}</div>
+                        <img class='img-thumbnail' src="/media/{{i.image}}" alt="{{image.title}}" />
+                    <div class='text-center'>{{i.description}}</div>
+                    <div>
                         <div>{{i.photo_author}}</div>
                         <div>{{i.photo_date}}</div>
                     </div>
-                    <div class='metadata'>
+                    <div>
                         <div>{% get_file_name i.image.name %}</div>
                         <div>{{i.width}} X {{i.height}} pixels</div>
                     </div>
 
-                    <div class='buttons'>
-                        <a class="btn btn-delete" href="{% url 'delete-image' i.pk %}">Effacer</a>
-                        <a href="{% url 'update-image' i.pk %}" class="btn">Modifier</a>
+                    <div class='buttons row gap-4 p-3 justify-content-evenly'>
+                        <a class="btn btn-delete  col-md-12 col-lg-4" href="{% url 'delete-image' i.pk %}">Effacer</a>
+                        <a class='btn btn-submit  col-md-12 col-lg-4' href="{% url 'update-image' i.pk %}" class="btn">Modifier</a>
                     </div>
                 </div>
             </div>
             {% endfor %}
         </div>
-    </article>
 </section>
 {% endblock content %}
