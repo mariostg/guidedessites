@@ -7,9 +7,9 @@
 {% endblock pagetitle %}
 
 {% block content %}
-<main class="block block--centered">
-    <table>
-        <caption>Sous-Habitats du territoire du COO</caption>
+<main class="table-responsive">
+    <table class='container table table-striped'>
+        <caption class='h3 caption-top'>Sous-Habitats du territoire du COO</caption>
         <thead>
             <tr>
                 <th>Sous-habitat</th>
@@ -19,7 +19,7 @@
                 <th colspan=2></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class='table-group-divider'>
             {% for d in data %}
             <tr>
             <td>{{d.sous_habitat}}</td>
@@ -28,7 +28,7 @@
             <td>{{d.updated_by}}, {{d.updated_at}}</td>
             {% if user.is_authenticated %}
                 <td>
-                    <a class='btn' href="{% url "update-sous-habitat" d.pk %}">Modifier</a>
+                    <a class='btn btn-submit' href="{% url "update-sous-habitat" d.pk %}">Modifier</a>
                 </td>
                 <td>
                     <a class='btn btn-delete' href="{% url "delete-sous-habitat" d.pk %}">Effacer</a>
@@ -40,7 +40,7 @@
         </tbody>
         {% if user.is_authenticated %}
         <tfoot>
-            <tr><td colspan=5><a class='btn' href="{% url 'add-sous-habitat' %}">Ajouter</a></td></tr>
+            <tr><td colspan=6><a class='btn btn-submit' href="{% url 'add-sous-habitat' %}">Ajouter</a></td></tr>
         </tfoot>
         {% endif %}
     </table>
