@@ -9,32 +9,38 @@
         {{ form.errors }}
         {{ form.non_field_errors }}
             <div class="row">
-                <div class="col"> {{form.nom_du_site.label_tag}} {{form.nom_du_site}} </div>
-                <div class="col"> {{form.municipalite.label_tag}} {{form.municipalite}} </div>
+                <div class="col-md-6"> {{form.nom_du_site.label_tag}} {{form.nom_du_site}} </div>
+                <div class="col-md-6"> {{form.municipalite.label_tag}} {{form.municipalite}} </div>
             </div>
             <div class="row">
-                <div class="col"> {{form.locid.label_tag}} {{form.locid}} </div>
-                <div class="col"> {{form.url.label_tag}} {{form.url}} </div>
+                <div class="col-md-6"> {{form.locid.label_tag}} {{form.locid}} </div>
+                <div class="col-md-6"> {{form.url.label_tag}} {{form.url}} </div>
             </div>
             <div class="row">
-                <div class="col"> {{form.longitude.label_tag}} {{form.longitude}} </div>
-                <div class="col"> {{form.latitude.label_tag}} {{form.latitude}} </div>
+                <div class="col-md-6"> {{form.longitude.label_tag}} {{form.longitude}} </div>
+                <div class="col-md-6"> {{form.latitude.label_tag}} {{form.latitude}} </div>
             </div>
             <div class="row">
-                <div class="col"> {{form.periode_interet_debut.label_tag}} {{form.periode_interet_debut}} </div>
-                <div class="col"> {{form.periode_interet_fin.label_tag}} {{form.periode_interet_fin}} </div>
+                <div class="col-md-6"> {{form.periode_interet_debut.label_tag}} {{form.periode_interet_debut}} </div>
+                <div class="col-md-6"> {{form.periode_interet_fin.label_tag}} {{form.periode_interet_fin}} </div>
             </div>
                 <div class="row">
                     <div class="col"> {{form.sous_habitat.label_tag}} {{form.sous_habitat}} </div>
                     <div class="col">
-                        <div class="row">Commodites:</div>
-                        <div class="row"> {{form.transport}} {{form.acces_gratuit}} {{form.toilette}} </div>
-                        <div class="row"> {{form.banc}} {{form.picnique}} </div>
+                        <div class="mt-2">Commodites:</div>
+                        <div class="row"> 
+                            <div class="col">
+                                {{form.transport}} {{form.acces_gratuit}} {{form.toilette}} 
+                            </div>
+                            <div class="col"> 
+                                {{form.banc}} {{form.picnique}} 
+                            </div>
+                        </div>
                     </div>
                 </div>
             <div class="row">
-                <div class="col">{{form.auteur.label_tag}}{{form.auteur}} </div>
-                <div class="col"> {{form.status.label_tag}}{{form.status}} </div>
+                <div class="col-md-6">{{form.auteur.label_tag}}{{form.auteur}} </div>
+                <div class="col-md-6"> {{form.status.label_tag}}{{form.status}} </div>
             </div>
             <div class='row p-2'> {{form.stakeholder.label_tag}}{{form.stakeholder}} </div>
             <div class='row p-2'> {{form.description_generale.label_tag}} {{form.description_generale}} </div>
