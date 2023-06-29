@@ -1,28 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<section class="block block--centered">
-
-    <div class="form">
-        <header class="form__header">
-            <h1>MRC</h1>
-        </header>
-        <form action="" method="POST">
-            {% csrf_token %}
-            {{ form.errors }}
-            {{ form.non_field_errors }}
-            <div class="form__fields">
-                <label class="label">{{form.name.label}}</label>{{form.name}}
-                <div class="form__row">
-                    <button class="btn">Sauvegarder</button>
-                    <button class="btn btn-delete">Effacer</button>
-                </div>
+<section class="container col-md-8 bg-form mt-2">
+    <header class="text-center">
+        <h1>MRC</h1>
+    </header>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.errors }}
+        {{ form.non_field_errors }}
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                {{form.name.label_tag}}{{form.name}}
             </div>
-        </form>
-        <footer class="form__footer">
-            <span>Dernière modification: 3 jan 2022</span>
-            <span>Mario St-Gelais</span>
-        </footer>
-    </div>
+        </div>
+            <div class="row mt-4 justify-content-evenly">
+                <button class="col-2 btn btn-submit">Sauvegarder</button>
+                <button class="col-2 btn btn-delete">Effacer</button>
+            </div>
+    </form>
+    <footer class="text-center mt-3">
+        <span>Dernière modification: 3 jan 2022</span>
+        <span>Mario St-Gelais</span>
+    </footer>
 </section>
 {% endblock content %}

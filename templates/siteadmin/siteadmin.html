@@ -5,25 +5,13 @@
     <h2>Administration du guide des sites</h2>
 </header>
     <article class="container text-center">
-        <div class="form__header">
-            Listes
+        <div class="menu-options m-auto">
+            <a class="btn d-grid bg-secondary-subtle p-2" href="{% url "municipalites" %}">Municipalités</a>
+            <a class="btn d-grid bg-secondary-subtle p-2 mt-2" href="{% url "mrcs" %}">MRC</a>
+            <a class="btn d-grid bg-secondary-subtle p-2 mt-2" href="{% url 'habitats'%}">Habitats</a>
+            <a class="btn d-grid bg-secondary-subtle p-2 mt-2" href="{% url 'sous-habitats'%}">Sous-habitats</a>
+            <a class="btn d-grid bg-secondary-subtle p-2 mt-2" href="{% url "sites" %}">Sites ornithologiques</a>
         </div>
-        <ul class="nav flex-column">
-            <li>
-                <a class="btn btn-success" href="{% url "municipalites" %}">Municipalités</a>
-            </li>
-            <li>
-                <a class="btn btn-success" href="{% url "mrcs" %}">MRC</a>
-            </li>
-            <li>
-                <a class="btn btn-success" href="{% url 'habitats'%}">Habitats</a>
-            </li>
-            <li>
-                <a class="btn btn-success" href="{% url 'sous-habitats'%}">Sous-habitats</a>
-            </li>
-            <li>
-                <a class="btn btn-success" href="{% url "sites" %}">Sites ornithologiques</a>
-            </li>
-        </ul>
     </article>
+
 {% endblock content %}

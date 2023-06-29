@@ -1,55 +1,53 @@
 {% extends 'base.html' %}
 {% block content %}
 <section class="container bg-form">
-    <div class="form">
-        <header class="form__header">
-            <h1>Site ornithologique</h1>
-        </header>
-        <form action="" method="POST">
-            {% csrf_token %}
-            {{ form.errors }}
-            {{ form.non_field_errors }}
+    <header class="form__header">
+        <h1>Site ornithologique</h1>
+    </header>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.errors }}
+        {{ form.non_field_errors }}
+            <div class="row">
+                <div class="col"> {{form.nom_du_site.label_tag}} {{form.nom_du_site}} </div>
+                <div class="col"> {{form.municipalite.label_tag}} {{form.municipalite}} </div>
+            </div>
+            <div class="row">
+                <div class="col"> {{form.locid.label_tag}} {{form.locid}} </div>
+                <div class="col"> {{form.url.label_tag}} {{form.url}} </div>
+            </div>
+            <div class="row">
+                <div class="col"> {{form.longitude.label_tag}} {{form.longitude}} </div>
+                <div class="col"> {{form.latitude.label_tag}} {{form.latitude}} </div>
+            </div>
+            <div class="row">
+                <div class="col"> {{form.periode_interet_debut.label_tag}} {{form.periode_interet_debut}} </div>
+                <div class="col"> {{form.periode_interet_fin.label_tag}} {{form.periode_interet_fin}} </div>
+            </div>
                 <div class="row">
-                    <div class="col"> {{form.nom_du_site.label_tag}} {{form.nom_du_site}} </div>
-                    <div class="col"> {{form.municipalite.label_tag}} {{form.municipalite}} </div>
-                </div>
-                <div class="row">
-                    <div class="col"> {{form.locid.label_tag}} {{form.locid}} </div>
-                    <div class="col"> {{form.url.label_tag}} {{form.url}} </div>
-                </div>
-                <div class="row">
-                    <div class="col"> {{form.longitude.label_tag}} {{form.longitude}} </div>
-                    <div class="col"> {{form.latitude.label_tag}} {{form.latitude}} </div>
-                </div>
-                <div class="row">
-                    <div class="col"> {{form.periode_interet_debut.label_tag}} {{form.periode_interet_debut}} </div>
-                    <div class="col"> {{form.periode_interet_fin.label_tag}} {{form.periode_interet_fin}} </div>
-                </div>
-                    <div class="row">
-                        <div class="col"> {{form.sous_habitat.label_tag}} {{form.sous_habitat}} </div>
-                        <div class="col">
-                            <div class="row">Commodites:</div>
-                            <div class="row"> {{form.transport}} {{form.acces_gratuit}} {{form.toilette}} </div>
-                            <div class="row"> {{form.banc}} {{form.picnique}} </div>
-                        </div>
+                    <div class="col"> {{form.sous_habitat.label_tag}} {{form.sous_habitat}} </div>
+                    <div class="col">
+                        <div class="row">Commodites:</div>
+                        <div class="row"> {{form.transport}} {{form.acces_gratuit}} {{form.toilette}} </div>
+                        <div class="row"> {{form.banc}} {{form.picnique}} </div>
                     </div>
-                <div class="row">
-                    <div class="col">{{form.auteur.label_tag}}{{form.auteur}} </div>
-                    <div class="col"> {{form.status.label_tag}}{{form.status}} </div>
                 </div>
-                <div class='row p-2'> {{form.stakeholder.label_tag}}{{form.stakeholder}} </div>
-                <div class='row p-2'> {{form.description_generale.label_tag}} {{form.description_generale}} </div>
-                <div class='row p-2'> {{form.bon_a_savoir.label_tag}} {{form.bon_a_savoir}} </div>
-                <div class='row p-2'> {{form.enjeux.label_tag}} {{form.enjeux}} </div>
-                <div class="form__row">
-                    <button class="btn btn-submit">Sauvegarder</button>
-                    <button class="btn btn-delete">Effacer</button>
-                </div>
-        </form>
-        <footer class="form__footer">
-            <span>Dernière modification: 3 jan 2022</span>
-            <span>Mario St-Gelais</span>
-        </footer>
-    </div>
+            <div class="row">
+                <div class="col">{{form.auteur.label_tag}}{{form.auteur}} </div>
+                <div class="col"> {{form.status.label_tag}}{{form.status}} </div>
+            </div>
+            <div class='row p-2'> {{form.stakeholder.label_tag}}{{form.stakeholder}} </div>
+            <div class='row p-2'> {{form.description_generale.label_tag}} {{form.description_generale}} </div>
+            <div class='row p-2'> {{form.bon_a_savoir.label_tag}} {{form.bon_a_savoir}} </div>
+            <div class='row p-2'> {{form.enjeux.label_tag}} {{form.enjeux}} </div>
+            <div class="form__row">
+                <button class="btn btn-submit">Sauvegarder</button>
+                <button class="btn btn-delete">Effacer</button>
+            </div>
+    </form>
+    <footer class="form__footer">
+        <span>Dernière modification: 3 jan 2022</span>
+        <span>Mario St-Gelais</span>
+    </footer>
 </section>
         {% endblock content %}
