@@ -26,7 +26,7 @@ SECRET_KEY = "s#z!sa2vl00p=&uy*8oyyj^on)gj$bsvhu8hi3eya*0)y9("
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["www.mariostg.com","mariostg.com"]
+ALLOWED_HOSTS = ["www.mariostg.com", "mariostg.com"]
 
 # Application definition
 
@@ -138,7 +138,7 @@ STATICFILES_FINDERS = [
     "sass_processor.finders.CssFinder",
 ]
 ## Django Sass
-SASS_PROCESSOR_ROOT = BASE_DIR / "static"
+SASS_PROCESSOR_ROOT = BASE_DIR / "sass"
 
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
