@@ -41,6 +41,8 @@ class SiteForm(forms.ModelForm):
             "periode_interet_fin",
             "sous_habitat",
             "description_generale",
+            "site_accessible",
+            "raison_non_accessible",
             "transport",
             "acces_gratuit",
             "bon_a_savoir",
@@ -55,11 +57,11 @@ class SiteForm(forms.ModelForm):
 
         widgets = {"stakeholder": forms.Textarea(attrs={"rows": 3})}
 
-    def __init__(self, *args, **kwargs):
-        super(SiteForm, self).__init__(*args, **kwargs)
+    # def __init__(self, *args, **kwargs):
+    #     super(SiteForm, self).__init__(*args, **kwargs)
 
-        for name, field in self.fields.items():
-            field.widget.attrs.update({"class": "input"})
+    #     for name, field in self.fields.items():
+    #         field.widget.attrs.update({"class": "input"})
 
     def clean_latitude(self):
         latitude = self.cleaned_data["latitude"]

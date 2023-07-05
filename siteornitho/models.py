@@ -58,6 +58,8 @@ class SiteOrnitho(models.Model):
     bon_a_savoir = models.TextField(verbose_name="Bon à savoir", max_length=1024, blank=True, null=True)
     enjeux = models.TextField(verbose_name="Enjeux de conservation", max_length=1024, blank=True, null=True)
     status = models.IntegerField(choices=Status.choices, default=1)
+    site_accessible = models.BooleanField(verbose_name="Site accessible", default=True)
+    raison_non_accessible = models.CharField("Raison", max_length=125, default="")
 
     def __str__(self):
         return f"{self.nom_du_site} - {self.municipalite}"

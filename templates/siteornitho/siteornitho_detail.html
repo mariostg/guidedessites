@@ -7,6 +7,11 @@
 {% if sites.0 %}
 
 <!-- Slideshow Header -->
+{% if sites.0.site_accessible == False %}
+<div class="container text-center p-4 my-3 bg-warning">
+    {{sites.0.raison_non_accessible}}
+</div>
+{% endif %}
 <div class='container bg-secondary row m-auto align-items-baseline text-center mt-1 rounded-2'>
     {% if sites.has_previous%}
     <a class='precedent col' href='{% url "catalogue" previous_page %}' data-title='Fiche précédente'></a>

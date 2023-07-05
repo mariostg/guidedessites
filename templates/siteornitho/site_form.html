@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load verbose_names %}
 {% block content %}
 <section class="container bg-form">
     <header class="form__header">
@@ -46,9 +47,14 @@
             <div class='row p-2'> {{form.description_generale.label_tag}} {{form.description_generale}} </div>
             <div class='row p-2'> {{form.bon_a_savoir.label_tag}} {{form.bon_a_savoir}} </div>
             <div class='row p-2'> {{form.enjeux.label_tag}} {{form.enjeux}} </div>
-            <div class="form__row">
-                <button class="btn btn-submit">Sauvegarder</button>
-                <button class="btn btn-delete">Effacer</button>
+            <div class="row">
+                <div class='col-md-4'>Si le site est temporairement inaccessible comme par exemple en cas d'innondation, cochez la case et indiquez la raison</div>
+                <div class="col-md-3">{{form.site_accessible.label_tag}}{{form.site_accessible}} </div>
+                <div class="col-md-5"> {{form.raison_non_accessible.label_tag}}{{form.raison_non_accessible}} </div>
+            </div>
+            <div class="row justify-content-evenly mt-4 gap-2">
+                <button class="btn btn-submit col-2">Sauvegarder</button>
+                <button class="btn btn-delete col-2">Effacer</button>
             </div>
     </form>
     <footer class="form__footer">
